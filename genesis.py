@@ -1,5 +1,5 @@
 #importing creature constructor function
-from adventurers import Wizard
+from creatures.adventurers import Wizard
 
 #character name function 
 
@@ -17,9 +17,13 @@ def main():
         A: Wizard
         B: Rogue
         C: Barbarian
-              """)
+              """) 
+
     if choice == "A" or choice =="a":
-        print("You have selected Wizard!")
+        print("""
+            You have selected Wizard!
+            Here are you starting stats.
+        """)
         char = Wizard(name, 10, 20)
         stats = """
             ||Name: {} ||
@@ -27,8 +31,10 @@ def main():
             ||Mana: {} ||
         """
         print(stats.format(char.name, char.health, char.mana))
+
     elif choice == "B" or choice =="b":
         print("You have selected Rogue!")
+        
     elif choice == "C" or choice =="c":             
         print("You have selected Barbarian!")
 
