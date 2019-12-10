@@ -1,5 +1,7 @@
 #random number module
 import random
+#import monster classes
+from monsters import *
 
 #player classes
 
@@ -31,12 +33,12 @@ class Rogue:
 class Barbarian:       
     name = ""
     health = 0
-    focus = 0
+    rage = 0
 
     def __init__(self, me, hp, rg):
         self.name = me 
         self.health = hp + random.randrange(20, 30)
-        self.focus = rg + random.randrange(10, 20)
+        self.rage = rg + random.randrange(10, 20)
 
 
 
