@@ -1,7 +1,7 @@
 #random number module
 import random
 #import monster classes
-from monsters import *
+from creatures.monsters import *
 
 #player classes
 
@@ -15,6 +15,35 @@ class Wizard:
         self.name = me 
         self.health = hp + random.randrange(5, 15)
         self.mana = mn + random.randrange(20, 40)
+
+#melee combat function
+    def melee(self, target):
+        target.stats = """
+            ||Name: {} ||
+            ||Health: {} ||
+            ||stam: {} ||
+        """
+        print(target.stats.format(target.name, target.health, target.stamina))
+        hit = random.randrange(1, 20)
+        dmg = 1 + random.randrange(1, 3)
+        crit = dmg * 2
+        print(hit)
+        if hit > 14:
+            print("Target hp", target.health)
+            target.health - dmg
+            message = "Your target took {} damage!"
+            print(message.format(dmg))
+            print("Target hp", target.health)
+        elif hit == 20: 
+            target.health - crit
+            message = "Critical strike! Your target took {} damage!"
+            print(message.format(dmg))
+        elif hit < 15:
+            print("Your attack failed to damage the target...")
+
+
+
+
 
 
 #rogue class
