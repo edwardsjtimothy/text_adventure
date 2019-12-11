@@ -32,7 +32,7 @@ class Wizard:
         crit = dmg * 2
 
         #mana regen
-        self.manaRegen()
+        # self.manaRegen(self)
 
         if hit > 10:
             target.health -= dmg
@@ -53,7 +53,7 @@ class Wizard:
         crit = dmg * 2
 
         #mana regen
-        self.manaRegen()
+        # self.manaRegen()
 
         if self.mana < 5:
             print("Insufficient mana!")

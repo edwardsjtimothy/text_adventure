@@ -4,6 +4,7 @@ from creatures.monsters import Skeleton
 
 
 
+
 ancientSkeleton = Skeleton("Ancient Skeleton", 5, 10)
 
 #character name function 
@@ -66,17 +67,17 @@ def main():
         """
         print(stats.format(char.name, char.health, char.rage))
 
-
-def encounter():
+#combat encounter
+def encounter(player, target):
     print("To do:")
     action = input("A: Attack ")
     if action == "A" or action == "a":
-        wizard.melee(ancientSkeleton)
-        if ancientSkeleton.health > 0:
-            encounter()
+        player.melee(target)
+        if target.health > 0:
+            encounter(player, target)
             
         
 
 
 main()
-encounter()
+encounter(wizard, ancientSkeleton)
