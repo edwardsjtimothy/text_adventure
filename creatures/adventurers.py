@@ -30,12 +30,12 @@ class Wizard:
         print(hit)
         if hit > 14:
             print("Target hp", target.health)
-            target.health - dmg
+            target.health = target.health - dmg
             message = "Your target took {} damage!"
             print(message.format(dmg))
             print("Target hp", target.health)
         elif hit == 20: 
-            target.health - crit
+            target.health = target.health - crit
             message = "Critical strike! Your target took {} damage!"
             print(message.format(dmg))
         elif hit < 15:
