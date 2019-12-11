@@ -110,10 +110,13 @@ def rogEncounter(flavor, target):
             """)
         if action == "A" or action == "a":
             rogue.melee(target)
+            target.abilitySelect(target.bludgeon(rogue), target.lumberingStrike(rogue), target.collapse())
         elif action == "B" or action == "b":
             rogue.punchingStab(target)
+            target.abilitySelect(target.bludgeon(rogue), target.lumberingStrike(rogue), target.collapse())
         elif action == "C" or action == "c":
             rogue.cloakofShadows(target) 
+            target.abilitySelect(target.bludgeon(rogue), target.lumberingStrike(rogue), target.collapse())
     elif action == "B" or action == "b":
         print("manuver action")
     elif action == "C" or action == "c":
