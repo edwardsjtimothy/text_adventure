@@ -74,6 +74,7 @@ def encounter():
         wizard.melee(ancientSkeleton)
         if ancientSkeleton.health > 0:
             encounter()
+            
         
 
 
