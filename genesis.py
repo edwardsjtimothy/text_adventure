@@ -68,16 +68,35 @@ def main():
         print(stats.format(char.name, char.health, char.rage))
 
 #combat encounter
-def encounter(player, target):
-    print("To do:")
-    action = input("A: Attack ")
+def wizEncounter(player, target):
+    print("An enemy approaches...")
+    action = input("""
+            A: Engage 
+            B: Manuver
+            C: Retreat
+                """)
     if action == "A" or action == "a":
-        player.melee(target)
+        print("How will you engage?")
+        action = input("""
+                A: Melee
+                B: Fireball
+                C: Augury
+            """)
+        if action == "A" or action == "a":
+            wizard.melee(target)
+        elif action == "B" or action == "b":
+            wizard.fireball(target)
+        elif action == "C" or action == "c":
+            wizard.augury(target) 
+            
+    
         if target.health > 0:
             encounter(player, target)
-            
-        
-
 
 main()
 encounter(wizard, ancientSkeleton)
+
+
+    
+        
+
