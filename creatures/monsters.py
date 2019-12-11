@@ -5,11 +5,62 @@ class Skeleton:
     name: ""
     health: 0
     stamina: 0
+    maxStamina: 0
 
     def __init__(self, me, hp, st):
         self.name = me 
         self.health = hp + random.randrange(5, 10)
         self.stamina = st + random.randrange(5, 10)
+
+    def staminaRegen(self):
+        if self.stamina < self.maxStamina:
+            self.stamina += random.randrange(1, 2)
+            if self.stamina > self.maxStamina:
+                self.stamina = self.maxStamina
+
+    def bludgeon(self, target):
+        hit = random.randrange(1, 20)
+        dmg = 1 + random.randrange(1, 2)
+        crit = dmg * 2
+
+        #stamina regen
+        self.staminaRegen()
+
+        if hit > 12:
+            target.health -= dmg
+            message = "You took {} damage!"
+            print(message.format(dmg))
+        elif hit == 20: 
+            target.health -= crit
+            message = "Critical strike! You took {} damage!"
+            print(message.format(dmg))
+        elif hit < 13:
+            print("Your enemy's attack missed!")
+
+    def lumberingStrike(self, target):
+        hit = random.randrange(1, 20)
+        dmg = 2 + random.randrange(1, 3)
+        crit = dmg * 2
+
+        #stamina regen
+        self.staminaRegen()
+
+        if self.stamina < 15:
+            print("Insufficient stamina!")
+        elif self.stamina >= 15:
+            self.stamina -= 15
+
+        if hit > 15:
+            target.health -= dmg
+            message = "You took {} damage!"
+            print(message.format(dmg))
+        elif hit == 20: 
+            target.health -= crit
+            message = "Critical strike! You took {} damage!"
+            print(message.format(dmg))
+        elif hit < 16:
+            print("Your enemy's attack missed!")
+
 
 
 

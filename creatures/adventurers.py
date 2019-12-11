@@ -25,6 +25,7 @@ class Wizard:
             if self.mana > self.maxMana:
                 self.mana = self.maxMana
 
+
 #melee combat function
     def melee(self, target):
         hit = random.randrange(1, 20)
@@ -135,7 +136,7 @@ class Rogue:
         dmg = random.randrange(8,12)
         crit = dmg * 2
 
-        #mana regen
+        #focus regen
         self.focusRegen()
 
         #ability cost and effect
@@ -143,7 +144,7 @@ class Rogue:
             print("Insufficient focus!")
         elif self.focus >= 20:
             self.focus -= 20
-            if hit > 20:
+            if hit > 5:
                 target.health -= dmg
                 message = "Your target took {} damage!"
                 print(message.format(dmg))
@@ -154,10 +155,11 @@ class Rogue:
             elif hit < 6:
                 print("Your attack failed to damage the target...")
 
-    def cloakofShadows(self):
+    def cloakofShadows(self, target):
         global cloak
         cloak = False
 
+        #focus regen
         self.focusRegen()
 
         #ability cost and effect

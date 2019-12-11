@@ -1,8 +1,6 @@
 #importing creature constructor function
 from creatures.adventurers import Wizard, Rogue, Barbarian
-from creatures.monsters import Skeleton
 
-# ancientSkeleton = Skeleton("Ancient Skeleton", 5, 10)
 #character name function 
 
 def name():
@@ -41,13 +39,14 @@ def main():
             You have selected Rogue!
             Here are you starting stats.
         """)
-        char = Rogue(name, 15, 100)
+        global rogue
+        rogue = Rogue(name, 15, 100)
         stats = """
             ||Name: {} ||
             ||Health: {} ||
             ||Focus: {} ||
         """
-        print(stats.format(char.name, char.health, char.focus))
+        print(stats.format(rogue.name, rogue.health, rogue.focus))
        
         
     elif choice == "C" or choice =="c":             
@@ -93,6 +92,39 @@ def wizEncounter(flavor, target):
         wizEncounter("Your foe still lives", target)
     elif target.health <= 0:
         print("Your enemy is slain!")
+
+#rogue combat encounter 
+def rogEncounter(flavor, target):
+    print(flavor)
+    action = input("""
+            A: Engage 
+            B: Manuver
+            C: Retreat
+                """)
+    if action == "A" or action == "a":
+        print("How will you engage?")
+        action = input("""
+                A: Melee
+                B: Punching Stab
+                C: Cloak of Shadows
+            """)
+        if action == "A" or action == "a":
+            rogue.melee(target)
+        elif action == "B" or action == "b":
+            rogue.punchingStab(target)
+        elif action == "C" or action == "c":
+            rogue.cloakofShadows(target) 
+    elif action == "B" or action == "b":
+        print("manuver action")
+    elif action == "C" or action == "c":
+        print("retreat action")
+
+    if target.health > 0:
+        rogEncounter("Your foe still lives", target)
+    elif target.health <= 0:
+        print("Your enemy is slain!") 
+        
+
         
     
             
