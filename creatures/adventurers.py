@@ -58,6 +58,7 @@ class Wizard:
 
         if self.mana < 5:
             print("Insufficient mana!")
+            return
         elif self.mana >= 5:
             self.mana -= 5
             if hit > 5:
@@ -78,6 +79,7 @@ class Wizard:
 
         if self.mana < 15:
             print("Insufficient mana!")
+            return
         elif self.mana >= 15:
             self.mana -= 15
 
@@ -142,6 +144,7 @@ class Rogue:
         #ability cost and effect
         if self.focus < 20:
             print("Insufficient focus!")
+            return
         elif self.focus >= 20:
             self.focus -= 20
             if hit > 5:
@@ -165,6 +168,7 @@ class Rogue:
         #ability cost and effect
         if self.focus < 10:
             print("Insufficient focus!")
+            return
         elif self.focus >= 10:
             self.focus -= 10
             cloak = True
