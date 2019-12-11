@@ -138,6 +138,7 @@ class Rogue:
         #mana regen
         self.focusRegen()
 
+        #ability cost and effect
         if self.focus < 20:
             print("Insufficient focus!")
         elif self.focus >= 20:
@@ -153,7 +154,24 @@ class Rogue:
             elif hit < 6:
                 print("Your attack failed to damage the target...")
 
-    
+    def cloakofShadows(self):
+        global cloak
+        cloak = False
+
+        self.focusRegen()
+
+        #ability cost and effect
+        if self.focus < 10:
+            print("Insufficient focus!")
+        elif self.focus >= 10:
+            self.focus -= 10
+            cloak = True
+            print("Wisps of shadow flow about you, obscuring your precise location from your target...the target's next attack has a reduced chance to hit!")
+            #need to build a way to denoted cloaking in enemy constructors
+
+
+
+         
 
 
 
