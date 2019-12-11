@@ -68,9 +68,9 @@ def wizEncounter(flavor, target):
     if action == "A" or action == "a":
         print("How will you engage?")
         action = input("""
-                A: Melee
-                B: Fireball
-                C: Augury
+                A: Melee (no cost)
+                B: Fireball (5 mana)
+                C: Augury (15 mana)
             """)
         if action == "A" or action == "a":
             wizard.melee(target)
@@ -99,9 +99,9 @@ def rogEncounter(flavor, target):
     if action == "A" or action == "a":
         print("How will you engage?")
         action = input("""
-                A: Melee
-                B: Punching Stab
-                C: Cloak of Shadows
+                A: Melee (no cost)
+                B: Punching Stab (20 focus)
+                C: Cloak of Shadows (10 focus)
             """)
         if action == "A" or action == "a":
             rogue.melee(target)
@@ -130,6 +130,7 @@ def rogEncounter(flavor, target):
 
 
 
+#class agnostic combat encounter
 
 # def combatEncounter(flavor, target, player, abilityA, abilityB, abilityC, labelA, labelB, labelC):
 #     print(flavor)

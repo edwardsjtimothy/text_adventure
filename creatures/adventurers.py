@@ -176,21 +176,18 @@ class Rogue:
             #need to build a way to denoted cloaking in enemy constructors
 
 
-
-         
-
-
-
 #barbarian class
 class Barbarian:       
     name = ""
     health = 0
     rage = 0
+    maxRage = 0
 
     def __init__(self, me, hp, rg):
         self.name = me 
         self.health = hp + random.randrange(20, 30)
         self.rage = rg + random.randrange(10, 20)
+        
 
 
 
