@@ -32,7 +32,7 @@ class Wizard:
         crit = dmg * 2
 
         #mana regen
-        # self.manaRegen(self)
+        self.manaRegen()
 
         if hit > 10:
             target.health -= dmg
@@ -53,7 +53,7 @@ class Wizard:
         crit = dmg * 2
 
         #mana regen
-        # self.manaRegen()
+        self.manaRegen()
 
         if self.mana < 5:
             print("Insufficient mana!")
@@ -85,11 +85,8 @@ class Wizard:
             ||Health: {} ||
             ||stam: {} ||
         """
-        print("Threads of arcane power bring knowledge of your foe...")
+        print("Snaking threads of arcane power bring knowledge of your foe...")
         print(target.stats.format(target.name, target.health, target.stamina))
-
-
-
 
 
 
@@ -99,11 +96,65 @@ class Rogue:
     name = ""
     health = 0
     focus = 0
+    maxFocus = 0
 
     def __init__(self, me, hp, fc):
         self.name = me 
         self.health = hp + random.randrange(10, 20)
-        self.focus = fc + random.randrange(10, 20)
+        self.focus = fc
+        self.maxFocus = self.focus
+
+    def focusRegen(self):
+        if self.focus < self.maxFocus:
+            self.focus += random.randrange(2, 4)
+            if self.focus > self.maxFocus:
+                self.focus = self.maxFocus
+
+#basic melee strike 
+    def melee(self, target):
+        hit = random.randrange(1, 20)
+        dmg = 2 + random.randrange(2, 4)
+        crit = dmg * 2
+
+        #focus regen
+        self.focusRegen()
+
+        if hit > 5:
+            target.health -= dmg
+            message = "Your target took {} damage!"
+            print(message.format(dmg))
+        elif hit == 20: 
+            target.health -= crit
+            message = "Critical strike! Your target took {} damage!"
+            print(message.format(dmg))
+        elif hit < 6:
+            print("Your attack failed to damage the target...")
+
+    def punchingStab(self, target):
+        hit = random.randrange(1, 20)
+        dmg = random.randrange(8,12)
+        crit = dmg * 2
+
+        #mana regen
+        self.focusRegen()
+
+        if self.focus < 20:
+            print("Insufficient focus!")
+        elif self.focus >= 20:
+            self.focus -= 20
+            if hit > 20:
+                target.health -= dmg
+                message = "Your target took {} damage!"
+                print(message.format(dmg))
+            elif hit == 20: 
+                target.health -= crit
+                message = "Critical strike! Your target took {} damage!"
+                print(message.format(dmg))
+            elif hit < 6:
+                print("Your attack failed to damage the target...")
+
+    
+
 
 
 #barbarian class

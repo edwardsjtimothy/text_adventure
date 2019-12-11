@@ -2,11 +2,7 @@
 from creatures.adventurers import Wizard, Rogue, Barbarian
 from creatures.monsters import Skeleton
 
-
-
-
-ancientSkeleton = Skeleton("Ancient Skeleton", 5, 10)
-
+# ancientSkeleton = Skeleton("Ancient Skeleton", 5, 10)
 #character name function 
 
 def name():
@@ -67,9 +63,9 @@ def main():
         """
         print(stats.format(char.name, char.health, char.rage))
 
-#combat encounter
-def wizEncounter(player, target):
-    print("An enemy approaches...")
+#wizard combat encounter
+def wizEncounter(flavor, target):
+    print(flavor)
     action = input("""
             A: Engage 
             B: Manuver
@@ -88,13 +84,20 @@ def wizEncounter(player, target):
             wizard.fireball(target)
         elif action == "C" or action == "c":
             wizard.augury(target) 
-            
-    
-        if target.health > 0:
-            encounter(player, target)
+    elif action == "B" or action == "b":
+        print("manuver action")
+    elif action == "C" or action == "c":
+        print("retreat action")
 
-main()
-encounter(wizard, ancientSkeleton)
+    if target.health > 0:
+        wizEncounter("Your foe still lives", target)
+    elif target.health <= 0:
+        print("Your enemy is slain!")
+        
+    
+            
+
+
 
 
     
