@@ -30,11 +30,12 @@ class Wizard:
         hit = random.randrange(1, 21)
         dmg = 1 + random.randrange(1, 4)
         crit = dmg * 2
+        print("hit roll", hit)
 
         #mana regen
         self.manaRegen()
 
-        if hit > 10:
+        if 10 < hit < 20:
             target.health -= dmg
             print(f"Your target took {dmg} damage!")
         elif hit == 20: 
@@ -48,7 +49,9 @@ class Wizard:
     def fireball(self, target):
         hit = random.randrange(1, 21)
         dmg = random.randrange(5, 11)
+        burn =  math.floor(dmg * 0.75)
         crit = dmg * 2
+        print("hit roll", hit)
 
         #mana regen
         self.manaRegen()
@@ -58,9 +61,12 @@ class Wizard:
             return
         elif self.mana >= 5:
             self.mana -= 5
-            if hit > 5:
+            if 5 < hit < 16 :
                 target.health -= dmg
                 print(f"Your target took {dmg} damage!")
+            elif 15 < hit < 20:
+                target.health -= (dmg + burn)
+                print(f"With a crackle of rising flames you target catches on fire! Your target took {dmg} damage and burns for an additional {burn}!")
             elif hit == 20: 
                 target.health -= crit
                 print(f"Critical strike! Your target took {dmg} damage!")
@@ -92,6 +98,7 @@ class Rogue:
     health = 0
     focus = 0
     maxFocus = 0
+    cloaked = False
 
     def __init__(self, me, hp, fc):
         self.name = me 
@@ -107,14 +114,16 @@ class Rogue:
 
 #basic attack
     def melee(self, target):
+        self.cloaked = False
         hit = random.randrange(1, 21)
         dmg = 2 + random.randrange(2, 5)
         crit = dmg * 2
+        print("hit roll", hit)
 
         #focus regen
         self.focusRegen()
 
-        if hit > 5:
+        if 5 < hit < 20:
             target.health -= dmg
             print(f"Your target took {dmg} damage!")
         elif hit == 20: 
@@ -123,10 +132,13 @@ class Rogue:
         elif hit < 6:
             print("Your attack failed to damage the target...")
 
+#main ability with high crit dmg
     def punchingStab(self, target):
+        self.cloaked = False
         hit = random.randrange(1, 21)
         dmg = random.randrange(8, 13)
-        crit = dmg * 2
+        crit = math.floor(dmg * 2.5)
+        print("hit roll", hit)
 
         #focus regen
         self.focusRegen()
@@ -137,7 +149,7 @@ class Rogue:
             return
         elif self.focus >= 20:
             self.focus -= 20
-            if hit > 5:
+            if 5 < hit < 20:
                 target.health -= dmg
                 print(f"Your target took {dmg} damage!")
             elif hit == 20: 
@@ -147,8 +159,7 @@ class Rogue:
                 print("Your attack failed to damage the target...")
 
     def cloakofShadows(self, target):
-        global cloak
-        cloak = False
+        self.cloaked = False
 
         #focus regen
         self.focusRegen()
@@ -159,7 +170,7 @@ class Rogue:
             return
         elif self.focus >= 10:
             self.focus -= 10
-            cloak = True
+            self.cloaked = True
             print("Wisps of shadow flow about you, obscuring your precise location from your target...the target's next attack has a reduced chance to hit!")
             #need to build a way to denoted cloaking in enemy constructors
 
@@ -194,7 +205,7 @@ class Barbarian:
         #focus regen
         self.rageGen()
 
-        if hit > 5:
+        if 5 < hit < 20:
             target.health -= dmg
             print(f"Your target took {dmg} damage!")
         elif hit == 20: 
@@ -208,8 +219,9 @@ class Barbarian:
         dmg = math.floor(2 + random.randrange(3, 6) + (self.rage / 5))
         crit = dmg * 2
         self.rage = 0
+        print("hit roll", hit)
            
-        if hit > 5:
+        if 5 < hit < 20:
             target.health -= dmg
             print(f"Your target took {dmg} damage!")
         elif hit == 20: 

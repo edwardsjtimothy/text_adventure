@@ -1,6 +1,5 @@
 #importing creature constructor function
 from creatures.adventurers import Wizard, Rogue, Barbarian
-from creatures.monsters import *
 
 #character name function 
 def name():
@@ -50,6 +49,7 @@ def main():
             You have selected Barbarian!
             Here are you starting stats.
         """)
+        global barbarian
         barbarian = Barbarian(name, 20, 100)
         print(f"""
             ||Name: {barbarian.name} ||
@@ -134,6 +134,45 @@ def rogEncounter(flavor, target):
             ||Health: {rogue.health} ||
             ||Focus: {rogue.focus} ||
         """)
+
+def barEncounter(flavor, target):
+    print(flavor)
+    action = input("""
+            A: Engage 
+            B: Manuver
+            C: Retreat
+                """)
+    if action == "A" or action == "a":
+        print("How will you engage?")
+        action = input("""
+                A: Melee (Generates rage)
+                B: Savage Blow (Spends banked rage for extra dmg)
+                C: Mortal Strike (50 rage: slays targets below 50% hp)
+            """)
+        if action == "A" or action == "a":
+            barbarian.melee(target)
+            target.abilitySelect(barbarian)
+        elif action == "B" or action == "b":
+            barbarian.savageBlow(target)
+            target.abilitySelect(barbarian)
+        elif action == "C" or action == "c":
+            barbarian.mortalStrike(target) 
+            target.abilitySelect(barbarian)
+    elif action == "B" or action == "b":
+        print("manuver action")
+    elif action == "C" or action == "c":
+        print("retreat action")
+
+    if target.health > 0:
+        barEncounter("Your foe still lives", target)
+    elif target.health <= 0:
+        print("Your enemy is slain!")
+        print(f"""
+            ||Name: {barbarian.name} ||
+            ||Health: {barbarian.health} ||
+            ||Focus: {barbarian.rage} ||
+        """)
+
 
 
 
