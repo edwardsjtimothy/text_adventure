@@ -1,8 +1,6 @@
 #random number module
 import random
 import math
-#import monster classes
-from creatures.monsters import *
 
 #player classes
 
@@ -232,13 +230,3 @@ class Barbarian:
         if target.health < math.floor(target.maxHealth / 2):
             target.health = 0
             print("Your weapon cleaves through the air in a vicious arch; your enemy withers beneath the strength of your blow.")
-
-        
-        
-
-
-
-
-    
-       
-    

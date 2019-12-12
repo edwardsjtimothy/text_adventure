@@ -1,6 +1,6 @@
 #importing creature constructor function
 from creatures.adventurers import Wizard, Rogue, Barbarian
-
+from creatures.monsters import *
 
 #character name function 
 def name():
@@ -138,46 +138,7 @@ def rogEncounter(flavor, target):
 
 
 
-#class agnostic combat encounter
 
-# def combatEncounter(flavor, target, player, abilityA, abilityB, abilityC, labelA, labelB, labelC):
-
-#     print(flavor)
-#     action = input("""
-#             A: Engage 
-#             B: Manuver
-#             C: Retreat
-#                 """)
-#     if action == "A" or action == "a":
-#         print("How will you engage?")
-#         action = input(f"""
-#                 A: {labelA}
-#                 B: {labelB}
-#                 C: {labelC}
-#             """)
-#         if action == "A" or action == "a":
-#             abilityA
-#             target.abilitySelect(player)
-#         elif action == "B" or action == "b":
-#             abilityB
-#             target.abilitySelect(player)
-#         elif action == "C" or action == "c":
-#             abilityC
-#             target.abilitySelect(player)
-#     elif action == "B" or action == "b":
-#         print("manuver action")
-#     elif action == "C" or action == "c":
-#         print("retreat action")
-
-#     if target.health > 0:
-#         combatEncounter("Your foe still lives", target, player, abilityA, abilityB, abilityC, labelA, labelB, labelC)
-#     elif target.health <= 0:
-#         print("Your enemy is slain!") 
-        
-
-        
-    
-            
 
 
 
