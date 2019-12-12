@@ -49,7 +49,7 @@ class Skeleton:
         self.staminaRegen()
 
         if self.stamina < 15:
-            print("Insufficient stamina!")
+            print("Your foe is too exhausted to attack!")
             return
         elif self.stamina >= 15:
             self.stamina -= 15

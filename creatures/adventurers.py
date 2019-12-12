@@ -175,6 +175,9 @@ class Rogue:
                 self.punchingStab(target)
             elif self.focus <= 20:
                 self.melee(target)
+
+    def death(self):
+        print("")
         
 
 #barbarian class
@@ -216,12 +219,14 @@ class Barbarian:
         elif hit < 6:
             print("Your attack failed to damage the target...")
 
+# spends rage for extra dmg at a 3rg/1dmg ratio
     def savageBlow(self, target):
         hit = random.randrange(1, 21)
-        dmg = math.floor(2 + random.randrange(3, 6) + (self.rage / 5))
+        dmg = math.floor(random.randrange(9, 14) + (self.rage / 3))
         crit = dmg * 2
         self.rage = 0
         print("hit roll", hit)
+        print(dmg)
            
         if 5 < hit < 20:
             target.health -= dmg
@@ -234,13 +239,19 @@ class Barbarian:
 
         
     def mortalStrike(self, target):
+        dmg = 6 + random.randrange(6, 9)
 
         if self.rage < 50:
             print("Insufficient rage!")
             return
         elif self.rage >= 50:
             self.rage -= 50
+            if target.health < math.floor(target.maxHealth / 3):
+                target.health = 0
+                print("Your weapon cleaves through the air in a vicious arch; your enemy withers beneath the strength of your blow.")
+            elif target.health > math.floor(target.maxHealth / 3):
+                target.health -= dmg
 
-        if target.health < math.floor(target.maxHealth / 2):
-            target.health = 0
-            print("Your weapon cleaves through the air in a vicious arch; your enemy withers beneath the strength of your blow.")
+    def death(self):
+        print(f"You fall heavily to your knees and your weapon slips from numb fingers to clatter against the ancient flagstones. Your strength is broken. Your vision shifts and fades as your enemies surround you, dark silhouettes backlit by the guttering light of your fallen torch. Someone may yet lay bare the mystery of this place but it will not be you. Die well, {self.name}.")
+                

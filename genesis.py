@@ -146,8 +146,8 @@ def barEncounter(flavor, target):
         print("How will you engage?")
         action = input("""
                 A: Melee (Generates rage)
-                B: Savage Blow (Spends banked rage for extra dmg)
-                C: Mortal Strike (50 rage: slays targets below 50% hp)
+                B: Savage Blow (Spends banked rage for extra dmg at a 3rg/1dmg ratio)
+                C: Mortal Strike (50 rage: slays targets below 33% hp/dmg's those above 33%)
             """)
         if action == "A" or action == "a":
             barbarian.melee(target)
@@ -170,7 +170,7 @@ def barEncounter(flavor, target):
         print(f"""
             ||Name: {barbarian.name} ||
             ||Health: {barbarian.health} ||
-            ||Focus: {barbarian.rage} ||
+            ||Rage: {barbarian.rage} ||
         """)
 
 
