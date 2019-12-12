@@ -40,7 +40,7 @@ class Wizard:
             print(f"Your target took {dmg} damage!")
         elif hit == 20: 
             target.health -= crit
-            print(f"Critical strike! Your target took {dmg} damage!")
+            print(f"Critical strike! Your target took {crit} damage!")
         elif hit < 11:
             print("Your attack failed to damage the target...")
 
@@ -69,7 +69,7 @@ class Wizard:
                 print(f"With a crackle of rising flames you target catches on fire! Your target took {dmg} damage and burns for an additional {burn}!")
             elif hit == 20: 
                 target.health -= crit
-                print(f"Critical strike! Your target took {dmg} damage!")
+                print(f"Critical strike! Your target took {crit} damage!")
             elif hit < 6:
                 print("Your attack failed to damage the target...")
 
@@ -128,7 +128,7 @@ class Rogue:
             print(f"Your target took {dmg} damage!")
         elif hit == 20: 
             target.health -= crit
-            print(f"Critical strike! Your target took {dmg} damage!")
+            print(f"Critical strike! Your target took {crit} damage!")
         elif hit < 6:
             print("Your attack failed to damage the target...")
 
@@ -137,7 +137,7 @@ class Rogue:
         self.cloaked = False
         hit = random.randrange(1, 21)
         dmg = random.randrange(8, 13)
-        crit = math.floor(dmg * 2.5)
+        crit = math.floor(dmg * 2)
         print("hit roll", hit)
 
         #focus regen
@@ -149,31 +149,33 @@ class Rogue:
             return
         elif self.focus >= 20:
             self.focus -= 20
-            if 5 < hit < 20:
+            if 5 < hit < 19:
                 target.health -= dmg
                 print(f"Your target took {dmg} damage!")
-            elif hit == 20: 
+            elif hit >= 18: 
                 target.health -= crit
-                print(f"Critical strike! Your target took {dmg} damage!")
+                print(f"Critical strike! Your target took {crit} damage!")
             elif hit < 6:
                 print("Your attack failed to damage the target...")
 
-    def cloakofShadows(self, target):
+    def shadowStrike(self, target):
         self.cloaked = False
 
         #focus regen
         self.focusRegen()
 
         #ability cost and effect
-        if self.focus < 10:
+        if self.focus < 60:
             print("Insufficient focus!")
             return
-        elif self.focus >= 10:
-            self.focus -= 10
-            self.cloaked = True
-            print("Wisps of shadow flow about you, obscuring your precise location from your target...the target's next attack has a reduced chance to hit!")
-            #need to build a way to denoted cloaking in enemy constructors
-
+        elif self.focus >= 60:
+            self.focus -= 60
+            print("Wisps of shadow flow about you, obscuring your second strike from the enemy!")
+            if self.focus >= 20:
+                self.punchingStab(target)
+            elif self.focus <= 20:
+                self.melee(target)
+        
 
 #barbarian class
 class Barbarian:       
@@ -210,7 +212,7 @@ class Barbarian:
             print(f"Your target took {dmg} damage!")
         elif hit == 20: 
             target.health -= crit
-            print(f"Critical strike! Your target took {dmg} damage!")
+            print(f"Critical strike! Your target took {crit} damage!")
         elif hit < 6:
             print("Your attack failed to damage the target...")
 
@@ -226,7 +228,7 @@ class Barbarian:
             print(f"Your target took {dmg} damage!")
         elif hit == 20: 
             target.health -= crit
-            print(f"Critical strike! Your target took {dmg} damage!")
+            print(f"Critical strike! Your target took {crit} damage!")
         elif hit < 6:
             print("Your attack failed to damage the target...")
 

@@ -23,7 +23,6 @@ class Skeleton:
 
 #basic attack
     def bludgeon(self, target):
-        print("bludgeon")
         hit = random.randrange(1, 21)
         dmg = 1 + random.randrange(1, 3)
         crit = dmg * 2
@@ -42,7 +41,6 @@ class Skeleton:
 
 #stronger attack
     def lumberingStrike(self, target):
-        print("lumb")
         hit = random.randrange(1, 21)
         dmg = 2 + random.randrange(2, 4)
         crit = dmg * 2
@@ -67,7 +65,6 @@ class Skeleton:
 
 #chance at collapsing at low health
     def collapse(self):
-            print("collapse")
             if self.health < 7:
                 collapse = random.randrange(1, 21)
 
@@ -78,8 +75,6 @@ class Skeleton:
 #random ability selector
     def abilitySelect(self, target):
         whichAbility = random.randrange(1,7)
-        print(whichAbility)
-
         if whichAbility <= 3:
             self.bludgeon(target)
         elif whichAbility <= 5:

@@ -109,7 +109,7 @@ def rogEncounter(flavor, target):
         action = input("""
                 A: Melee (no cost)
                 B: Punching Stab (20 focus)
-                C: Cloak of Shadows (10 focus)
+                C: Shadow Strike (60 focus)
             """)
         if action == "A" or action == "a":
             rogue.melee(target)
@@ -118,7 +118,7 @@ def rogEncounter(flavor, target):
             rogue.punchingStab(target)
             target.abilitySelect(rogue)
         elif action == "C" or action == "c":
-            rogue.cloakofShadows(target) 
+            rogue.shadowStrike(target) 
             target.abilitySelect(rogue)
     elif action == "B" or action == "b":
         print("manuver action")
