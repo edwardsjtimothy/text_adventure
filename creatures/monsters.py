@@ -4,12 +4,14 @@ import random
 class Skeleton:
     name: ""
     health: 0
+    maxHealth: 0
     stamina: 0
     maxStamina: 0
 
     def __init__(self, me, hp, st):
         self.name = me 
         self.health = hp + random.randrange(5, 10)
+        self.maxHealth = self.health
         self.stamina = st + random.randrange(5, 10)
         self.maxStamina = self.stamina
 

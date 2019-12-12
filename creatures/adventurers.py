@@ -1,5 +1,6 @@
 #random number module
 import random
+import math
 #import monster classes
 from creatures.monsters import *
 
@@ -26,7 +27,7 @@ class Wizard:
                 self.mana = self.maxMana
 
 
-#melee combat function
+#basic attack
     def melee(self, target):
         hit = random.randrange(1, 20)
         dmg = 1 + random.randrange(1, 3)
@@ -37,12 +38,10 @@ class Wizard:
 
         if hit > 10:
             target.health -= dmg
-            message = "Your target took {} damage!"
-            print(message.format(dmg))
+            print(f"Your target took {dmg} damage!")
         elif hit == 20: 
             target.health -= crit
-            message = "Critical strike! Your target took {} damage!"
-            print(message.format(dmg))
+            print(f"Critical strike! Your target took {dmg} damage!")
         elif hit < 11:
             print("Your attack failed to damage the target...")
 
@@ -63,12 +62,10 @@ class Wizard:
             self.mana -= 5
             if hit > 5:
                 target.health -= dmg
-                message = "Your target took {} damage!"
-                print(message.format(dmg))
+                print(f"Your target took {dmg} damage!")
             elif hit == 20: 
                 target.health -= crit
-                message = "Critical strike! Your target took {} damage!"
-                print(message.format(dmg))
+                print(f"Critical strike! Your target took {dmg} damage!")
             elif hit < 6:
                 print("Your attack failed to damage the target...")
 
@@ -83,15 +80,12 @@ class Wizard:
         elif self.mana >= 15:
             self.mana -= 15
 
-        target.stats = """
-            ||Name: {} ||
-            ||Health: {} ||
-            ||stam: {} ||
-        """
+        print(f"""
+            ||Name: {target.name} ||
+            ||Health: {target.health} ||
+            ||stam: {target.stamina} ||
+        """)
         print("Snaking threads of arcane power bring knowledge of your foe...")
-        print(target.stats.format(target.name, target.health, target.stamina))
-
-
 
 
 #rogue class
@@ -113,7 +107,7 @@ class Rogue:
             if self.focus > self.maxFocus:
                 self.focus = self.maxFocus
 
-#basic melee strike 
+#basic attack
     def melee(self, target):
         hit = random.randrange(1, 20)
         dmg = 2 + random.randrange(2, 4)
@@ -124,12 +118,10 @@ class Rogue:
 
         if hit > 5:
             target.health -= dmg
-            message = "Your target took {} damage!"
-            print(message.format(dmg))
+            print(f"Your target took {dmg} damage!")
         elif hit == 20: 
             target.health -= crit
-            message = "Critical strike! Your target took {} damage!"
-            print(message.format(dmg))
+            print(f"Critical strike! Your target took {dmg} damage!")
         elif hit < 6:
             print("Your attack failed to damage the target...")
 
@@ -149,12 +141,10 @@ class Rogue:
             self.focus -= 20
             if hit > 5:
                 target.health -= dmg
-                message = "Your target took {} damage!"
-                print(message.format(dmg))
+                print(f"Your target took {dmg} damage!")
             elif hit == 20: 
                 target.health -= crit
-                message = "Critical strike! Your target took {} damage!"
-                print(message.format(dmg))
+                print(f"Critical strike! Your target took {dmg} damage!")
             elif hit < 6:
                 print("Your attack failed to damage the target...")
 
@@ -186,7 +176,64 @@ class Barbarian:
     def __init__(self, me, hp, rg):
         self.name = me 
         self.health = hp + random.randrange(20, 30)
-        self.rage = rg + random.randrange(10, 20)
+        self.maxRage = rg + random.randrange(10, 20)
+        self.rage = 0
+
+    def rageGen(self):
+         hMRG = random.randrange(5, 7)
+         if self.rage < self.maxRage:
+            self.rage += hMRG
+            print(f"You generated {hMRG} rage!")
+            if self.rage > self.maxRage:
+                self.rage = self.maxRage
+
+# basic attack
+    def melee(self, target):
+        hit = random.randrange(1, 20)
+        dmg = 2 + random.randrange(3, 5)
+        crit = dmg * 2
+
+        #focus regen
+        self.rageGen()
+
+        if hit > 5:
+            target.health -= dmg
+            print(f"Your target took {dmg} damage!")
+        elif hit == 20: 
+            target.health -= crit
+            print(f"Critical strike! Your target took {dmg} damage!")
+        elif hit < 6:
+            print("Your attack failed to damage the target...")
+
+    def savageBlow(self, target):
+        hit = random.randrange(1, 20)
+        dmg = math.floor(2 + random.randrange(3, 5) + (self.rage / 5))
+        crit = dmg * 2
+        self.rage = 0
+           
+        if hit > 5:
+            target.health -= dmg
+            print(f"Your target took {dmg} damage!")
+        elif hit == 20: 
+            target.health -= crit
+            print(f"Critical strike! Your target took {dmg} damage!")
+        elif hit < 6:
+            print("Your attack failed to damage the target...")
+
+        
+    def mortalStrike(self, target):
+
+        if self.rage < 50:
+            print("Insufficient rage!")
+            return
+        elif self.rage >= 50:
+            self.rage -= 50
+
+        if target.health < math.floor(target.maxHealth / 2):
+            target.health = 0
+            print("Your weapon cleaves through the air in a vicious arch; your enemy withers beneath the strength of your blow.")
+
+        
         
 
 
