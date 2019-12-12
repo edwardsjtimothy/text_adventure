@@ -74,10 +74,13 @@ def wizEncounter(flavor, target):
             """)
         if action == "A" or action == "a":
             wizard.melee(target)
+            target.abilitySelect(wizard)
         elif action == "B" or action == "b":
             wizard.fireball(target)
+            target.abilitySelect(wizard)
         elif action == "C" or action == "c":
             wizard.augury(target) 
+            target.abilitySelect(wizard)
     elif action == "B" or action == "b":
         print("manuver action")
     elif action == "C" or action == "c":
@@ -87,6 +90,11 @@ def wizEncounter(flavor, target):
         wizEncounter("Your foe still lives", target)
     elif target.health <= 0:
         print("Your enemy is slain!")
+        print(f"""
+            ||Name: {wizard.name} ||
+            ||Health: {wizard.health} ||
+            ||Mana: {wizard.mana} ||
+        """)
 
 #rogue combat encounter 
 def rogEncounter(flavor, target):
@@ -133,6 +141,7 @@ def rogEncounter(flavor, target):
 #class agnostic combat encounter
 
 # def combatEncounter(flavor, target, player, abilityA, abilityB, abilityC, labelA, labelB, labelC):
+
 #     print(flavor)
 #     action = input("""
 #             A: Engage 

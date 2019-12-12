@@ -22,15 +22,15 @@ class Wizard:
 #mana regeneration function 
     def manaRegen(self):
         if self.mana < self.maxMana:
-            self.mana += random.randrange(1, 3)
+            self.mana += random.randrange(1, 4)
             if self.mana > self.maxMana:
                 self.mana = self.maxMana
 
 
 #basic attack
     def melee(self, target):
-        hit = random.randrange(1, 20)
-        dmg = 1 + random.randrange(1, 3)
+        hit = random.randrange(1, 21)
+        dmg = 1 + random.randrange(1, 4)
         crit = dmg * 2
 
         #mana regen
@@ -48,8 +48,8 @@ class Wizard:
 
 #fireball spell
     def fireball(self, target):
-        hit = random.randrange(1, 20)
-        dmg = random.randrange(5,10)
+        hit = random.randrange(1, 21)
+        dmg = random.randrange(5, 11)
         crit = dmg * 2
 
         #mana regen
@@ -80,12 +80,12 @@ class Wizard:
         elif self.mana >= 15:
             self.mana -= 15
 
+        print("Snaking threads of arcane power bring knowledge of your foe...")
         print(f"""
             ||Name: {target.name} ||
             ||Health: {target.health} ||
             ||stam: {target.stamina} ||
         """)
-        print("Snaking threads of arcane power bring knowledge of your foe...")
 
 
 #rogue class
@@ -97,20 +97,20 @@ class Rogue:
 
     def __init__(self, me, hp, fc):
         self.name = me 
-        self.health = hp + random.randrange(10, 20)
+        self.health = hp + random.randrange(10, 21)
         self.focus = fc
         self.maxFocus = self.focus
 
     def focusRegen(self):
         if self.focus < self.maxFocus:
-            self.focus += random.randrange(2, 4)
+            self.focus += random.randrange(2, 5)
             if self.focus > self.maxFocus:
                 self.focus = self.maxFocus
 
 #basic attack
     def melee(self, target):
-        hit = random.randrange(1, 20)
-        dmg = 2 + random.randrange(2, 4)
+        hit = random.randrange(1, 21)
+        dmg = 2 + random.randrange(2, 5)
         crit = dmg * 2
 
         #focus regen
@@ -126,8 +126,8 @@ class Rogue:
             print("Your attack failed to damage the target...")
 
     def punchingStab(self, target):
-        hit = random.randrange(1, 20)
-        dmg = random.randrange(8,12)
+        hit = random.randrange(1, 21)
+        dmg = random.randrange(8, 13)
         crit = dmg * 2
 
         #focus regen
@@ -175,12 +175,12 @@ class Barbarian:
 
     def __init__(self, me, hp, rg):
         self.name = me 
-        self.health = hp + random.randrange(20, 30)
-        self.maxRage = rg + random.randrange(10, 20)
+        self.health = hp + random.randrange(20, 31)
+        self.maxRage = rg + random.randrange(10, 21)
         self.rage = 0
 
     def rageGen(self):
-         hMRG = random.randrange(5, 7)
+         hMRG = random.randrange(5, 8)
          if self.rage < self.maxRage:
             self.rage += hMRG
             print(f"You generated {hMRG} rage!")
@@ -189,8 +189,8 @@ class Barbarian:
 
 # basic attack
     def melee(self, target):
-        hit = random.randrange(1, 20)
-        dmg = 2 + random.randrange(3, 5)
+        hit = random.randrange(1, 21)
+        dmg = 2 + random.randrange(3, 6)
         crit = dmg * 2
 
         #focus regen
@@ -206,8 +206,8 @@ class Barbarian:
             print("Your attack failed to damage the target...")
 
     def savageBlow(self, target):
-        hit = random.randrange(1, 20)
-        dmg = math.floor(2 + random.randrange(3, 5) + (self.rage / 5))
+        hit = random.randrange(1, 21)
+        dmg = math.floor(2 + random.randrange(3, 6) + (self.rage / 5))
         crit = dmg * 2
         self.rage = 0
            

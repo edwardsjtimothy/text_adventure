@@ -17,15 +17,15 @@ class Skeleton:
 
     def staminaRegen(self):
         if self.stamina < self.maxStamina:
-            self.stamina += random.randrange(1, 2)
+            self.stamina += random.randrange(1, 3)
             if self.stamina > self.maxStamina:
                 self.stamina = self.maxStamina
 
 #basic attack
     def bludgeon(self, target):
         print("bludgeon")
-        hit = random.randrange(1, 20)
-        dmg = 1 + random.randrange(1, 2)
+        hit = random.randrange(1, 21)
+        dmg = 1 + random.randrange(1, 3)
         crit = dmg * 2
 
         #stamina regen
@@ -33,20 +33,18 @@ class Skeleton:
 
         if hit > 12:
             target.health -= dmg
-            message = "You took {} damage!"
-            print(message.format(dmg))
+            print(f"You took {dmg} damage!")
         elif hit == 20: 
             target.health -= crit
-            message = "Critical strike! You took {} damage!"
-            print(message.format(dmg))
+            print(f"Critical strike! You took {dmg} damage!")
         elif hit < 13:
             print("Your enemy's attack missed!")
 
 #stronger attack
     def lumberingStrike(self, target):
         print("lumb")
-        hit = random.randrange(1, 20)
-        dmg = 2 + random.randrange(2, 3)
+        hit = random.randrange(1, 21)
+        dmg = 2 + random.randrange(2, 4)
         crit = dmg * 2
 
         #stamina regen
@@ -54,18 +52,16 @@ class Skeleton:
 
         if self.stamina < 15:
             print("Insufficient stamina!")
+            return
         elif self.stamina >= 15:
             self.stamina -= 15
-            return
 
         if hit > 15:
             target.health -= dmg
-            message = "You took {} damage!"
-            print(message.format(dmg))
+            print(f"You took {dmg} damage!")
         elif hit == 20: 
             target.health -= crit
-            message = "Critical strike! You took {} damage!"
-            print(message.format(dmg))
+            print(f"Critical strike! You took {dmg} damage!")
         elif hit < 16:
             print("Your enemy's attack missed!")
 
@@ -73,7 +69,7 @@ class Skeleton:
     def collapse(self):
             print("collapse")
             if self.health < 7:
-                collapse = random.randrange(1, 20)
+                collapse = random.randrange(1, 21)
 
                 if collapse < 10:
                     self.health = 0 
@@ -81,7 +77,7 @@ class Skeleton:
 
 #random ability selector
     def abilitySelect(self, target):
-        whichAbility = random.randrange(1,6)
+        whichAbility = random.randrange(1,7)
         print(whichAbility)
 
         if whichAbility <= 3:
