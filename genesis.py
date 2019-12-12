@@ -75,14 +75,19 @@ def wizEncounter(flavor, target):
         if action == "A" or action == "a":
             wizard.melee(target)
             target.abilitySelect(wizard)
+            wizard.deathCheck()
         elif action == "B" or action == "b":
             wizard.fireball(target)
             target.abilitySelect(wizard)
+            wizard.deathCheck()
         elif action == "C" or action == "c":
             wizard.augury(target) 
             target.abilitySelect(wizard)
+            wizard.deathCheck()
     elif action == "B" or action == "b":
         print("manuver action")
+        target.abilitySelect(wizard)
+        wizard.deathCheck()
     elif action == "C" or action == "c":
         print("retreat action")
 
@@ -114,12 +119,15 @@ def rogEncounter(flavor, target):
         if action == "A" or action == "a":
             rogue.melee(target)
             target.abilitySelect(rogue)
+            rogue.deathCheck()
         elif action == "B" or action == "b":
             rogue.punchingStab(target)
             target.abilitySelect(rogue)
+            rogue.deathCheck()
         elif action == "C" or action == "c":
             rogue.shadowStrike(target) 
             target.abilitySelect(rogue)
+            rogue.deathCheck()
     elif action == "B" or action == "b":
         print("manuver action")
     elif action == "C" or action == "c":
@@ -152,12 +160,15 @@ def barEncounter(flavor, target):
         if action == "A" or action == "a":
             barbarian.melee(target)
             target.abilitySelect(barbarian)
+            barbarian.deathCheck()
         elif action == "B" or action == "b":
             barbarian.savageBlow(target)
             target.abilitySelect(barbarian)
+            barbarian.deathCheck()
         elif action == "C" or action == "c":
             barbarian.mortalStrike(target) 
             target.abilitySelect(barbarian)
+            barbarian.deathCheck()
     elif action == "B" or action == "b":
         print("manuver action")
     elif action == "C" or action == "c":

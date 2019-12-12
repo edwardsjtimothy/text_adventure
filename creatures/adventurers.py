@@ -1,6 +1,9 @@
 #random number module
 import random
+#math module for stat calculation
 import math
+#system module to kill program upon character death
+import sys
 
 #player classes
 
@@ -91,8 +94,10 @@ class Wizard:
             ||stam: {target.stamina} ||
         """)
 
-    def death(self):
-        print(f"In the seconds before the killing blow is struck, your mind races as you cast frantically around for a spell or a scrape of untapped power that may yet save you. But you know it is for nothing. The blow lands and you fall to your knees in the dust. The magic flickers and dies from your fingers, and its light fades with the light in your eyes. Someone may yet attain the knowledge hidden in this place but it will not be you. Die well, {self.name}")
+    def deathCheck(self):
+        if self.health <= 0:
+            print(f"In the seconds before the killing blow is struck, your mind races as you cast frantically around for a spell or a scrape of untapped power that may yet save you. But you know it is for nothing. The blow lands and you fall to your knees in the dust. The magic flickers and dies from your fingers, and its light fades with the light in your eyes. Someone may yet attain the knowledge hidden in this place but it will not be you. Die well, {self.name}")
+            exit("**********Game Over**********")
 
 
 #rogue class
@@ -179,9 +184,10 @@ class Rogue:
             elif self.focus <= 20:
                 self.melee(target)
 
-    def death(self):
-        print(f"Your eyes go wide a well placed thrust from your foe sends the point of its jagged blade beneath your guard and between your ribs. You fall to the ground, weapons clattering on the ancient flagstones, lifeblood flowing in a widening pool around you. All your careful planning, all your stealth and skill, none of it prepared you for the creeping darkness of this place. Someone may yet plumb its depths and turn out its secrets but it will not be you. Die well, {self.name}.")
-        
+    def deathCheck(self):
+        if self.health <= 0:
+            print(f"Your eyes go wide a well placed thrust from your foe sends the point of its jagged blade beneath your guard and between your ribs. You fall to the ground, weapons clattering on the ancient flagstones, lifeblood flowing in a widening pool around you. All your careful planning, all your stealth and skill, none of it prepared you for the creeping darkness of this place. Someone may yet plumb its depths and turn out its secrets but it will not be you. Die well, {self.name}.")
+            exit("**********Game Over**********")
 
 #barbarian class
 class Barbarian:       
@@ -255,6 +261,7 @@ class Barbarian:
             elif target.health > math.floor(target.maxHealth / 3):
                 target.health -= dmg
 
-    def death(self):
-        print(f"You fall heavily to your knees and your weapon slips from numb fingers to clatter against the ancient flagstones. Your strength is broken. Your vision blurs and your rage fades to nothing, leaving you empty. Your enemies surround you, dark silhouettes backlit by the guttering light of your fallen torch. Someone may yet lay bare the mystery of this place but it will not be you. Die well, {self.name}.")
-                
+    def deathCheck(self):
+        if self.health <= 0:
+            print(f"You fall heavily to your knees and your weapon slips from numb fingers to clatter against the ancient flagstones. Your strength is broken. Your vision blurs and your rage fades to nothing, leaving you empty. Your enemies surround you, dark silhouettes backlit by the guttering light of your fallen torch. Someone may yet lay bare the mystery of this place but it will not be you. Die well, {self.name}.")
+            exit("**********Game Over**********")   
