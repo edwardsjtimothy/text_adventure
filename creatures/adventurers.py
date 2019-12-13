@@ -22,6 +22,14 @@ class Wizard:
         self.maxMana = self.mana
         self.maneuvered = False
 
+#function to check character stats
+    def pulseCheck(self):
+        print(f"""
+            ||Name: {self.name} ||
+            ||Health: {self.health} ||
+            ||Mana: {self.mana} ||
+        """)
+
 #mana regeneration function 
     def manaRegen(self):
         ma = random.randrange(1, 4)
@@ -144,10 +152,18 @@ class Rogue:
         self.name = me 
         self.health = hp + random.randrange(10, 21)
         self.maxFocus = fc
-        self.focus = fc / 2
+        self.focus = math.floor(fc / 2)
         self.maneuvered = False
         self.shaStk = False
 
+    def pulseCheck(self):
+        print(f"""
+            ||Name: {self.name} ||
+            ||Health: {self.health} ||
+            ||Focus: {self.focus} ||
+        """)
+
+# focus regeneration function
     def focusRegen(self):
         fc = random.randrange(5, 8)
         if self.focus < self.maxFocus:
@@ -266,6 +282,16 @@ class Barbarian:
         self.rage = 0
         self.maneuvered = False
 
+#function to check character stats
+    def pulseCheck(self):
+        print(f"""
+            ||Name: {self.name} ||
+            ||Health: {self.health} ||
+            ||Rage: {self.rage} ||
+        """)
+
+
+#rage generation function 
     def rageGen(self):
         hMRG = random.randrange(5, 8)
         if self.rage < self.maxRage:

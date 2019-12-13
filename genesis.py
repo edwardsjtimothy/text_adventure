@@ -26,9 +26,9 @@ def main():
         global wizard
         wizard = Wizard(name, 10, 20)
         print(f"""
-            ||Name: {wizard.name} ||
+            ||Name: {wizard.name}     ||
             ||Health: {wizard.health} ||
-            ||Mana: {wizard.mana} ||
+            ||Mana: {wizard.mana}     ||
         """)
 
     elif choice == "B" or choice =="b":
@@ -39,9 +39,9 @@ def main():
         global rogue
         rogue = Rogue(name, 15, 100)
         print(f"""
-            ||Name: {rogue.name} ||
+            ||Name: {rogue.name}     ||
             ||Health: {rogue.health} ||
-            ||Focus: {rogue.focus} ||
+            ||Focus: {rogue.focus}   ||
         """)
         
     elif choice == "C" or choice =="c":             
@@ -52,7 +52,7 @@ def main():
         global barbarian
         barbarian = Barbarian(name, 20, 100)
         print(f"""
-            ||Name: {barbarian.name} ||
+            ||Name: {barbarian.name}     ||
             ||Health: {barbarian.health} ||
             ||Max Rage: {barbarian.rage} ||
         """)
@@ -64,6 +64,7 @@ def wizEncounter(flavor, target):
             A: Engage 
             B: Maneuver
             C: Retreat
+            D: Check Stats
                 """)
     if action == "A" or action == "a":
         print("How will you engage?")
@@ -89,16 +90,14 @@ def wizEncounter(flavor, target):
         target.abilitySelect(wizard)
     elif action == "C" or action == "c":
         print("retreat action")
+    elif action == "D" or action == "d":
+        wizard.pulseCheck()
 
     if target.health > 0:
         wizEncounter("Your foe still lives.", target)
     elif target.health <= 0:
         print("Your enemy is slain!")
-        print(f"""
-            ||Name: {wizard.name} ||
-            ||Health: {wizard.health} ||
-            ||Mana: {wizard.mana} ||
-        """)
+        wizard.pulseCheck()
 
 #rogue combat encounter 
 def rogEncounter(flavor, target):
@@ -107,6 +106,7 @@ def rogEncounter(flavor, target):
             A: Engage 
             B: Maneuver
             C: Retreat
+            D: Check Stats
                 """)
     if action == "A" or action == "a":
         print("How will you engage?")
@@ -132,16 +132,15 @@ def rogEncounter(flavor, target):
         target.abilitySelect(rogue)
     elif action == "C" or action == "c":
         print("retreat action")
+    elif action == "D" or action == "d":
+        rogue.pulseCheck()
+
 
     if target.health > 0:
         rogEncounter("Your foe still lives.", target)
     elif target.health <= 0:
         print("Your enemy is slain!")
-        print(f"""
-            ||Name: {rogue.name} ||
-            ||Health: {rogue.health} ||
-            ||Focus: {rogue.focus} ||
-        """)
+        rogue.pulseCheck()
 
 def barEncounter(flavor, target):
     print(flavor)
@@ -149,6 +148,7 @@ def barEncounter(flavor, target):
             A: Engage 
             B: Maneuver
             C: Retreat
+            D: Check Stats
                 """)
     if action == "A" or action == "a":
         print("How will you engage?")
@@ -174,16 +174,14 @@ def barEncounter(flavor, target):
         target.abilitySelect(barbarian)
     elif action == "C" or action == "c":
         print("retreat action")
+    elif action == "D" or action == "d":
+        rogue.pulseCheck()
 
     if target.health > 0:
         barEncounter("Your foe still lives.", target)
     elif target.health <= 0:
         print("Your enemy is slain!")
-        print(f"""
-            ||Name: {barbarian.name} ||
-            ||Health: {barbarian.health} ||
-            ||Rage: {barbarian.rage} ||
-        """)
+        barbarian.pulseCheck()
 
 
 
