@@ -8,6 +8,9 @@ class Skeleton:
     stamina: 0
     maxStamina: 0
     manueverCount: 0
+    hit = 0
+    dmg = 0
+    crit = 0
 
     def __init__(self, me, hp, st):
         self.name = me 
@@ -16,6 +19,9 @@ class Skeleton:
         self.stamina = st + random.randrange(5, 10)
         self.maxStamina = self.stamina
         self.maneuverCount = 0
+        self.hit = 0
+        self.dmg = 0
+        self.crit = 0
 
     def staminaRegen(self):
         if self.stamina < self.maxStamina:
@@ -23,61 +29,51 @@ class Skeleton:
             if self.stamina > self.maxStamina:
                 self.stamina = self.maxStamina
 
-#basic attack
-    def bludgeon(self, target):
-        hit = random.randrange(1, 21)
-        dmg = 1 + random.randrange(1, 3)
-        crit = dmg * 2
-
-# tracking consecutive uses of Maneuver and increasing damage liklihood and output for each consecutive use.
+    def maneuverTracker(self):
         if self.maneuverCount >= 4:
-            self.maneuverCount = 3
+                self.maneuverCount = 3
         if self.maneuverCount == 1: 
             self.stamina += 15
-            hit = random.randrange(16, 21)
-            dmg = 5 + random.randrange(1, 3)
+            self.hit = random.randrange(16, 21)
+            self.dmg = 5 + random.randrange(1, 3)
         elif self.maneuverCount == 2:
             self.stamina += 15
-            hit = random.randrange(18, 21)
-            dmg = 10 + random.randrange(5, 10)
+            self.hit = random.randrange(18, 21)
+            self.dmg = 10 + random.randrange(5, 10)
         elif self.maneuverCount == 3:
             self.stamina += 15
-            hit = 20
-            dmg = 10 + random.randrange(15, 25)
+            self.hit = 20
+            self.dmg = 10 + random.randrange(15, 25)
+
+#basic attack
+    def bludgeon(self, target):
+        self.hit = random.randrange(1, 21)
+        self.dmg = 1 + random.randrange(1, 3)
+        self.crit = self.dmg * 2
+
+# tracking consecutive uses of Maneuver and increasing damage liklihood and output for each consecutive use.
+        self.maneuverTracker()
 
         #stamina regen
         self.staminaRegen()
 
-        if 12 < hit < 19:
-            target.health -= dmg
-            print(f"You took {dmg} damage!")
-        elif hit == 20: 
-            target.health -= crit
-            print(f"Critical strike! You took {dmg} damage!")
-        elif hit < 13:
+        if 12 < self.hit < 19:
+            target.health -= self.dmg
+            print(f"You took {self.dmg} damage!")
+        elif self.hit == 20: 
+            target.health -= self.crit
+            print(f"Critical strike! You took {self.crit} damage!")
+        elif self.hit < 13:
             print("Your enemy's attack missed!")
 
 #stronger attack
     def lumberingStrike(self, target):
-        hit = random.randrange(1, 21)
-        dmg = 2 + random.randrange(2, 4)
-        crit = dmg * 2
+        self.hit = random.randrange(1, 21)
+        self.dmg = 2 + random.randrange(2, 4)
+        self.crit = self.dmg * 2
         
 # tracking consecutive uses of Maneuver and increasing damage liklihood and output for each consecutive use.
-        if self.maneuverCount >= 4:
-            self.maneuverCount = 3
-        if self.maneuverCount == 1: 
-            self.stamina += 15
-            hit = random.randrange(16, 21)
-            dmg = 5 + random.randrange(1, 3)
-        elif self.maneuverCount == 2:
-            self.stamina += 15
-            hit = random.randrange(18, 21)
-            dmg = 10 + random.randrange(5, 10)
-        elif self.maneuverCount == 3:
-            self.stamina += 15
-            hit = 20
-            dmg = 10 + random.randrange(15, 25)
+        self.maneuverTracker()
 
         #stamina regen
         self.staminaRegen()
@@ -88,13 +84,13 @@ class Skeleton:
             return
         elif self.stamina >= 15:
             self.stamina -= 15
-            if hit > 15:
-                target.health -= dmg
-                print(f"You took {dmg} damage!")
-            elif hit == 20: 
-                target.health -= crit
-                print(f"Critical strike! You took {dmg} damage!")
-            elif hit < 16:
+            if 15 < self.hit < 19:
+                target.health -= self.dmg
+                print(f"You took {self.dmg} damage!")
+            elif self.hit == 20: 
+                target.health -= self.crit
+                print(f"Critical strike! You took {self.crit} damage!")
+            elif self.hit < 16:
                 print("Your enemy's attack missed!")
 
 #chance at collapsing at low health

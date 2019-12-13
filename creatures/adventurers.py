@@ -24,7 +24,7 @@ class Wizard:
         self.maneuvered = False
         self.pyroBrand = False
 
-#function to check character stats
+#function to check character stats and conditional states
     def pulseCheck(self):
         if self.pyroBrand == True:
             pyro = "Active"
@@ -53,7 +53,6 @@ class Wizard:
         if self.mana > self.maxMana:
             self.mana = self.maxMana
 
-
 #basic attack
     def melee(self, target):
         hit = random.randrange(1, 21)
@@ -63,8 +62,6 @@ class Wizard:
         if self.maneuvered == True:
             hit = random.randrange(10, 21)
             self.maneuvered = False
-
-        print("hit roll", hit)
 
         #mana regen
         self.manaRegen()
@@ -78,8 +75,6 @@ class Wizard:
         elif hit < 8:
             print("Your attack failed to damage the target...")
 
-
-
 #fireball spell
     def fireball(self, target):
         hit = random.randrange(1, 21)
@@ -87,6 +82,7 @@ class Wizard:
         burn =  math.floor(dmg * 0.75)
         crit = dmg * 2
 
+        # checking for maneuvered and pyrobrand states and applying buffs
         if self.maneuvered == True and self.pyroBrand == False:
             hit = random.randrange(10, 21)
             self.maneuvered = False
@@ -97,8 +93,6 @@ class Wizard:
             hit = random.randrange(10, 21)
             burn = math.floor(dmg * random.randrange(1 , 5))
             self.maneuvered = False
-
-        print("hit roll", hit)
 
         #mana regen
         self.manaRegen()
@@ -122,12 +116,10 @@ class Wizard:
             elif hit < 5:
                 print("Your attack failed to damage the target...")
 
-
 #gain information about your target
     def augury(self, target):
         #mana regen
         self.manaRegen()
-
         if self.mana < 15:
             print("Insufficient mana!")
             return
@@ -142,30 +134,23 @@ class Wizard:
             """)
             print("Your prodigious will influences the warp and weft of reality around your target and the air crackles with motive force. Your scrutiny has applied Pryobrand!")
 
-
 # check if the player is dead and end game if true
     def deathCheck(self):
         if self.health <= 0:
             print(f"In the seconds before the killing blow is struck, your mind races as you cast frantically around for a spell or a scrape of untapped power that may yet save you. But you know it is for nothing. The blow lands and you fall to your knees in the dust. The magic flickers and dies from your fingers, and its light fades with the light in your eyes. Someone may yet attain the knowledge hidden in this place but it will not be you. Die well, {self.name}.")
             exit("**********Game Over**********")
 
+# maneuver to attempt to gain an advantage against your foe
     def maneuver(self):
-
-
         self.maneuvered = False
         adAtmp = random.randrange(1, 21)
-
         #mana regen
         self.manaRegen()
-
         if adAtmp > 10:
             self.maneuvered = True
             print("You edge carefully around your oppenent, arm held before you with fingers curled in a casting posture. Flame roils around your hand and up your arm, livid with the potency of your acane power held in abeyance. You wait for an opening. You have spotted a weakness!")
         elif adAtmp < 11:
             print("You circle warily around your oppenent, searching for weaknesses with a preturnatural eye. You find none.")
-
-
-
 
 
 #rogue class
@@ -185,6 +170,7 @@ class Rogue:
         self.maneuvered = False
         self.shaStk = False
 
+#function to check character stats and conditional states
     def pulseCheck(self):
         if self.maneuvered == True:
             mane = "Active"
@@ -221,7 +207,6 @@ class Rogue:
             hit = 20
             crit = math.floor(dmg * 3)
             self.shaStk = False
-        print("hit roll", hit)
 
         #focus regen
         self.focusRegen()
@@ -241,7 +226,7 @@ class Rogue:
         dmg = 5 + random.randrange(8, 13)
         crit = math.floor(dmg * 2)
 
-
+        # checking for conditional states and applying buffs
         if self.maneuvered == True:
             hit = random.randrange(10, 21)
             self.maneuvered = False
@@ -250,9 +235,6 @@ class Rogue:
             hit = 20
             crit = math.floor(dmg * 3)
             self.shaStk = False
-
-
-        print("hit roll", hit)
 
         #focus regen
         self.focusRegen()
@@ -272,7 +254,7 @@ class Rogue:
             elif hit < 5:
                 print("Your attack failed to damage the target...")
 
-
+# Strike with 100% crit chance. Enemy can't retaliate.
     def shadowStrike(self, target):
         #focus regen
         self.focusRegen()
@@ -297,6 +279,7 @@ class Rogue:
             print(f"Your eyes go wide a well placed thrust from your foe sends the point of its jagged blade beneath your guard and between your ribs. You fall to the ground, weapons clattering on the ancient flagstones, lifeblood flowing in a widening pool around you. All your careful planning, all your stealth and skill, none of it prepared you for the creeping darkness of this place. Someone may yet plumb its depths and turn out its secrets but it will not be you. Die well, {self.name}.")
             exit("**********Game Over**********")
 
+# maneuver to attempt to gain an advantage against your foe
     def maneuver(self):
         self.maneuvered = False
         adAtmp = random.randrange(1, 21)
@@ -309,6 +292,7 @@ class Rogue:
             print("Crouching low with daggers held before you in a dueling posture, you edge closer to your foe. Shadow flows around you as you gather yourself for a precision strike. You have spotted a weakness!")
         elif adAtmp < 11:
             print("You circle your foe warily, observing as much as you can about your target, searching for a weakness. You find none.")
+
 
 #barbarian class
 class Barbarian:       
@@ -325,7 +309,7 @@ class Barbarian:
         self.rage = 0
         self.maneuvered = False
 
-#function to check character stats
+#function to check character stats and conditional states
     def pulseCheck(self):
         if self.maneuvered == True:
             mane = "Active"
@@ -338,7 +322,6 @@ class Barbarian:
             ||Rage: {self.rage} ||
             ||Maneuver: {mane} ||
         """)
-
 
 #rage generation function 
     def rageGen(self):
@@ -355,6 +338,7 @@ class Barbarian:
         dmg = 2 + random.randrange(3, 6)
         crit = dmg * 2
 
+        # checking for conditional states
         if self.maneuvered == True:
             hit = random.randrange(10, 21)
             self.maneuvered = False
@@ -370,7 +354,6 @@ class Barbarian:
             print(f"Critical strike! Your target took {crit} damage!")
         elif hit < 5:
             print("Your attack failed to damage the target...")
-
 
 # spends rage for extra dmg at a 3rg/1dmg ratio
     def savageBlow(self, target):
