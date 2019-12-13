@@ -91,7 +91,7 @@ def wizEncounter(flavor, target):
         print("retreat action")
 
     if target.health > 0:
-        wizEncounter("Your foe still lives", target)
+        wizEncounter("Your foe still lives.", target)
     elif target.health <= 0:
         print("Your enemy is slain!")
         print(f"""
@@ -125,15 +125,16 @@ def rogEncounter(flavor, target):
             rogue.deathCheck()
         elif action == "C" or action == "c":
             rogue.shadowStrike(target) 
-            target.abilitySelect(rogue)
+            # enemy does not get a chance to attack when rogue uses Shadow Strike
             rogue.deathCheck()
     elif action == "B" or action == "b":
-        print("manuver action")
+        rogue.maneuver()
+        target.abilitySelect(rogue)
     elif action == "C" or action == "c":
         print("retreat action")
 
     if target.health > 0:
-        rogEncounter("Your foe still lives", target)
+        rogEncounter("Your foe still lives.", target)
     elif target.health <= 0:
         print("Your enemy is slain!")
         print(f"""
@@ -169,12 +170,13 @@ def barEncounter(flavor, target):
             target.abilitySelect(barbarian)
             barbarian.deathCheck()
     elif action == "B" or action == "b":
-        print("manuver action")
+        barbarian.maneuver()
+        target.abilitySelect(barbarian)
     elif action == "C" or action == "c":
         print("retreat action")
 
     if target.health > 0:
-        barEncounter("Your foe still lives", target)
+        barEncounter("Your foe still lives.", target)
     elif target.health <= 0:
         print("Your enemy is slain!")
         print(f"""

@@ -24,8 +24,10 @@ class Wizard:
 
 #mana regeneration function 
     def manaRegen(self):
+        ma = random.randrange(1, 4)
         if self.mana < self.maxMana:
-            self.mana += random.randrange(1, 4)
+            self.mana += ma
+            print(f"You generate {ma} mana.")
         if self.mana > self.maxMana:
             self.mana = self.maxMana
 
@@ -45,13 +47,13 @@ class Wizard:
         #mana regen
         self.manaRegen()
 
-        if 10 < hit < 20:
+        if 7 < hit < 20:
             target.health -= dmg
             print(f"Your target took {dmg} damage!")
         elif hit == 20: 
             target.health -= crit
             print(f"Critical strike! Your target took {crit} damage!")
-        elif hit < 11:
+        elif hit < 8:
             print("Your attack failed to damage the target...")
 
 
@@ -77,16 +79,16 @@ class Wizard:
             return
         elif self.mana >= 5:
             self.mana -= 5
-            if 5 < hit < 16 :
+            if 4 < hit < 16 :
                 target.health -= dmg
                 print(f"Your target took {dmg} damage!")
             elif 15 < hit < 20:
                 target.health -= (dmg + burn)
-                print(f"With a crackle of rising flames you target catches on fire! Your target took {dmg} damage and burns for an additional {burn}!")
+                print(f"With a crackle of rising flames your target catches on fire! Your target took {dmg} damage and burns for an additional {burn}!")
             elif hit == 20: 
                 target.health -= crit
                 print(f"Critical strike! Your target took {crit} damage!")
-            elif hit < 6:
+            elif hit < 5:
                 print("Your attack failed to damage the target...")
 
 
@@ -124,7 +126,7 @@ class Wizard:
 
         if adAtmp > 10:
             self.maneuvered = True
-            print("You edge carefully around your oppenent, arm held before you with fingers curled in a casting posture. Flame roils around your hand and up your arm, livid with the potency of your acane power held in abeyance, waiting for an opening. You have spotted a weakness!")
+            print("You edge carefully around your oppenent, arm held before you with fingers curled in a casting posture. Flame roils around your hand and up your arm, livid with the potency of your acane power held in abeyance. You wait for an opening. You have spotted a weakness!")
         elif adAtmp < 11:
             print("You circle warily around your oppenent, searching for weaknesses with a preturnatural eye. You find none.")
 
@@ -136,17 +138,21 @@ class Rogue:
     focus = 0
     maxFocus = 0
     maneuvered = False
+    shaStk = False
 
     def __init__(self, me, hp, fc):
         self.name = me 
         self.health = hp + random.randrange(10, 21)
-        self.focus = fc
-        self.maxFocus = self.focus
+        self.maxFocus = fc
+        self.focus = fc / 2
         self.maneuvered = False
+        self.shaStk = False
 
     def focusRegen(self):
+        fc = random.randrange(5, 8)
         if self.focus < self.maxFocus:
-            self.focus += random.randrange(2, 5)
+            self.focus += fc
+            print(f"You generate {fc} focus.")
         if self.focus > self.maxFocus:
             self.focus = self.maxFocus
 
@@ -165,13 +171,13 @@ class Rogue:
         #focus regen
         self.focusRegen()
 
-        if 5 < hit < 20:
+        if 4 < hit < 20:
             target.health -= dmg
             print(f"Your target took {dmg} damage!")
         elif hit == 20: 
             target.health -= crit
             print(f"Critical strike! Your target took {crit} damage!")
-        elif hit < 6:
+        elif hit < 5:
             print("Your attack failed to damage the target...")
 
 #main ability with high crit dmg
@@ -179,6 +185,10 @@ class Rogue:
         hit = random.randrange(1, 21)
         dmg = random.randrange(8, 13)
         crit = math.floor(dmg * 2)
+
+        if self.shaStk == True:
+            crit = math.floor(dmg * 3)
+            self.shaStk == False
 
         if self.maneuvered == True:
             hit = random.randrange(10, 21)
@@ -195,13 +205,13 @@ class Rogue:
             return
         elif self.focus >= 20:
             self.focus -= 20
-            if 5 < hit < 19:
+            if 4 < hit < 19:
                 target.health -= dmg
                 print(f"Your target took {dmg} damage!")
             elif hit >= 18: 
                 target.health -= crit
                 print(f"Critical strike! Your target took {crit} damage!")
-            elif hit < 6:
+            elif hit < 5:
                 print("Your attack failed to damage the target...")
 
 
@@ -215,6 +225,7 @@ class Rogue:
             return
         elif self.focus >= 60:
             self.focus -= 60
+            self.shaStk = True
             print("Wisps of shadow flow about you, obscuring your second strike from the enemy!")
             if self.focus >= 20:
                 self.punchingStab(target)
@@ -236,7 +247,7 @@ class Rogue:
 
         if adAtmp > 10:
             self.maneuvered = True
-            print("Crouching low with daggers held before you in a dueling posture, you edge closer to your foe. Shadow flows around you as your gather yourself for a precision strike. You have spotted a weakness!")
+            print("Crouching low with daggers held before you in a dueling posture, you edge closer to your foe. Shadow flows around you as you gather yourself for a precision strike. You have spotted a weakness!")
         elif adAtmp < 11:
             print("You circle your foe warily, observing as much as you can about your target, searching for a weakness. You find none.")
 
@@ -256,12 +267,12 @@ class Barbarian:
         self.maneuvered = False
 
     def rageGen(self):
-         hMRG = random.randrange(5, 8)
-         if self.rage < self.maxRage:
+        hMRG = random.randrange(5, 8)
+        if self.rage < self.maxRage:
             self.rage += hMRG
             print(f"You generated {hMRG} rage!")
-            if self.rage > self.maxRage:
-                self.rage = self.maxRage
+        if self.rage > self.maxRage:
+            self.rage = self.maxRage
 
 # basic attack
     def melee(self, target):
@@ -276,13 +287,13 @@ class Barbarian:
         #focus regen
         self.rageGen()
 
-        if 5 < hit < 20:
+        if 4 < hit < 20:
             target.health -= dmg
             print(f"Your target took {dmg} damage!")
         elif hit == 20: 
             target.health -= crit
             print(f"Critical strike! Your target took {crit} damage!")
-        elif hit < 6:
+        elif hit < 5:
             print("Your attack failed to damage the target...")
 
 
@@ -298,15 +309,14 @@ class Barbarian:
             self.maneuvered = False
 
         print("hit roll", hit)
-        print(dmg)
            
-        if 5 < hit < 20:
+        if 4 < hit < 20:
             target.health -= dmg
             print(f"Your target took {dmg} damage!")
         elif hit == 20: 
             target.health -= crit
             print(f"Critical strike! Your target took {crit} damage!")
-        elif hit < 6:
+        elif hit < 5:
             print("Your attack failed to damage the target...")
 
         
@@ -324,9 +334,10 @@ class Barbarian:
             self.rage -= 50
             if target.health < math.floor(target.maxHealth / 3):
                 target.health = 0
-                print("Your weapon cleaves through the air in a vicious arch; your enemy withers beneath the strength of your blow.")
+                print("Your weapon cleaves through the air in a vicious arc; your enemy withers beneath the strength of your blow.")
             elif target.health > math.floor(target.maxHealth / 3):
                 target.health -= dmg
+                print(f"Your weapon cleaves there the air in a vicious arc; your oppenent deflects the strike and stumbles back, avoiding the worst of the damage. You deal {dmg}!")
 
 # check if the player is dead and end game if true
     def deathCheck(self):
