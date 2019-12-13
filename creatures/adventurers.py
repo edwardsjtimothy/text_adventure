@@ -46,7 +46,7 @@ class Wizard:
 
 #mana regeneration function 
     def manaRegen(self):
-        ma = random.randrange(5, 10)
+        ma = random.randrange(3, 6)
         if self.mana < self.maxMana:
             self.mana += ma
             print(f"You generate {ma} mana.")

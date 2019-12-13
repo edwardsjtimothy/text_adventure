@@ -1,4 +1,5 @@
-from genesis import *
+from events.genesis import *
+from events.combat import *
 from creatures.monsters import *
 
 main()

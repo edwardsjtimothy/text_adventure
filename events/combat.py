@@ -1,64 +1,8 @@
-#importing creature constructor function
-from creatures.adventurers import Wizard, Rogue, Barbarian
-
-#character name function 
-def name():
-    print("************What is your name, traveller?***********")
-    global name
-    name = input()
-    print("Hello, " + name)
-
-#main menu function
-def main():
-    name()
-    print("**********Choose your Class**********")
-    choice = input("""
-        A: Wizard
-        B: Rogue
-        C: Barbarian
-              """) 
-    # a builds a wizard object
-    if choice == "A" or choice =="a":
-        print("""
-            You have selected Wizard!
-            Here are you starting stats.
-        """)
-        global wizard
-        wizard = Wizard(name, 10, 50)
-        print(f"""
-            ||Name: {wizard.name}     ||
-            ||Health: {wizard.health} ||
-            ||Mana: {wizard.mana}     ||
-        """)
-    # b builds a rogue object 
-    elif choice == "B" or choice =="b":
-        print("""
-            You have selected Rogue!
-            Here are you starting stats.
-        """)
-        global rogue
-        rogue = Rogue(name, 15, 100)
-        print(f"""
-            ||Name: {rogue.name}     ||
-            ||Health: {rogue.health} ||
-            ||Focus: {rogue.focus}   ||
-        """)
-    # c builds a barbarian object 
-    elif choice == "C" or choice =="c":             
-        print("""
-            You have selected Barbarian!
-            Here are you starting stats.
-        """)
-        global barbarian
-        barbarian = Barbarian(name, 20, 100)
-        print(f"""
-            ||Name: {barbarian.name}     ||
-            ||Health: {barbarian.health} ||
-            ||Max Rage: {barbarian.rage} ||
-        """)
+import random
 
 #wizard combat encounter
 def wizEncounter(flavor, target):
+    from events.genesis import wizard
     print(flavor)
     # action menu
     action = input("""
@@ -99,7 +43,15 @@ def wizEncounter(flavor, target):
         target.maneuverCount += 1
         wizard.deathCheck()
     elif action == "C" or action == "c":
-        print("retreat")
+        retreat = random.randrange(1, 11)
+        if retreat > 4:
+            print("running away successfully")
+        elif 5 > retreat > 1:
+            target.abilitySelect(wizard)
+            wizard.deathCheck()
+        elif retreat == 1:
+            wizard.health = 0
+            wizard.deathCheck()
     # displays current player stats
     elif action == "D" or action == "d":
         wizard.pulseCheck()
@@ -113,6 +65,7 @@ def wizEncounter(flavor, target):
 
 #rogue combat encounter 
 def rogEncounter(flavor, target):
+    from events.genesis import rogue
     print(flavor)
     # action menu
     action = input("""
@@ -153,7 +106,15 @@ def rogEncounter(flavor, target):
         target.maneuverCount += 1
         rogue.deathCheck()
     elif action == "C" or action == "c":
-        print("retreat action")
+        retreat = random.randrange(1, 11)
+        if retreat > 4:
+            print("running away successfully")
+        elif 5 > retreat > 1:
+            target.abilitySelect(rogue)
+            rogue.deathCheck()
+        elif retreat == 1:
+            rogue.health = 0
+            rogue.deathCheck()
     # displays player stats
     elif action == "D" or action == "d":
         rogue.pulseCheck()
@@ -166,6 +127,7 @@ def rogEncounter(flavor, target):
         rogue.pulseCheck()
 
 def barEncounter(flavor, target):
+    from events.genesis import barbarian
     print(flavor)
     action = input("""
             A: Engage 
@@ -205,7 +167,15 @@ def barEncounter(flavor, target):
         target.maneuverCount += 1
         barbarian.deathCheck()
     elif action == "C" or action == "c":
-        print("retreat action")
+        retreat = random.randrange(1, 11)
+        if retreat > 4:
+            print("running away successfully")
+        elif 5 > retreat > 1:
+            target.abilitySelect(barbarian)
+            barbarian.deathCheck()
+        elif retreat == 1:
+            barbarian.health = 0
+            barbarian.deathCheck()
     # display player stats
     elif action == "D" or action == "d":
         barbarian.pulseCheck()
@@ -216,16 +186,3 @@ def barEncounter(flavor, target):
     elif target.health <= 0:
         print("Your enemy is slain!")
         barbarian.pulseCheck()
-
-
-
-
-
-
-
-
-
-
-    
-        
-
