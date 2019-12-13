@@ -62,7 +62,7 @@ def wizEncounter(flavor, target):
     print(flavor)
     action = input("""
             A: Engage 
-            B: Manuver
+            B: Maneuver
             C: Retreat
                 """)
     if action == "A" or action == "a":
@@ -85,9 +85,8 @@ def wizEncounter(flavor, target):
             target.abilitySelect(wizard)
             wizard.deathCheck()
     elif action == "B" or action == "b":
-        print("manuver action")
+        wizard.maneuver()
         target.abilitySelect(wizard)
-        wizard.deathCheck()
     elif action == "C" or action == "c":
         print("retreat action")
 
@@ -106,7 +105,7 @@ def rogEncounter(flavor, target):
     print(flavor)
     action = input("""
             A: Engage 
-            B: Manuver
+            B: Maneuver
             C: Retreat
                 """)
     if action == "A" or action == "a":
@@ -147,7 +146,7 @@ def barEncounter(flavor, target):
     print(flavor)
     action = input("""
             A: Engage 
-            B: Manuver
+            B: Maneuver
             C: Retreat
                 """)
     if action == "A" or action == "a":

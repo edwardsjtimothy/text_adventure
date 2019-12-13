@@ -13,12 +13,14 @@ class Wizard:
     health = 0
     mana = 0
     maxMana = 0
+    maneuvered = False
 
     def __init__(self, me, hp, mn):
         self.name = me 
         self.health = hp + random.randrange(5, 15)
         self.mana = mn + random.randrange(20, 40)
         self.maxMana = self.mana
+        self.maneuvered = False
 
 #mana regeneration function 
     def manaRegen(self):
@@ -47,13 +49,19 @@ class Wizard:
         elif hit < 11:
             print("Your attack failed to damage the target...")
 
+        self.maneuvered = False
+
 
 #fireball spell
     def fireball(self, target):
         hit = random.randrange(1, 21)
-        dmg = random.randrange(5, 11)
+        dmg = random.randrange(5, 16)
         burn =  math.floor(dmg * 0.75)
         crit = dmg * 2
+
+        if self.maneuvered == True:
+            hit = random.randrange(10, 21)
+
         print("hit roll", hit)
 
         #mana regen
@@ -76,6 +84,8 @@ class Wizard:
             elif hit < 6:
                 print("Your attack failed to damage the target...")
 
+        self.maneuvered = False
+
 #gain information about your target
     def augury(self, target):
         #mana regen
@@ -86,18 +96,31 @@ class Wizard:
             return
         elif self.mana >= 15:
             self.mana -= 15
+            print("Snaking threads of arcane power bring knowledge of your foe...")
+            print(f"""
+                ||Name: {target.name} ||
+                ||Health: {target.health} ||
+                ||stam: {target.stamina} ||
+            """)
 
-        print("Snaking threads of arcane power bring knowledge of your foe...")
-        print(f"""
-            ||Name: {target.name} ||
-            ||Health: {target.health} ||
-            ||stam: {target.stamina} ||
-        """)
+        self.maneuvered = False
 
+# check if the player is dead and end game if true
     def deathCheck(self):
         if self.health <= 0:
-            print(f"In the seconds before the killing blow is struck, your mind races as you cast frantically around for a spell or a scrape of untapped power that may yet save you. But you know it is for nothing. The blow lands and you fall to your knees in the dust. The magic flickers and dies from your fingers, and its light fades with the light in your eyes. Someone may yet attain the knowledge hidden in this place but it will not be you. Die well, {self.name}")
+            print(f"In the seconds before the killing blow is struck, your mind races as you cast frantically around for a spell or a scrape of untapped power that may yet save you. But you know it is for nothing. The blow lands and you fall to your knees in the dust. The magic flickers and dies from your fingers, and its light fades with the light in your eyes. Someone may yet attain the knowledge hidden in this place but it will not be you. Die well, {self.name}.")
             exit("**********Game Over**********")
+
+    def maneuver(self):
+        self.maneuvered = False
+        adAtmp = random.randrange(1, 21)
+
+        if adAtmp > 10:
+            self.maneuvered = True
+            print("Flame roils up you arm as you edge carefully around your oppenent, waiting for an opening. You have spotted a weakness to exploit...")
+        elif adAtmp < 11:
+            print("You edge carefully around your oppenent and with a practiced eye search for weaknesses. You find none.")
+
 
 
 #rogue class
@@ -106,7 +129,6 @@ class Rogue:
     health = 0
     focus = 0
     maxFocus = 0
-    cloaked = False
 
     def __init__(self, me, hp, fc):
         self.name = me 
@@ -122,7 +144,6 @@ class Rogue:
 
 #basic attack
     def melee(self, target):
-        self.cloaked = False
         hit = random.randrange(1, 21)
         dmg = 2 + random.randrange(2, 5)
         crit = dmg * 2
@@ -142,7 +163,6 @@ class Rogue:
 
 #main ability with high crit dmg
     def punchingStab(self, target):
-        self.cloaked = False
         hit = random.randrange(1, 21)
         dmg = random.randrange(8, 13)
         crit = math.floor(dmg * 2)
@@ -167,8 +187,6 @@ class Rogue:
                 print("Your attack failed to damage the target...")
 
     def shadowStrike(self, target):
-        self.cloaked = False
-
         #focus regen
         self.focusRegen()
 
