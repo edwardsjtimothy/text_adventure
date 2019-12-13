@@ -152,7 +152,6 @@ class Wizard:
         elif adAtmp < 11:
             print("You circle warily around your oppenent, searching for weaknesses with a preturnatural eye. You find none.")
 
-
 #rogue class
 class Rogue:
     name = ""
