@@ -14,6 +14,7 @@ class Wizard:
     mana = 0
     maxMana = 0
     maneuvered = False
+    pyroBrand = False
 
     def __init__(self, me, hp, mn):
         self.name = me 
@@ -21,18 +22,31 @@ class Wizard:
         self.mana = mn + random.randrange(20, 40)
         self.maxMana = self.mana
         self.maneuvered = False
+        self.pyroBrand = False
 
 #function to check character stats
     def pulseCheck(self):
+        if self.pyroBrand == True:
+            pyro = "Active"
+        elif self.pyroBrand == False:
+            pyro = "Inactive"
+
+        if self.maneuvered == True:
+            mane = "Active"
+        elif self.maneuvered == False:
+            mane = "Inactive"
+       
         print(f"""
             ||Name: {self.name} ||
             ||Health: {self.health} ||
             ||Mana: {self.mana} ||
+            ||Pryobrand: {pyro} ||
+            ||Maneuver: {mane} ||
         """)
 
 #mana regeneration function 
     def manaRegen(self):
-        ma = random.randrange(1, 4)
+        ma = random.randrange(5, 10)
         if self.mana < self.maxMana:
             self.mana += ma
             print(f"You generate {ma} mana.")
@@ -73,8 +87,15 @@ class Wizard:
         burn =  math.floor(dmg * 0.75)
         crit = dmg * 2
 
-        if self.maneuvered == True:
+        if self.maneuvered == True and self.pyroBrand == False:
             hit = random.randrange(10, 21)
+            self.maneuvered = False
+        elif self.maneuvered == False and self.pyroBrand == True:
+            burn = math.floor(dmg * random.randrange(1 , 4))
+            self.maneuvered = False
+        elif self.maneuvered == True and self.pyroBrand == True: 
+            hit = random.randrange(10, 21)
+            burn = math.floor(dmg * random.randrange(1 , 5))
             self.maneuvered = False
 
         print("hit roll", hit)
@@ -82,20 +103,22 @@ class Wizard:
         #mana regen
         self.manaRegen()
 
-        if self.mana < 5:
+        if self.mana < 10:
             print("Insufficient mana!")
             return
-        elif self.mana >= 5:
-            self.mana -= 5
+        elif self.mana >= 10:
+            self.mana -= 10
             if 4 < hit < 16 :
                 target.health -= dmg
                 print(f"Your target took {dmg} damage!")
             elif 15 < hit < 20:
                 target.health -= (dmg + burn)
                 print(f"With a crackle of rising flames your target catches on fire! Your target took {dmg} damage and burns for an additional {burn}!")
+                self.pyroBrand = False
             elif hit == 20: 
-                target.health -= crit
-                print(f"Critical strike! Your target took {crit} damage!")
+                target.health -= (crit + burn)
+                print(f"Critical strike! Your target took {crit} damage and burns for an additional {burn}!")
+                self.pyroBrand = False
             elif hit < 5:
                 print("Your attack failed to damage the target...")
 
@@ -110,14 +133,15 @@ class Wizard:
             return
         elif self.mana >= 15:
             self.mana -= 15
+            self.pyroBrand = True
             print("Snaking threads of arcane power bring knowledge of your foe...")
             print(f"""
                 ||Name: {target.name} ||
                 ||Health: {target.health} ||
                 ||stam: {target.stamina} ||
             """)
+            print("Your prodigious will influences the warp and weft of reality around your target and the air crackles with motive force. Your scrutiny has applied Pryobrand!")
 
-        self.maneuvered = False
 
 # check if the player is dead and end game if true
     def deathCheck(self):
@@ -157,10 +181,16 @@ class Rogue:
         self.shaStk = False
 
     def pulseCheck(self):
+        if self.maneuvered == True:
+            mane = "Active"
+        elif self.maneuvered == False:
+            mane = "Inactive"
+
         print(f"""
             ||Name: {self.name} ||
             ||Health: {self.health} ||
             ||Focus: {self.focus} ||
+            ||Maneuver: {mane} ||
         """)
 
 # focus regeneration function
@@ -292,10 +322,16 @@ class Barbarian:
 
 #function to check character stats
     def pulseCheck(self):
+        if self.maneuvered == True:
+            mane = "Active"
+        elif self.maneuvered == False:
+            mane = "Inactive"
+       
         print(f"""
             ||Name: {self.name} ||
             ||Health: {self.health} ||
             ||Rage: {self.rage} ||
+            ||Maneuver: {mane} ||
         """)
 
 

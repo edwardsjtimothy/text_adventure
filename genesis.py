@@ -24,7 +24,7 @@ def main():
             Here are you starting stats.
         """)
         global wizard
-        wizard = Wizard(name, 10, 20)
+        wizard = Wizard(name, 10, 50)
         print(f"""
             ||Name: {wizard.name}     ||
             ||Health: {wizard.health} ||
@@ -70,7 +70,7 @@ def wizEncounter(flavor, target):
         print("How will you engage?")
         action = input("""
                 A: Melee (no cost)
-                B: Fireball (5 mana)
+                B: Fireball (10 mana)
                 C: Augury (15 mana)
             """)
         if action == "A" or action == "a":
