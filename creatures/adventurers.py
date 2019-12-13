@@ -26,8 +26,8 @@ class Wizard:
     def manaRegen(self):
         if self.mana < self.maxMana:
             self.mana += random.randrange(1, 4)
-            if self.mana > self.maxMana:
-                self.mana = self.maxMana
+        if self.mana > self.maxMana:
+            self.mana = self.maxMana
 
 
 #basic attack
@@ -35,6 +35,11 @@ class Wizard:
         hit = random.randrange(1, 21)
         dmg = 1 + random.randrange(1, 4)
         crit = dmg * 2
+
+        if self.maneuvered == True:
+            hit = random.randrange(10, 21)
+            self.maneuvered = False
+
         print("hit roll", hit)
 
         #mana regen
@@ -49,7 +54,6 @@ class Wizard:
         elif hit < 11:
             print("Your attack failed to damage the target...")
 
-        self.maneuvered = False
 
 
 #fireball spell
@@ -61,6 +65,7 @@ class Wizard:
 
         if self.maneuvered == True:
             hit = random.randrange(10, 21)
+            self.maneuvered = False
 
         print("hit roll", hit)
 
@@ -84,7 +89,6 @@ class Wizard:
             elif hit < 6:
                 print("Your attack failed to damage the target...")
 
-        self.maneuvered = False
 
 #gain information about your target
     def augury(self, target):
@@ -115,12 +119,14 @@ class Wizard:
         self.maneuvered = False
         adAtmp = random.randrange(1, 21)
 
+        #mana regen
+        self.manaRegen()
+
         if adAtmp > 10:
             self.maneuvered = True
-            print("Flame roils up you arm as you edge carefully around your oppenent, waiting for an opening. You have spotted a weakness to exploit...")
+            print("You edge carefully around your oppenent, arm held before you with fingers curled in a casting posture. Flame roils around your hand and up your arm, livid with the potency of your acane power held in abeyance, waiting for an opening. You have spotted a weakness!")
         elif adAtmp < 11:
-            print("You edge carefully around your oppenent and with a practiced eye search for weaknesses. You find none.")
-
+            print("You circle warily around your oppenent, searching for weaknesses with a preturnatural eye. You find none.")
 
 
 #rogue class
@@ -129,24 +135,31 @@ class Rogue:
     health = 0
     focus = 0
     maxFocus = 0
+    maneuvered = False
 
     def __init__(self, me, hp, fc):
         self.name = me 
         self.health = hp + random.randrange(10, 21)
         self.focus = fc
         self.maxFocus = self.focus
+        self.maneuvered = False
 
     def focusRegen(self):
         if self.focus < self.maxFocus:
             self.focus += random.randrange(2, 5)
-            if self.focus > self.maxFocus:
-                self.focus = self.maxFocus
+        if self.focus > self.maxFocus:
+            self.focus = self.maxFocus
 
 #basic attack
     def melee(self, target):
         hit = random.randrange(1, 21)
         dmg = 2 + random.randrange(2, 5)
         crit = dmg * 2
+
+        if self.maneuvered == True:
+            hit = random.randrange(10, 21)
+            self.maneuvered = False
+
         print("hit roll", hit)
 
         #focus regen
@@ -166,6 +179,11 @@ class Rogue:
         hit = random.randrange(1, 21)
         dmg = random.randrange(8, 13)
         crit = math.floor(dmg * 2)
+
+        if self.maneuvered == True:
+            hit = random.randrange(10, 21)
+            self.maneuvered = False
+
         print("hit roll", hit)
 
         #focus regen
@@ -186,6 +204,7 @@ class Rogue:
             elif hit < 6:
                 print("Your attack failed to damage the target...")
 
+
     def shadowStrike(self, target):
         #focus regen
         self.focusRegen()
@@ -202,10 +221,24 @@ class Rogue:
             elif self.focus <= 20:
                 self.melee(target)
 
+# check if the player is dead and end game if true
     def deathCheck(self):
         if self.health <= 0:
             print(f"Your eyes go wide a well placed thrust from your foe sends the point of its jagged blade beneath your guard and between your ribs. You fall to the ground, weapons clattering on the ancient flagstones, lifeblood flowing in a widening pool around you. All your careful planning, all your stealth and skill, none of it prepared you for the creeping darkness of this place. Someone may yet plumb its depths and turn out its secrets but it will not be you. Die well, {self.name}.")
             exit("**********Game Over**********")
+
+    def maneuver(self):
+        self.maneuvered = False
+        adAtmp = random.randrange(1, 21)
+
+        #focus regen
+        self.focusRegen()
+
+        if adAtmp > 10:
+            self.maneuvered = True
+            print("Crouching low with daggers held before you in a dueling posture, you edge closer to your foe. Shadow flows around you as your gather yourself for a precision strike. You have spotted a weakness!")
+        elif adAtmp < 11:
+            print("You circle your foe warily, observing as much as you can about your target, searching for a weakness. You find none.")
 
 #barbarian class
 class Barbarian:       
@@ -213,12 +246,14 @@ class Barbarian:
     health = 0
     rage = 0
     maxRage = 0
+    maneuvered = False
 
     def __init__(self, me, hp, rg):
         self.name = me 
         self.health = hp + random.randrange(20, 31)
         self.maxRage = rg + random.randrange(10, 21)
         self.rage = 0
+        self.maneuvered = False
 
     def rageGen(self):
          hMRG = random.randrange(5, 8)
@@ -234,6 +269,10 @@ class Barbarian:
         dmg = 2 + random.randrange(3, 6)
         crit = dmg * 2
 
+        if self.maneuvered == True:
+            hit = random.randrange(10, 21)
+            self.maneuvered = False
+
         #focus regen
         self.rageGen()
 
@@ -246,12 +285,18 @@ class Barbarian:
         elif hit < 6:
             print("Your attack failed to damage the target...")
 
+
 # spends rage for extra dmg at a 3rg/1dmg ratio
     def savageBlow(self, target):
         hit = random.randrange(1, 21)
         dmg = math.floor(random.randrange(9, 14) + (self.rage / 3))
         crit = dmg * 2
         self.rage = 0
+
+        if self.maneuvered == True:
+            hit = random.randrange(10, 21)
+            self.maneuvered = False
+
         print("hit roll", hit)
         print(dmg)
            
@@ -268,6 +313,10 @@ class Barbarian:
     def mortalStrike(self, target):
         dmg = 6 + random.randrange(6, 9)
 
+        if self.maneuvered == True:
+            dmg = 9 + random.randrange(7, 10)
+            self.maneuvered = False
+
         if self.rage < 50:
             print("Insufficient rage!")
             return
@@ -279,7 +328,18 @@ class Barbarian:
             elif target.health > math.floor(target.maxHealth / 3):
                 target.health -= dmg
 
+# check if the player is dead and end game if true
     def deathCheck(self):
         if self.health <= 0:
             print(f"You fall heavily to your knees and your weapon slips from numb fingers to clatter against the ancient flagstones. Your strength is broken. Your vision blurs and your rage fades to nothing, leaving you empty. Your enemies surround you, dark silhouettes backlit by the guttering light of your fallen torch. Someone may yet lay bare the mystery of this place but it will not be you. Die well, {self.name}.")
             exit("**********Game Over**********")   
+
+    def maneuver(self):
+        self.maneuvered = False
+        adAtmp = random.randrange(1, 21)
+
+        if adAtmp > 10:
+            self.maneuvered = True
+            print("Loosing a feral snarl, you prepare to rush forward and bring your weapon down upon your hapless foe with the precision born of your brutal skill. You have spotted a weakness!")
+        elif adAtmp < 11:
+            print("Your weapon poised wardlingly in front of you, you circle your oppenent searching for a weakness. You find none.")
