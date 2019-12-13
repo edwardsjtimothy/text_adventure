@@ -182,6 +182,10 @@ class Rogue:
             hit = random.randrange(10, 21)
             self.maneuvered = False
 
+        if self.shaStk == True:
+            hit = 20
+            crit = math.floor(dmg * 3)
+            self.shaStk = False
         print("hit roll", hit)
 
         #focus regen
@@ -199,16 +203,19 @@ class Rogue:
 #main ability with high crit dmg
     def punchingStab(self, target):
         hit = random.randrange(1, 21)
-        dmg = random.randrange(8, 13)
+        dmg = 5 + random.randrange(8, 13)
         crit = math.floor(dmg * 2)
 
-        if self.shaStk == True:
-            crit = math.floor(dmg * 3)
-            self.shaStk == False
 
         if self.maneuvered == True:
             hit = random.randrange(10, 21)
             self.maneuvered = False
+
+        if self.shaStk == True:
+            hit = 20
+            crit = math.floor(dmg * 3)
+            self.shaStk = False
+
 
         print("hit roll", hit)
 
@@ -242,10 +249,11 @@ class Rogue:
         elif self.focus >= 60:
             self.focus -= 60
             self.shaStk = True
-            print("Wisps of shadow flow about you, obscuring your second strike from the enemy!")
             if self.focus >= 20:
+                print("Wisps of shadow flow about you, obscuring your second Punching Stab from the enemy!")
                 self.punchingStab(target)
             elif self.focus <= 20:
+                print("Wisps of shadow flow about you, obscuring your second Melee attack from the enemy!")
                 self.melee(target)
 
 # check if the player is dead and end game if true
@@ -363,7 +371,7 @@ class Barbarian:
                 print("Your weapon cleaves through the air in a vicious arc; your enemy withers beneath the strength of your blow.")
             elif target.health > math.floor(target.maxHealth / 3):
                 target.health -= dmg
-                print(f"Your weapon cleaves there the air in a vicious arc; your oppenent deflects the strike and stumbles back, avoiding the worst of the damage. You deal {dmg}!")
+                print(f"Your weapon cleaves through the air in a vicious arc; your oppenent deflects the strike and stumbles back, avoiding the worst of the damage. You deal {dmg} damage!")
 
 # check if the player is dead and end game if true
     def deathCheck(self):

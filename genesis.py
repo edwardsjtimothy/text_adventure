@@ -88,6 +88,7 @@ def wizEncounter(flavor, target):
     elif action == "B" or action == "b":
         wizard.maneuver()
         target.abilitySelect(wizard)
+        wizard.deathCheck()
     elif action == "C" or action == "c":
         print("retreat action")
     elif action == "D" or action == "d":
@@ -175,7 +176,7 @@ def barEncounter(flavor, target):
     elif action == "C" or action == "c":
         print("retreat action")
     elif action == "D" or action == "d":
-        rogue.pulseCheck()
+        barbarian.pulseCheck()
 
     if target.health > 0:
         barEncounter("Your foe still lives.", target)
