@@ -74,20 +74,24 @@ def wizEncounter(flavor, target):
                 C: Augury (15 mana)
             """)
         if action == "A" or action == "a":
+            target.maneuverCount = 0
             wizard.melee(target)
             target.abilitySelect(wizard)
             wizard.deathCheck()
         elif action == "B" or action == "b":
+            target.maneuverCount = 0
             wizard.fireball(target)
             target.abilitySelect(wizard)
             wizard.deathCheck()
         elif action == "C" or action == "c":
+            target.maneuverCount = 0
             wizard.augury(target) 
             target.abilitySelect(wizard)
             wizard.deathCheck()
     elif action == "B" or action == "b":
         wizard.maneuver()
         target.abilitySelect(wizard)
+        target.maneuverCount += 1
         wizard.deathCheck()
     elif action == "C" or action == "c":
         print("retreat action")

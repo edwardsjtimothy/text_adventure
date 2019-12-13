@@ -150,6 +150,8 @@ class Wizard:
             exit("**********Game Over**********")
 
     def maneuver(self):
+
+
         self.maneuvered = False
         adAtmp = random.randrange(1, 21)
 
@@ -161,6 +163,9 @@ class Wizard:
             print("You edge carefully around your oppenent, arm held before you with fingers curled in a casting posture. Flame roils around your hand and up your arm, livid with the potency of your acane power held in abeyance. You wait for an opening. You have spotted a weakness!")
         elif adAtmp < 11:
             print("You circle warily around your oppenent, searching for weaknesses with a preturnatural eye. You find none.")
+
+
+
 
 
 #rogue class

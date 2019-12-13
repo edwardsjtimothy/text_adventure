@@ -7,6 +7,7 @@ class Skeleton:
     maxHealth: 0
     stamina: 0
     maxStamina: 0
+    manueverCount: 0
 
     def __init__(self, me, hp, st):
         self.name = me 
@@ -14,6 +15,7 @@ class Skeleton:
         self.maxHealth = self.health
         self.stamina = st + random.randrange(5, 10)
         self.maxStamina = self.stamina
+        self.maneuverCount = 0
 
     def staminaRegen(self):
         if self.stamina < self.maxStamina:
@@ -27,10 +29,26 @@ class Skeleton:
         dmg = 1 + random.randrange(1, 3)
         crit = dmg * 2
 
+# tracking consecutive uses of Maneuver and increasing damage liklihood and output for each consecutive use.
+        if self.maneuverCount >= 4:
+            self.maneuverCount = 3
+        if self.maneuverCount == 1: 
+            self.stamina += 15
+            hit = random.randrange(16, 21)
+            dmg = 5 + random.randrange(1, 3)
+        elif self.maneuverCount == 2:
+            self.stamina += 15
+            hit = random.randrange(18, 21)
+            dmg = 10 + random.randrange(5, 10)
+        elif self.maneuverCount == 3:
+            self.stamina += 15
+            hit = 20
+            dmg = 10 + random.randrange(15, 25)
+
         #stamina regen
         self.staminaRegen()
 
-        if hit > 12:
+        if 12 < hit < 19:
             target.health -= dmg
             print(f"You took {dmg} damage!")
         elif hit == 20: 
@@ -44,24 +62,40 @@ class Skeleton:
         hit = random.randrange(1, 21)
         dmg = 2 + random.randrange(2, 4)
         crit = dmg * 2
+        
+# tracking consecutive uses of Maneuver and increasing damage liklihood and output for each consecutive use.
+        if self.maneuverCount >= 4:
+            self.maneuverCount = 3
+        if self.maneuverCount == 1: 
+            self.stamina += 15
+            hit = random.randrange(16, 21)
+            dmg = 5 + random.randrange(1, 3)
+        elif self.maneuverCount == 2:
+            self.stamina += 15
+            hit = random.randrange(18, 21)
+            dmg = 10 + random.randrange(5, 10)
+        elif self.maneuverCount == 3:
+            self.stamina += 15
+            hit = 20
+            dmg = 10 + random.randrange(15, 25)
 
         #stamina regen
         self.staminaRegen()
+
 
         if self.stamina < 15:
             print("Your foe is too exhausted to attack!")
             return
         elif self.stamina >= 15:
             self.stamina -= 15
-
-        if hit > 15:
-            target.health -= dmg
-            print(f"You took {dmg} damage!")
-        elif hit == 20: 
-            target.health -= crit
-            print(f"Critical strike! You took {dmg} damage!")
-        elif hit < 16:
-            print("Your enemy's attack missed!")
+            if hit > 15:
+                target.health -= dmg
+                print(f"You took {dmg} damage!")
+            elif hit == 20: 
+                target.health -= crit
+                print(f"Critical strike! You took {dmg} damage!")
+            elif hit < 16:
+                print("Your enemy's attack missed!")
 
 #chance at collapsing at low health
     def collapse(self):
