@@ -4,7 +4,7 @@ from creatures.adventurers import Wizard, Rogue, Barbarian
 
 #character name function 
 def name():
-    print("************What is your name, traveller?***********")
+    print("            ************What is your name, traveller?************            ")
     global name
     name = input()
     print("Hello, " + name)
@@ -12,7 +12,7 @@ def name():
 #main menu function
 def main():
     name()
-    print("**********Choose your Class**********")
+    print("            ************Choose your Class************            ")
     choice = input("""
         A: Wizard
         B: Rogue
