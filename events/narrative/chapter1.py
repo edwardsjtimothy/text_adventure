@@ -11,6 +11,15 @@ def descent():
     Descending in to darkness
     
     """)
+    choice = input(""" 
+        A: Look at the roof.
+        B: Reach the bottom.
+    """)
 
-    
+    if choice == "A" or "a":
+        print(" Describe frescos on dome")
+    elif choice == "B" or "b":
+        print(" Describe landing.")
+
+
 
