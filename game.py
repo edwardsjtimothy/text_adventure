@@ -6,4 +6,5 @@ from events.narrative.chapter1 import *
 
 exposition()
 main()
-wizEncounter("An enemy approaches...", targetDummy)
+
+

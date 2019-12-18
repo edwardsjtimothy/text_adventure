@@ -5,5 +5,13 @@ Text adventure RPG built in Python
 **Development Goals**
 
 1. refactor combat functions in adventurers.py into one class agnostic function
-2. contain maneuver check in enemy constructor in a function so that the same block of code isn't repeated. 
-    a. better understand Python variable scoping
+*Complete* 2. contain maneuver check in enemy constructor in a function so that the same block of code isn't repeated. 
+    *Complete* a. better understand Python variable scoping
+3. Function to determine if player encounters random enemy while moving through the narrative. 
+4. Function to manage player health regeneration out of while out of combat.
+    a. Develop a way for system to recognize and punish attempts to catalyze faster regeneration by switching back and forth between menus.
+5. Inventory and loot system
+    a. Inventory menu 
+    b. loot tables with constructors to generate items
+    c. Items that impart bonuses to player or act on the player in some way.
+
