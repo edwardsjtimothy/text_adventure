@@ -31,6 +31,7 @@ def descent():
         print(" Describe frescos on dome")
         descent()
     elif choice == "B" or "b":
+        print("landing")
         landing()
 
 
