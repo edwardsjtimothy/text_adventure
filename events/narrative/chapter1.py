@@ -1,5 +1,6 @@
 # importing for random number generation
 import random
+from events.genesis import errHandle
 
 # function to determine likelihood of random combat encounter
 def ambush():
@@ -33,6 +34,8 @@ def descent():
     elif choice == "B" or choice == "b":
         print("landing")
         landing()
+    else:
+        errHandle(descent())
 
 
 
@@ -54,6 +57,19 @@ def landing():
         print("head west")
     elif choice == "C" or choice == "c":
         print("head east")
+    else:
+        print("                                                                  **********Please choose from the following options**********")
+
+
+# def headingWest():
+#     print("Do you bring your torch?")
+#     choice = input("""
+#         A: Yes
+#         B: No
+#     """)
+
+#     if choice 
+
     
 
 

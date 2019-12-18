@@ -57,13 +57,14 @@ def main():
                 ||Max Rage: {barbarian.rage} ||
             """)
         else:
-            print("                                                                  **********Please choose from the following options**********")
-            charChoice()
+            errHandle(charChoice())
     charChoice()
 
 
 
-
+def errHandle(fnc):
+    print("                                                                  **********Please choose from the following options**********")
+    fnc
 
 
 
