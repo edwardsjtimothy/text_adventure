@@ -57,7 +57,7 @@ def main():
                 ||Max Rage: {barbarian.rage} ||
             """)
         else:
-            print("please choose from the following options")
+            print("                                                                  **********Please choose from the following options**********")
             charChoice()
     charChoice()
 

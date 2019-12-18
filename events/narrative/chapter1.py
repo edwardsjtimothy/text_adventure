@@ -18,19 +18,19 @@ def exposition():
 # entering dungeon
 def descent():
     print(""" 
-    
+    ****************************************************************************************************************************************************************************************
     Descending in to darkness
-    
+    ****************************************************************************************************************************************************************************************
     """)
+
     choice = input(""" 
         A: Look at the roof.
         B: Reach the bottom.
     """)
-
-    if choice == "A" or "a":
+    if choice == "A" or choice == "a":
         print(" Describe frescos on dome")
         descent()
-    elif choice == "B" or "b":
+    elif choice == "B" or choice == "b":
         print("landing")
         landing()
 
@@ -39,20 +39,20 @@ def descent():
 
 def landing():
     print(""" 
-    
+    *****************************************************************************************************************************************************************************************
     Sandy bottom near dropped torch. Scuffles in the sand lead away to the west. Can see markings on floor where sand is disturbed. Sand is smooth and flat to the east. 
-    
+    *****************************************************************************************************************************************************************************************
     """)
     choice = input(""" 
         A: Investigate floor.
         B: Head west.
         C: Head east. 
         """)
-    if choice == "A" or "a":
+    if choice == "A" or choice == "a":
         print("Describe carvings on floor.")
-    elif choice == "B" or "b":
+    elif choice == "B" or choice == "b":
         print("head west")
-    elif choice == "C" or "c":
+    elif choice == "C" or choice == "c":
         print("head east")
     
 
