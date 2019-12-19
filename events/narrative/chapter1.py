@@ -1,13 +1,11 @@
 # importing for random number generation
 import random
 from events.genesis import errHandle
-from events.combat import whoAmI
-
-whoAmI()
 
 # function to determine likelihood of random combat encounter
 def ambush():
     amAmbushed = random.randrange(1,21)
+
 
 
 def exposition():
