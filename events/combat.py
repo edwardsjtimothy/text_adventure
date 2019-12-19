@@ -1,4 +1,15 @@
 import random
+from events.genesis import isWiz, isRog, isBar
+
+
+def whoAmI():
+    global playerChar
+    if isWiz == True:
+        playerChar = wizEncounter
+    if isRog == True:
+        playerChar = rogEncounter
+    if isBar == True:
+        playerChar = barEncounter
 
 #wizard combat encounter
 def wizEncounter(flavor, target):
@@ -186,3 +197,7 @@ def barEncounter(flavor, target):
     elif target.health <= 0:
         print("Your enemy is slain!")
         barbarian.pulseCheck()
+
+
+
+ 

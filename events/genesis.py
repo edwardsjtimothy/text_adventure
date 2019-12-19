@@ -2,6 +2,10 @@
 import random
 from creatures.adventurers import Wizard, Rogue, Barbarian
 
+isWiz = False
+isRog = False
+isBar = False
+
 
 #main menu function
 def main():
@@ -30,6 +34,7 @@ def main():
                 ||Health: {wizard.health} ||
                 ||Mana: {wizard.mana}     ||
             """)
+            isWiz = True
         # b builds a rogue object 
         elif choice == "B" or choice =="b":
             print("""
@@ -43,6 +48,7 @@ def main():
                 ||Health: {rogue.health} ||
                 ||Focus: {rogue.focus}   ||
             """)
+            isRog = True
         # c builds a barbarian object 
         elif choice == "C" or choice =="c":             
             print("""
@@ -56,6 +62,7 @@ def main():
                 ||Health: {barbarian.health} ||
                 ||Max Rage: {barbarian.rage} ||
             """)
+            isBar = True
         else:
             errHandle(charChoice())
     charChoice()
@@ -65,6 +72,8 @@ def main():
 def errHandle(fnc):
     print("                                                                  **********Please choose from the following options**********")
     fnc
+
+
 
 
 

@@ -1,11 +1,14 @@
 # importing for random number generation
 import random
 from events.genesis import errHandle
+from events.combat import whoAmI
+
+whoAmI()
 
 # function to determine likelihood of random combat encounter
 def ambush():
     amAmbushed = random.randrange(1,21)
-    print(amAmbushed)
+
 
 def exposition():
     print("""
@@ -20,7 +23,7 @@ def exposition():
 def descent():
     print(""" 
     ****************************************************************************************************************************************************************************************
-    Descending in to darkness
+    Descending into darkness
     ****************************************************************************************************************************************************************************************
     """)
 
@@ -58,17 +61,11 @@ def landing():
     elif choice == "C" or choice == "c":
         print("head east")
     else:
-        print("                                                                  **********Please choose from the following options**********")
+       errHandle(landing( ))
 
 
-# def headingWest():
-#     print("Do you bring your torch?")
-#     choice = input("""
-#         A: Yes
-#         B: No
-#     """)
-
-#     if choice 
+def headingWest():
+    print("Describe path west.")
 
     
 
