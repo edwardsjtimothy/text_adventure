@@ -36,7 +36,7 @@ def descent():
         print("landing")
         landing()
     else:
-        errHandle(descent())
+        errHandle(descent)
 
 
 
@@ -59,11 +59,28 @@ def landing():
     elif choice == "C" or choice == "c":
         print("head east")
     else:
-       errHandle(landing( ))
-
+       errHandle(landing)
 
 def headingWest():
-    print("Describe path west.")
+    print("""
+    *****************************************************************************************************************************************************************************************
+    Describe path west and scene at entry to West Wing. Remains of a ill-fated expeditionary party. Describe cavernous entry to west wing.  
+    *****************************************************************************************************************************************************************************************
+    """)
+    choice = input(""" 
+        A: Investigate remains.
+        B: Enter West Wing.
+        C: Return to landing.
+                    """)
+    if choice == "A" or choice == "a":
+        print("Describe remains")
+    elif choice == "B" or choice == "b":
+        print("head west")
+    elif choice == "C" or choice == "c":
+        print("You return to landing.")
+        landing()
+    else:
+       errHandle(headingWest)
 
     
 
