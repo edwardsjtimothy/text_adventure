@@ -2,12 +2,6 @@
 import random
 from miscellaneous.misc import errHandle
 
-# function to determine likelihood of random combat encounter
-def ambush():
-    amAmbushed = random.randrange(1,21)
-
-
-
 def exposition():
     print("""
 

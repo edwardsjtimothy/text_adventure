@@ -7,5 +7,4 @@ from events.narrative.chapter1 import *
 exposition()
 main()
 # descent()
-wizEncounter("An enemy approaches...", targetDummy)
 

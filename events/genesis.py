@@ -3,6 +3,10 @@ import random
 from creatures.adventurers import Wizard, Rogue, Barbarian
 from miscellaneous.misc import errHandle
 
+isWiz = False
+isRog = False
+isBar = False
+
 #main menu function
 def main():
     print("                                                                       ************What is your name, traveller?************")
@@ -30,6 +34,8 @@ def main():
                 ||Health: {wizard.health} ||
                 ||Mana: {wizard.mana}     ||
             """)
+            global isWiz
+            isWiz = True
         # b builds a rogue object 
         elif choice == "B" or choice =="b":
             print("""
@@ -43,6 +49,8 @@ def main():
                 ||Health: {rogue.health} ||
                 ||Focus: {rogue.focus}   ||
             """)
+            global isRog
+            isRog = True
         # c builds a barbarian object 
         elif choice == "C" or choice =="c":             
             print("""
@@ -56,9 +64,24 @@ def main():
                 ||Health: {barbarian.health} ||
                 ||Max Rage: {barbarian.rage} ||
             """)
+            global isBar
+            isBar = True
         else:
             errHandle(charChoice)
     charChoice()
+
+    # function to determine likelihood of random combat encounter
+def ambush():
+    if isWiz:
+        print("Wizard")
+    elif isRog:
+        print("Rogue")
+    elif isBar:
+        print("Barbarian")
+
+
+    # amAmbushed = random.randrange(1,21)
+
 
 
 
