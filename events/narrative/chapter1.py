@@ -1,6 +1,6 @@
 # importing for random number generation
 import random
-from events.genesis import errHandle
+from miscellaneous.misc import errHandle
 
 # function to determine likelihood of random combat encounter
 def ambush():

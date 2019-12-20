@@ -14,4 +14,9 @@ Text adventure RPG built in Python
     a. Inventory menu 
     b. loot tables with constructors to generate items
     c. Items that impart bonuses to player or act on the player in some way.
+6. Define retreat function
+7. Complete Chapter 1 narrative
+    a. Landing
+    b. West Wing
+    c. East Wing 
 

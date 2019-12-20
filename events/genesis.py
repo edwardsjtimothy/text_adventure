@@ -1,6 +1,7 @@
 #importing creature constructor function
 import random
 from creatures.adventurers import Wizard, Rogue, Barbarian
+from miscellaneous.misc import errHandle
 
 #main menu function
 def main():
@@ -60,10 +61,6 @@ def main():
     charChoice()
 
 
-
-def errHandle(fnc):
-    print("                                                                     **********Please choose from the following options**********")
-    fnc()
 
 
 
