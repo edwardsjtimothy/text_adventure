@@ -54,10 +54,13 @@ def landing():
         """)
     if choice == "A" or choice == "a":
         print("Describe carvings on floor.")
+        landing()
     elif choice == "B" or choice == "b":
         print("head west")
+        headingWest()
     elif choice == "C" or choice == "c":
         print("head east")
+        headingEast()
     else:
        errHandle(landing)
 
@@ -75,7 +78,28 @@ def headingWest():
     if choice == "A" or choice == "a":
         print("Describe remains")
     elif choice == "B" or choice == "b":
-        print("head west")
+        print("enter west wing")
+    elif choice == "C" or choice == "c":
+        print("You return to landing.")
+        landing()
+    else:
+       errHandle(headingWest)
+
+def headingEast():
+    print(""" 
+    *****************************************************************************************************************************************************************************************
+    Describe path east and scene closer to entry. Signs of a ancient battle. Pitted floor and walls. Cavernous entrance to East wing scarred.
+    *****************************************************************************************************************************************************************************************
+    """)
+    choice = input(""" 
+        A: Investigate battlefield.
+        B: Enter East Wing.
+        C: Return to landing.
+                    """)
+    if choice == "A" or choice == "a":
+        print("Describe battlefield")
+    elif choice == "B" or choice == "b":
+        print("enter east wing")
     elif choice == "C" or choice == "c":
         print("You return to landing.")
         landing()
