@@ -1,6 +1,6 @@
 # importing for random number generation
 import random
-from miscellaneous.misc import errHandle
+from misc import errHandle
 
 def exposition():
     print("""

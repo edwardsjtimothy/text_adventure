@@ -1,6 +1,6 @@
 import random
 
-from miscellaneous.misc import comErrHandle
+from misc import comErrHandle
 
 #wizard combat encounter
 def wizEncounter(flavor, target):
