@@ -1,6 +1,6 @@
 import random
 
-from miscellaneous.misc import errHandle
+from miscellaneous.misc import comErrHandle
 
 #wizard combat encounter
 def wizEncounter(flavor, target):
@@ -61,8 +61,8 @@ def wizEncounter(flavor, target):
     elif action == "D" or action == "d":
         wizard.pulseCheck()
     # error handling
-    # else: 
-    #     errHandle(wizEncounter)
+    else: 
+        comErrHandle(wizEncounter, "Your foe still lives", target)
 
     # check if target is dead. If not, encounter runs again. 
     if target.health > 0:
