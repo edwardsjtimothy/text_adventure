@@ -6,6 +6,7 @@ from events.narrative.chapter1 import *
 
 exposition()
 main()
+test()
 # descent()
-barEncounter("A foe approaches", targetDummy)
+# barEncounter("A foe approaches", targetDummy)
 

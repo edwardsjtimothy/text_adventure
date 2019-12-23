@@ -3,16 +3,16 @@ import random
 from creatures.adventurers import Wizard, Rogue, Barbarian
 from misc import errHandle
 
-# isWiz = False
-# isRog = False
-# isBar = False
+isWiz = False
+isRog = False
+isBar = False
 
 #main menu function
 def main():
     print("                                                                       ************What is your name, traveller?************")
     global name
     name = input()
-    if len(name) == 0:
+    if len(name) <= 0:
         print("Please enter a name...")
         main()
     else:
@@ -33,10 +33,11 @@ def main():
             """)
             global wizard
             wizard = Wizard(name, 10, 50)
+            isWiz = True
             print(f"""
-                ||Name: {wizard.name}     ||
+                ||Name: {wizard.name} ||
                 ||Health: {wizard.health} ||
-                ||Mana: {wizard.mana}     ||
+                ||Mana: {wizard.mana} ||
             """)
         # b builds a rogue object 
         elif choice == "B" or choice =="b":
@@ -46,10 +47,11 @@ def main():
             """)
             global rogue
             rogue = Rogue(name, 15, 100)
+            isRog = True
             print(f"""
-                ||Name: {rogue.name}     ||
+                ||Name: {rogue.name} ||
                 ||Health: {rogue.health} ||
-                ||Focus: {rogue.focus}   ||
+                ||Focus: {rogue.focus} ||
             """)
         # c builds a barbarian object 
         elif choice == "C" or choice =="c":             
@@ -59,8 +61,9 @@ def main():
             """)
             global barbarian
             barbarian = Barbarian(name, 20, 100)
+            isBar = True
             print(f"""
-                ||Name: {barbarian.name}     ||
+                ||Name: {barbarian.name} ||
                 ||Health: {barbarian.health} ||
                 ||Max Rage: {barbarian.rage} ||
             """)
@@ -70,8 +73,13 @@ def main():
 
     # function to determine likelihood of random combat encounter
 
-
-
+def test():
+    if isWiz == True:
+        print("wizard")
+    elif isRog == True:
+        print("rogue")
+    elif isBar == True:
+        print("barbarian")
     # amAmbushed = random.randrange(1,21)
 
 
