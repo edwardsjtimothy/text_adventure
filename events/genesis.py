@@ -1,7 +1,7 @@
 #importing creature constructor function
 import random
 from creatures.adventurers import Wizard, Rogue, Barbarian
-from miscellaneous.misc import errHandle
+from misc import errHandle
 
 isWiz = False
 isRog = False

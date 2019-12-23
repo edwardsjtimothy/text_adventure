@@ -1,7 +1,5 @@
 import random
 
-from misc import comErrHandle
-
 #wizard combat encounter
 def wizEncounter(flavor, target):
     from events.genesis import wizard
@@ -39,8 +37,11 @@ def wizEncounter(flavor, target):
             target.abilitySelect(wizard)
             wizard.deathCheck()
         # error handling
-        # else: 
-        #     errHandle(wizEncounter)
+        else: 
+            print("Please choose from the following options.")
+            wizEncounter("", target)
+
+
     # maneuver action, enemy attack, maneuver counter increment, check for player death
     elif action == "B" or action == "b":
         wizard.maneuver()
@@ -62,7 +63,9 @@ def wizEncounter(flavor, target):
         wizard.pulseCheck()
     # error handling
     else: 
-        comErrHandle(wizEncounter, "Your foe still lives", target)
+        print("Please choose from the following options.")
+        wizEncounter("", target)
+        
 
     # check if target is dead. If not, encounter runs again. 
     if target.health > 0:
@@ -108,8 +111,9 @@ def rogEncounter(flavor, target):
             # enemy does not get a chance to attack when rogue uses Shadow Strike
             rogue.deathCheck()
         # error handling
-        # else: 
-        #     errHandle(rogEncounter)
+        else:
+            print("Please choose from the following options.")
+            rogEncounter("", target)
     # maneuver action, enemy attack, maneuver counter increment, check for player death
     elif action == "B" or action == "b":
         rogue.maneuver()
@@ -130,8 +134,9 @@ def rogEncounter(flavor, target):
     elif action == "D" or action == "d":
         rogue.pulseCheck()
     # error handling
-    # else: 
-    #     errHandle(rogEncounter)
+    else:
+        print("Please choose from the following options.")
+        rogEncounter("", target)
 
     # check if target is dead. If not, encounter runs again.
     if target.health > 0:
@@ -175,8 +180,9 @@ def barEncounter(flavor, target):
             target.abilitySelect(barbarian)
             barbarian.deathCheck()
         # error handling
-        # else: 
-        #     errHandle(barEncounter)
+        else:
+            print("Please choose from the following options.")
+            barEncounter("", target)
      # maneuver action, enemy attack, maneuver counter increment, check for player death
     elif action == "B" or action == "b":
         barbarian.maneuver()
@@ -197,8 +203,9 @@ def barEncounter(flavor, target):
     elif action == "D" or action == "d":
         barbarian.pulseCheck()
     # error handling
-    # else: 
-    #     errHandle(barEncounter)
+    else:
+        print("Please choose from the following options.")
+        barEncounter("", target)
 
      # check if target is dead. If not, encounter runs again.
     if target.health > 0:
