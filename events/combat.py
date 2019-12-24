@@ -66,7 +66,6 @@ def wizEncounter(flavor, target):
         print("Please choose from the following options.")
         wizEncounter("", target)
         
-
     # check if target is dead. If not, encounter runs again. 
     if target.health > 0:
         wizEncounter("Your foe still lives.", target)
@@ -114,6 +113,7 @@ def rogEncounter(flavor, target):
         else:
             print("Please choose from the following options.")
             rogEncounter("", target)
+
     # maneuver action, enemy attack, maneuver counter increment, check for player death
     elif action == "B" or action == "b":
         rogue.maneuver()
@@ -183,6 +183,7 @@ def barEncounter(flavor, target):
         else:
             print("Please choose from the following options.")
             barEncounter("", target)
+            
      # maneuver action, enemy attack, maneuver counter increment, check for player death
     elif action == "B" or action == "b":
         barbarian.maneuver()
