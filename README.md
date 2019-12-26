@@ -7,7 +7,8 @@ Text adventure RPG built in Python
 1. refactor combat functions in adventurers.py into one class agnostic function
 *Complete* 2. contain maneuver check in enemy constructor in a function so that the same block of code isn't repeated. 
     *Complete* a. better understand Python variable scoping
-3. Function to determine if player encounters random enemy while moving through the narrative. 
+*Complete* 3. Function to determine if player encounters random enemy while moving through the narrative. 
+    a. build way to increase likelihood of ambush if player is menu jumping excessively
 4. Function to manage player health regeneration out of while out of combat.
     a. Develop a way for system to recognize and punish attempts to catalyze faster regeneration by switching back and forth between menus.
 5. Inventory and loot system

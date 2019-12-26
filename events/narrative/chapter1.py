@@ -100,6 +100,31 @@ def headingEast():
     else:
        errHandle(headingWest)
 
+def westWingEntrance():
+    print(""" 
+    ******************************************************************************************************************************************************************************************
+    Entering west wing. Describe colonnaded passage, hundreds of feet high. Intricately carved. Sandy floor. Can move into the colonnade on the left and travel along the wall. Can do the same on the right. Can move down the middle. 
+    ******************************************************************************************************************************************************************************************
+    """)
+    choice = input("""
+        A: Move along right wall.
+        B: Move along left wall.
+        C: Move down middle.
+        D: Return to central chamber.
+    """)
+    if choice == "A" or choice == "a":
+        print("Describe path along left.")
+    elif choice == "B" or choice == "b":
+        print("Describe path along right")
+    elif choice == "C" or choice == "c":
+        print("Describe path down middle.")
+    elif choice == "D" or choice == "d":
+        print("Return to central chamber.")
+        headingWest()
+
+    else:
+       errHandle(westWingEntrance)
+
     
 
 
