@@ -64,7 +64,6 @@ def main():
             errHandle(charChoice)
     charChoice()
 
-    # function to determine likelihood of random combat encounter
 
 
 

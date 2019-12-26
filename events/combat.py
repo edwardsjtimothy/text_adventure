@@ -216,5 +216,13 @@ def barEncounter(flavor, target):
         barbarian.pulseCheck()
 
 
+def ambush(low,high):
+    ambushed = random.randrange(low,high)
+    if ambushed > 15:
+        print("combat")
+    else:
+        print("no combat")
+
+
 
  
