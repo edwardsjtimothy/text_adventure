@@ -32,8 +32,7 @@ def descent():
     else:
         errHandle(descent)
 
-
-
+#central chamber
 
 def landing():
     print(""" 
@@ -71,8 +70,9 @@ def headingWest():
                     """)
     if choice == "A" or choice == "a":
         print("Describe remains")
+        headingWest()
     elif choice == "B" or choice == "b":
-        print("enter west wing")
+        westWingEntrance()
     elif choice == "C" or choice == "c":
         print("You return to landing.")
         landing()
@@ -92,13 +92,16 @@ def headingEast():
                     """)
     if choice == "A" or choice == "a":
         print("Describe battlefield")
+        headingEast()
     elif choice == "B" or choice == "b":
-        print("enter east wing")
+        eastWingEntrance()
     elif choice == "C" or choice == "c":
         print("You return to landing.")
         landing()
     else:
-       errHandle(headingWest)
+       errHandle(headingEast)
+
+# westwing 
 
 def westWingEntrance():
     print(""" 
@@ -121,11 +124,36 @@ def westWingEntrance():
     elif choice == "D" or choice == "d":
         print("Return to central chamber.")
         headingWest()
-
     else:
        errHandle(westWingEntrance)
 
-    
+# eastwing 
+
+def eastWingEntrance():
+    print(""" 
+    ******************************************************************************************************************************************************************************************
+    Entering east wing. Describe colonnaded passage, hundreds of feet high. Intricately carved. Sandy floor. Can move into the colonnade on the left and travel along the wall. Can do the same on the right. Can move down the middle. 
+    ******************************************************************************************************************************************************************************************
+    """)
+    choice = input("""
+        A: Move along right wall.
+        B: Move along left wall.
+        C: Move down middle.
+        D: Return to central chamber.
+    """)
+    if choice == "A" or choice == "a":
+        print("Describe path along left.")
+    elif choice == "B" or choice == "b":
+        print("Describe path along right")
+    elif choice == "C" or choice == "c":
+        print("Describe path down middle.")
+    elif choice == "D" or choice == "d":
+        print("Return to central chamber.")
+        headingEast()
+    else:
+       errHandle(eastWingEntrance)
+
+
 
 
 
