@@ -1,12 +1,12 @@
 from events.genesis import *
 from events.combat import *
 from creatures.monsters import *
-from events.narrative.chapter1 import *
+from events.narrative.chapter1 import descent
 
 
-exposition()
 main()
+
+# chapter one 
 descent()
-# barEncounter("A foe approaches", targetDummy)
 
 
