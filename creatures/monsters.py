@@ -51,7 +51,7 @@ class Skeleton:
         self.dmg = 1 + random.randrange(1, 3)
         self.crit = self.dmg * 2
 
-# tracking consecutive uses of Maneuver and increasing damage liklihood and output for each consecutive use.
+# tracking consecutive uses of Maneuver and increasing damage likelihood and output for each consecutive use.
         self.maneuverTracker()
 
         #stamina regen
@@ -72,7 +72,7 @@ class Skeleton:
         self.dmg = 2 + random.randrange(2, 4)
         self.crit = self.dmg * 2
         
-# tracking consecutive uses of Maneuver and increasing damage liklihood and output for each consecutive use.
+# tracking consecutive uses of Maneuver and increasing damage likelihood and output for each consecutive use.
         self.maneuverTracker()
 
         #stamina regen
@@ -111,12 +111,6 @@ class Skeleton:
             self.lumberingStrike(target)
         elif whichAbility == 6:
             self.collapse()
-
-
-
-
-
-
 
 ancientSkeleton = Skeleton("Ancient Skeleton", 5, 10)
 crumblingSkeleton = Skeleton("Crumbling Skeleton", 3, 7)
