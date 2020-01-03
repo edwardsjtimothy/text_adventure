@@ -112,7 +112,6 @@ class Skeleton:
         elif whichAbility == 6:
             self.collapse()
 
-
 ancientSkeleton = Skeleton("Ancient Skeleton", 5, 10)
 crumblingSkeleton = Skeleton("Crumbling Skeleton", 3, 7)
 giantSkeleton = Skeleton("Giant Skeleton", 10, 12)
