@@ -15,7 +15,7 @@ def descent():
         B: Reach the bottom.
     """)
     if choice == "A" or choice == "a":
-        print(" Describe frescos on dome")
+        print("The ceiling of the dome around the hole is barely visible in the ebbing light of your decent.")
         descent()
     elif choice == "B" or choice == "b":
         print("landing")
