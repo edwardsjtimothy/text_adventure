@@ -11,7 +11,13 @@ class Wizardloot:
     weaponNames = {
         first: ["The", "Garblov's", "Paracelsus'"],
         second: ["Staff", "Dagger", "Blade", "Anthame", "Wand", "Shillelagh"],
-        third: ["of Unbridled Power", "of Insidious Force", ", Wizard's Bane", "Death", "of Terrible Laughter", "Creeping Darkness", "Divine Radiance", "Thunderous Retort", "of the Unknown Frontier", "of Adamantine Will"]
+        third: ["of Unbridled Power", "of Insidious Force", ", Wizard's Bane", "of Death", "of Terrible Laughter", "Creeping Darkness", "Divine Radiance", "Thunderous Retort", "of the Unknown Frontier", "of Adamantine Will"]
+    }
+
+    armorNames = {
+        first: ["The", "Roughspun", "Common", "Uncanny", "Master-crafted", "Artisan", "Mythical", "Scholar's", "Explorer's", "Holy", "Accursed", "Clinging", "Snug", "Chaffing", "Tailored", "Nobleman's", "Aristocrat's", "Royal", "Emperor's", "Emperesses's", "Novice's", "Initiate's"],
+        second: ["Robe", "Vest", "Gloves", "Pants", "Boots", "Slippers", "Crown", "Headdress", "Belt", "Cord" ],
+        third: ["Restful Repose", "Winter Nights"]
     }
     consumable: False
     weapon: False
