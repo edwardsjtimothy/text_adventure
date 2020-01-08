@@ -6,7 +6,7 @@ from misc import errHandle
 def descent():
     print(""" 
     ****************************************************************************************************************************************************************************************
-    You fall swiftly through the gap and slow almost at once as the harness takes your weight, its invisible tether anchored securely to the piton you hammered home above. The light of the dying sun recedes slowly away above you as the opening in the roof grows smaller with your descent. You can just makeout something of the inside of the massive dome's ceiling in the rudy glow. You descend farther and farther into the vast darkness.
+    After plummetting through the gap, your fall at once slows to the rate of a falling feather as the harness takes your weight, its invisible tether anchored securely to the piton you hammered home above. The light of the dying sun recedes slowly away above you as the opening in the roof grows smaller with your descent. You can just makeout something of the inside of the massive dome's ceiling in the rudy glow. You descend farther and farther into the vast darkness.
     ****************************************************************************************************************************************************************************************
     """)
 
@@ -15,10 +15,10 @@ def descent():
         B: Reach the bottom.
     """)
     if choice == "A" or choice == "a":
-        print("The ceiling of the dome around the hole is barely visible in the ebbing light of your decent.")
+        print("The ceiling of the dome recedes slowly away from you as you drift down to the floor. What you can see of the ceiling is covered in vibrant mosaics, the subjects of which are too large to make out and stretch away into impenetrable darkness.")
         descent()
     elif choice == "B" or choice == "b":
-        print("landing")
+        print("You reach the ground after a ")
         landing()
     else:
         errHandle(descent)
