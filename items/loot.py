@@ -5,20 +5,15 @@ import random
 class Loot:
     wizLoot = {
         common: {
-            consumable: {
-                first: [],
-                second: [],
-                third: [],
+            consNames: {
+                first: ["Minor Potion of ", "Minor Salve of ", "Minor Tincture of ", "Minor Draught of "],
+                second: ["Common", "Base", "Unremarkable", "Limited", "Lilliputian" ],
             },
-            weapon: {
-                first: [],
-                second: [],
-                third: [],
+            wepNames: {
+                first: ["Shepard's ", "Watchman's ", "Initiate's ", "Novice's ", "Training ", "Rough ", "Unfinished ", "Shoddy ", "Bent ", "Broken ", "Unremarkable "],
             },
-            armor: {
-                first: [],
-                second: [],
-                third: [],
+            armNames: {
+                first: ["Shepard's ", "Initiate's ", "Novice's ", "Training ", "Rough ", "Unfinished ", "Shoddy ", "Bent ", "Broken ", "Unremarkable ", "Plain", "Roughspun", "Threadbare", "Linen", "Woollen", "Moth-eaten ", "Moldy ", "Mildewed ", "Sweaty "],
             }
 
         },
@@ -26,19 +21,16 @@ class Loot:
 
         rare: {
                 consumable: {
-                    first: [],
+                    first: ["Potion of ", "Salve of ", "Tincture of ", "Draught of "],
                     second: [],
-                    third: [],
                 },
                 weapon: {
                     first: [],
                     second: [],
-                    third: [],
                 },
                 armor: {
                     first: [],
                     second: [],
-                    third: [],
                 }
 
             },
@@ -60,7 +52,11 @@ class Loot:
                 third: [],
             }
 
-        }
+        },
+
+        potType: ["Healing", "Magical Force", "Mana Regeneration"],
+        wepType: ["Staff", "Dagger", "Blade", "Anthame", "Wand", "Shillelagh", "Poniard", "Shiv", "Rod", "Club"],
+        armType: ["Robe", "Vest", "Gloves", "Pants", "Boots", "Slippers", "Crown", "Headdress", "Belt", "Cord", "Headband", "Shirt", "Kimono", "Sandals"],
     },
 
     rogLoot = {
