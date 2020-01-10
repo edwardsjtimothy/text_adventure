@@ -7,13 +7,13 @@ class Loot:
         common: {
             consNames: {
                 first: ["Minor Potion of ", "Minor Salve of ", "Minor Tincture of ", "Minor Draught of "],
-                second: ["Common", "Base", "Unremarkable", "Limited", "Lilliputian" ],
+                second: ["Common ", "Base ", "Unremarkable ", "Limited ", "Lilliputian " ],
             },
             wepNames: {
-                first: ["Shepard's ", "Watchman's ", "Initiate's ", "Novice's ", "Training ", "Rough ", "Unfinished ", "Shoddy ", "Bent ", "Broken ", "Unremarkable "],
+                first: ["Shepard's ", "Watchman's ", "Initiate's ", "Novice's ", "Training ", "Rough ", "Unfinished ", "Shoddy ", "Bent ", "Broken ", "Unremarkable ", "Hermit's "],
             },
             armNames: {
-                first: ["Shepard's ", "Initiate's ", "Novice's ", "Training ", "Rough ", "Unfinished ", "Shoddy ", "Bent ", "Broken ", "Unremarkable ", "Plain", "Roughspun", "Threadbare", "Linen", "Woollen", "Moth-eaten ", "Moldy ", "Mildewed ", "Sweaty "],
+                first: ["Shepard's ", "Initiate's ", "Novice's ", "Training ", "Rough ", "Unfinished ", "Shoddy ", "Bent ", "Broken ", "Unremarkable ", "Plain", "Roughspun", "Threadbare", "Linen", "Woollen", "Moth-eaten ", "Moldy ", "Mildewed ", "Sweaty ", "Hermit's "],
             }
 
         },
@@ -22,18 +22,18 @@ class Loot:
         rare: {
                 consumable: {
                     first: ["Potion of ", "Salve of ", "Tincture of ", "Draught of "],
-                    second: [],
+                    second: ["Remarkable ", "Exceptional ", "Stupendous ", "Great ", "Encompassing ", "Significant ", "Miraculous "],
                 },
                 weapon: {
-                    first: [],
-                    second: [],
+                    first: ["Artificer's ", "Magister's ", "Nobleman's ", "Lord's ", "Vizier's ", "Senechal's", "Wiseman's", "Castellan's ", "Alchemist's ", "Courtier's ", "Magician's ", "Conjurer's"],
+                    second: ["of Unbridled Power", "of Tremendous Force", "of Transcendant Gnosis", "of Adamantine Will", "of Mystical Knowledge", "of Terrible Knowledge", "of Creeping Madness", "of Silent Tragedy", "of Inexorable Decay", "of Inexhaustible Wisdom", "of Deepest Regret", "of Crackling Lightning", "of the Rolling Tide", "of the Drowned", "of the Wise","of Deepest Night", "of Glorious Folly", "of Inscessant Need", "of Gathering Storms", "of Yawning Darkness", "of Brightest Day", "of Corrupted Vision"],
                 },
                 armor: {
-                    first: [],
+                    first: ["Artificer's ", "Magister's ", "Nobleman's ", "Lord's ", "Vizier's ", "Senechal's", "Wiseman's", "Castellan's ", "Alchemist's ", "Courtier's ", "Magician's ", "Conjurer's"],
                     second: [],
                 }
 
-            },
+        },
 
         wondrous: {
             consumable: {
