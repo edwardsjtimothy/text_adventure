@@ -33,17 +33,20 @@ class Loot:
         armType: ["Robe ", "Vest ", "Gloves ", "Pants ", "Boots ", "Slippers ", "Crown ", "Headdress ", "Belt ", "Cord ", "Headband ", "Shirt ", "Kimono ", "Sandals ", "Gown", "Toga",],
     },
 
-    
+    whatAmI = random.randrange(1,4);
+    consumable = False
+    weapon = False
+    armor = False
 
-    consumable: False
-    weapon: False
-    armor: False
+    def __init__(self):
 
-    def __init__(self, con, wep, arm):
-        self.consumable = con
-        self.weapon = wep
-        self.armor = arm
+        if self.whatAmI == 1:
+            consumable = True
+        elif self.whatAmI == 2:
+            weapon = True
+        elif self.whatAmI == 3:
+            armor = True
 
-        if self.
+
 
         
