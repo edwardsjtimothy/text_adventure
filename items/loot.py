@@ -1,9 +1,7 @@
 #random number module
 import random
 
-
-class Loot:
-    wizLoot = {
+wizLoot = {
         common: {
             consNames: {
                 first: ["Minor Potion of ", "Minor Salve of ", "Minor Tincture of ", "Minor Draught of "],
@@ -26,27 +24,21 @@ class Loot:
                 second: ["Demigod's ", "Protean ", "Primordial ", "Unmatched ", "Unbound ", "Colosal"],
             },
             first: ["Gabrathian's ", "Everad's ", "Almighty ", "Mastercrafted ", "Ancient Relic-","Primordial ","Unparalleled ","Potent Heirloom ", "Divine ", "Worldbreaker ", "Mobius ", "Cosmic ", "Imprisoned ", "Zaartrax's "],
-            second: [", the Unending", ", Breaker of Minds", ", Immemorable Bane", ", the Death of Fools", ",Mage's Folly", ", the Finger of God", ", Avatar of Creation", ", the Great Change", ", the Sleeper", ", the Toller of the Bell", ", the Rushing Fate", ", Darkness", ", Light", ", the One Who Eats", ", Infinity's Grasp", ", Falling Through Time", ", Destruction", ", It That Thirsts", ", the End", ", Heat Death", ", Pantheon's Fall", ", Creation Unbound", ", the Bounty of Chaos", ", Mortal's Folly", ", Magebane", ", the Unknowable", ", Time's Woesome Tide", ", the Walker", ", the Waker", ", the Sleeper", ", the Key", ", Prometheus Bound", ", Gravity's Edge" ],
+            second: [", the Unending", ", Breaker of Minds", ", the Dark Bane", ", the Death of Fools", ", Mage's Folly", ", the Finger of God", ", Avatar of Creation", ", the Great Change", ", the Sleeper", ", the Toller of the Bell", ", the Rushing Fate", ", Darkness", ", Light", ", the One Who Eats", ", Infinity's Grasp", ", Falling Through Time", ", Destruction", ", It That Thirsts", ", the End", ", Heat Death", ", Pantheon's Fall", ", Creation Unbound", ", the Bounty of Chaos", ", Mortal's Folly", ", Magebane", ", the Unknowable", ", Time's Woesome Tide", ", the Walker", ", the Waker", ", the Sleeper", ", the Key", ", Prometheus Bound", ", Gravity's Edge" ],
         },
         potType: ["Healing", "Magical Force", "Mana Regeneration"],
         wepType: ["Staff ", "Dagger ", "Blade ", "Anthame ", "Wand ", "Shillelagh ", "Poniard ", "Shiv ", "Rod ", "Club ", "Willow Switch ", "Branch "],
         armType: ["Robe ", "Vest ", "Gloves ", "Pants ", "Boots ", "Slippers ", "Crown ", "Headdress ", "Belt ", "Cord ", "Headband ", "Shirt ", "Kimono ", "Sandals ", "Gown", "Toga",],
     },
 
-    whatAmI = random.randrange(1,4);
-    consumable = False
-    weapon = False
-    armor = False
+    # rogue loot table
+    # barbarian loot table
+class Loot:
+    
+    whatAmI = 0
+    whoFor = ""
+    myName = ""
 
-    def __init__(self):
-
-        if self.whatAmI == 1:
-            consumable = True
-        elif self.whatAmI == 2:
-            weapon = True
-        elif self.whatAmI == 3:
-            armor = True
-
-
-
-        
+    if whatAmI == 1:
+        def __init__(self, itemName, whos):
+            self.myName = 
