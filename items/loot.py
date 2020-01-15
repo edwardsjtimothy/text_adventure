@@ -33,12 +33,3 @@ wizLoot = {
 
     # rogue loot table
     # barbarian loot table
-class Loot:
-    
-    whatAmI = 0
-    whoFor = ""
-    myName = ""
-
-    if whatAmI == 1:
-        def __init__(self, itemName, whos):
-            self.myName = 
