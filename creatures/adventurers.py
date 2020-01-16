@@ -15,6 +15,7 @@ class Wizard:
     maxMana = 0
     maneuvered = False
     pyroBrand = False
+    inventory = []
 
     def __init__(self, me, hp, mn):
         self.name = me 
@@ -148,9 +149,22 @@ class Wizard:
         self.manaRegen()
         if adAtmp > 10:
             self.maneuvered = True
-            print("You edge carefully around your oppenent, arm held before you with fingers curled in a casting posture. Flame roils around your hand and up your arm, livid with the potency of your acane power held in abeyance. You wait for an opening. You have spotted a weakness!")
+            print("You edge carefully around your opponent, arm held before you with fingers curled in a casting posture. Flame roils around your hand and up your arm, livid with the potency of your acane power held in abeyance. You wait for an opening. You have spotted a weakness!")
         elif adAtmp < 11:
-            print("You circle warily around your oppenent, searching for weaknesses with a preturnatural eye. You find none.")
+            print("You circle warily around your opponent, searching for weaknesses with a preternatural eye. You find none.")
+
+# loot function to see if items drop from encounters
+    def loot(self, lt, ir):
+        # parameters allow adjustment how likely it is for 1) an item to drop 2) how rare the item could be if something does drop 
+        anyLoot = random.randrange(lt, 21)
+        dHundo = random.randrange(ir, 101)
+
+        if anyLoot >= 17:
+            print("Loot has dropped!")
+            if 1 < dHundo < 85:
+                
+
+
 
 #rogue class
 class Rogue:
