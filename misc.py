@@ -1,3 +1,5 @@
+import random
+
 # error handling
 def errHandle(fnc):
     print("                                                                     **********Please choose from the following options**********")
@@ -5,6 +7,45 @@ def errHandle(fnc):
 
 
 # loot tables
+
+def lootName(rarity):
+    firstWord = ""
+    secondWord = ""
+    thirdWord = ""
+    itemName = ""
+    conWepOrArm = random.randrange(1,3)
+
+    if rarity == "common":
+        # consumable is generated
+        if conWepOrArm == 1:
+             firstWord = wizLoot[0]["common"]["consNames"]["first"][random.randrange(0 , 4)]
+             secondWord = wizLoot[0]["common"]["consNames"]["second"][random.randrange(0 , 5)]
+             thirdWord = wizLoot[0]["common"]["potType"][random.randrange(0 , 3)]
+             itemName = firstWord + secondWord + thirdWord
+             return itemName
+        elif conWepOrArm == 2:
+            pass
+        elif conWepOrArm == 3:
+            pass
+    elif rarity == "rare":
+        if conWepOrArm == 1:
+            pass
+        elif conWepOrArm == 2:
+            pass
+        elif conWepOrArm == 3:
+            pass
+    elif rarity == "wondrous":
+        if conWepOrArm == 1:
+            pass
+        elif conWepOrArm == 2:
+            pass
+        elif conWepOrArm == 3:
+            pass
+
+        
+
+        
+
 
 wizLoot = {
     "common": {
@@ -35,3 +76,9 @@ wizLoot = {
     "wepType": ["Staff ", "Dagger ", "Blade ", "Anthame ", "Wand ", "Shillelagh ", "Poniard ", "Shiv ", "Rod ", "Club ", "Willow Switch ", "Branch "],
     "armType": ["Robe ", "Vest ", "Gloves ", "Pants ", "Boots ", "Slippers ", "Crown ", "Headdress ", "Belt ", "Cord ", "Headband ", "Shirt ", "Kimono ", "Sandals ", "Gown", "Toga",],
     },
+
+
+
+
+
+

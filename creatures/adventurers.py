@@ -4,6 +4,8 @@ import random
 import math
 #system module to kill program upon character death
 import sys
+#loot tables 
+from misc import wizLoot
 
 #player classes
 
@@ -162,7 +164,8 @@ class Wizard:
         if anyLoot >= 17:
             print("Loot has dropped!")
             if 1 < dHundo < 85:
-                
+            
+
 
 
 
