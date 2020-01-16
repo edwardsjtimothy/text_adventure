@@ -18,15 +18,21 @@ def lootName(rarity):
     if rarity == "common":
         # consumable is generated
         if conWepOrArm == 1:
-             firstWord = wizLoot[0]["common"]["consNames"]["first"][random.randrange(0 , 4)]
-             secondWord = wizLoot[0]["common"]["consNames"]["second"][random.randrange(0 , 5)]
-             thirdWord = wizLoot[0]["common"]["potType"][random.randrange(0 , 3)]
-             itemName = firstWord + secondWord + thirdWord
-             return itemName
+            firstWord = wizLoot[0]["common"]["consNames"]["first"][random.randrange(0 , 4)]
+            secondWord = wizLoot[0]["common"]["consNames"]["second"][random.randrange(0 , 5)]
+            thirdWord = wizLoot[0]["potType"][random.randrange(0 , 3)]
+            itemName = firstWord + secondWord + thirdWord
+            return itemName
         elif conWepOrArm == 2:
-            pass
+        # armor is generated
+            firstWord = wizLoot[0]["common"]["armNames"][random.randrange(0 , 20)]
+            secondWord = wizLoot[0]["armType"][random.randrange(0 , 16)]
+            itemName = firstWord + secondWord
         elif conWepOrArm == 3:
-            pass
+        # weapon is generated
+            firstWord = wizLoot[0]["common"]["wepNames"][random.randrange(0 , 12)]
+            secondWord = wizLoot[0]["wepType"][random.randrange(0 , 12)]
+            itemName = firstWord + secondWord
     elif rarity == "rare":
         if conWepOrArm == 1:
             pass
@@ -49,7 +55,7 @@ wizLoot = {
             "second": ["Common ", "Base ", "Unremarkable ", "Limited ", "Lilliputian " ],
         },
         "wepNames": ["Shepard's ", "Watchman's ", "Initiate's ", "Novice's ", "Training ", "Rough ", "Unfinished ", "Shoddy ", "Bent ", "Broken ", "Unremarkable ", "Hermit's "],
-        "armNames": ["Shepard's ", "Initiate's ", "Novice's ", "Training ", "Rough ", "Unfinished ", "Shoddy ", "Bent ", "Broken ", "Unremarkable ", "Plain", "Roughspun", "Threadbare", "Linen", "Woollen", "Moth-eaten ", "Moldy ", "Mildewed ", "Sweaty ", "Hermit's "],
+        "armNames": ["Shepard's ", "Initiate's ", "Novice's ", "Training ", "Rough ", "Unfinished ", "Shoddy ", "Bent ", "Broken ", "Unremarkable ", "Plain ", "Roughspun ", "Threadbare ", "Linen ", "Woollen ", "Moth-eaten ", "Moldy ", "Mildewed ", "Sweaty ", "Hermit's "],
     },
     "rare": {
         "consumable": {
@@ -71,6 +77,11 @@ wizLoot = {
     "wepType": ["Staff ", "Dagger ", "Blade ", "Anthame ", "Wand ", "Shillelagh ", "Poniard ", "Shiv ", "Rod ", "Club ", "Willow Switch ", "Branch "],
     "armType": ["Robe ", "Vest ", "Gloves ", "Pants ", "Boots ", "Slippers ", "Crown ", "Headdress ", "Belt ", "Cord ", "Headband ", "Shirt ", "Kimono ", "Sandals ", "Gown", "Toga",],
     },
+
+
+
+print(itemName)
+
 
 
 
