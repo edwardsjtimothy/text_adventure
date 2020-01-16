@@ -42,11 +42,6 @@ def lootName(rarity):
         elif conWepOrArm == 3:
             pass
 
-        
-
-        
-
-
 wizLoot = {
     "common": {
         "consNames": {
