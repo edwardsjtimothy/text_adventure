@@ -8,7 +8,7 @@ def errHandle(fnc):
 
 # loot tables
 
-def lootName(rarity):
+def wizardLoot(rarity):
     firstWord = ""
     secondWord = ""
     thirdWord = ""

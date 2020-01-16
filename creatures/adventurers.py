@@ -5,7 +5,7 @@ import math
 #system module to kill program upon character death
 import sys
 #loot tables 
-from misc import wizLoot
+from misc import wizardLoot
 
 #player classes
 
@@ -26,6 +26,7 @@ class Wizard:
         self.maxMana = self.mana
         self.maneuvered = False
         self.pyroBrand = False
+        self.inventory = []
 
 #function to check character stats and conditional states
     def pulseCheck(self):
@@ -163,10 +164,18 @@ class Wizard:
 
         if anyLoot >= 17:
             print("Loot has dropped!")
-            if 1 < dHundo < 85:
+            if 1 < dHundo < 86:
+                item = wizardLoot("common")
+                print(f"{item} has been added to your inventory!")
+                self.inventory.append(item)
+            if 85 < dHundo < 99:
+                item = wizardLoot("rare")
+                print(f"{item} has been added to your inventory!")
+                self.inventory.append(item)
+            if 98 < dHundo < 101:
+                item = wizardLoot("wondrous")
+                print(f"{item} has been added to your inventory!")
             
-
-
 
 
 #rogue class
