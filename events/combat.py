@@ -1,7 +1,7 @@
 import random
 
 #wizard combat encounter
-def wizEncounter(flavor, target):
+def wizEncounter(flavor, target, lc, lr):
     from events.genesis import wizard
     print(flavor)
     # action menu
@@ -39,7 +39,7 @@ def wizEncounter(flavor, target):
         # error handling
         else: 
             print("Please choose from the following options.")
-            wizEncounter("", target)
+            wizEncounter("", target, lc, lr)
 
 
     # maneuver action, enemy attack, maneuver counter increment, check for player death
@@ -64,14 +64,15 @@ def wizEncounter(flavor, target):
     # error handling
     else: 
         print("Please choose from the following options.")
-        wizEncounter("", target)
+        wizEncounter("", target, lc, lr)
         
     # check if target is dead. If not, encounter runs again. 
     if target.health > 0:
-        wizEncounter("Your foe still lives.", target)
+        wizEncounter("Your foe still lives.", target, lc, lr)
     elif target.health <= 0:
         print("Your enemy is slain!")
         wizard.pulseCheck()
+        wizard.loot(lc,lr)
 
 #rogue combat encounter 
 def rogEncounter(flavor, target):

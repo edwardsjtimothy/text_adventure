@@ -6,7 +6,9 @@ from events.narrative.chapter1 import descent
 
 main()
 
-# chapter one 
-descent()
+# # chapter one 
+# descent()
+
+wizEncounter("An enemy approaches...", miniDummy, 1, 1)
 
 
