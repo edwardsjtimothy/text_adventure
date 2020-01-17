@@ -5,7 +5,7 @@ import math
 #system module to kill program upon character death
 import sys
 #loot tables 
-from misc import wizardLoot
+from misc import wizardLoot, rogueLoot
 
 #player classes
 
@@ -175,6 +175,7 @@ class Wizard:
             if 98 < dHundo < 101:
                 item = wizardLoot("wondrous")
                 print(f"{item} has been added to your inventory!")
+                self.inventory.append(item)
             
 
 
@@ -186,6 +187,7 @@ class Rogue:
     maxFocus = 0
     maneuvered = False
     shaStk = False
+    inventory = []
 
     def __init__(self, me, hp, fc):
         self.name = me 
@@ -194,6 +196,7 @@ class Rogue:
         self.focus = math.floor(fc / 2)
         self.maneuvered = False
         self.shaStk = False
+        self.inventory = []
 
 #function to check character stats and conditional states
     def pulseCheck(self):
@@ -317,6 +320,27 @@ class Rogue:
             print("Crouching low with daggers held before you in a dueling posture, you edge closer to your foe. Shadow flows around you as you gather yourself for a precision strike. You have spotted a weakness!")
         elif adAtmp < 11:
             print("You circle your foe warily, observing as much as you can about your target, searching for a weakness. You find none.")
+
+# loot function to see if items drop from encounters
+    def loot(self, lt, ir):
+        # parameters allow adjustment how likely it is for 1) an item to drop 2) how rare the item could be if something does drop 
+        anyLoot = random.randrange(lt, 21)
+        dHundo = random.randrange(ir, 101)
+
+        if anyLoot >= 17:
+            print("Loot has dropped!")
+            if 1 < dHundo < 86:
+                item = rogueLoot("common")
+                print(f"{item} has been added to your inventory!")
+                self.inventory.append(item)
+            if 85 < dHundo < 99:
+                item = rogueLoot("rare")
+                print(f"{item} has been added to your inventory!")
+                self.inventory.append(item)
+            if 98 < dHundo < 101:
+                item = rogueLoot("wondrous")
+                print(f"{item} has been added to your inventory!")
+                self.inventory.append(item)
 
 
 #barbarian class
