@@ -80,6 +80,78 @@ def wizardLoot(rarity):
             itemName = firstWord + secondWord + thirdWord
             return itemName
 
+def rogueLoot(rarity):
+    firstWord = ""
+    secondWord = ""
+    thirdWord = ""
+    itemName = ""
+    conWepOrArm = random.randrange(1,3)
+
+    if rarity == "common":
+        # common consumable is generated
+        if conWepOrArm == 1:
+            firstWord = rogueLoot[0]["common"]["consumable"]["first"][random.randrange(0 , len(rogueLoot[0]["common"]["consumable"]["first"]))]
+            secondWord = rogueLoot[0]["common"]["consumable"]["second"][random.randrange(0 , len(rogueLoot[0]["common"]["consumable"]["second"]))]
+            thirdWord = rogueLoot[0]["potType"][random.randrange(0 , len(rogueLoot[0]["potType"]))]
+            itemName = firstWord + secondWord + thirdWord
+            return itemName
+        elif conWepOrArm == 2:
+        # common armor is generated
+            firstWord = rogueLoot[0]["common"]["armNames"][random.randrange(0 , len(rogueLoot[0]["common"]["armNames"]))]
+            secondWord = rogueLoot[0]["armType"][random.randrange(0 , len(rogueLoot[0]["armType"]))]
+            itemName = firstWord + secondWord
+            return itemName
+        elif conWepOrArm == 3:
+        # common weapon is generated
+            firstWord = rogueLoot[0]["common"]["wepNames"][random.randrange(0 , len(rogueLoot[0]["common"]["wepNames"]))]
+            secondWord = rogueLoot[0]["wepType"][random.randrange(0 , len(rogueLoot[0]["wepType"]))]
+            itemName = firstWord + secondWord
+            return itemName
+    elif rarity == "rare":
+        # rare consumable is generated
+        if conWepOrArm == 1:
+            firstWord = rogueLoot[0]["rare"]["consumable"]["first"][random.randrange(0 , len(rogueLoot[0]["rare"]["consumable"]["first"]))]
+            secondWord = rogueLoot[0]["rare"]["consumable"]["second"][random.randrange(0 , len(rogueLoot[0]["rare"]["consumable"]["second"]))]
+            thirdWord = rogueLoot[0]["potType"][random.randrange(0 , len(rogueLoot[0]["potType"]))]
+            itemName = firstWord + secondWord + thirdWord
+            return itemName
+        # rare armor is generated
+        elif conWepOrArm == 2:
+            firstWord = rogueLoot[0]["rare"]["armFirst"][random.randrange(0 , len(rogueLoot[0]["rare"]["armFirst"]))]
+            secondWord = rogueLoot[0]["armType"][random.randrange(0 , len(rogueLoot[0]["armType"]))]
+            thirdWord = rogueLoot[0]["rare"]["second"][random.randrange(0 , len(rogueLoot[0]["rare"]["second"]))]
+            itemName = firstWord + secondWord + thirdWord
+            return itemName
+        # rare weapon is generated
+        elif conWepOrArm == 3:
+            firstWord = rogueLoot[0]["rare"]["wepFirst"][random.randrange(0 , len(rogueLoot[0]["rare"]["wepFirst"]))]
+            secondWord = rogueLoot[0]["wepType"][random.randrange(0 , len(rogueLoot[0]["wepType"]))]
+            thirdWord = rogueLoot[0]["rare"]["second"][random.randrange(0 , len(rogueLoot[0]["rare"]["second"]))]
+            itemName = firstWord + secondWord + thirdWord
+            return itemName
+    elif rarity == "wondrous":
+        # wondrous consumable is generated
+        if conWepOrArm == 1:
+            firstWord = rogueLoot[0]["wondrous"]["consumable"]["first"][random.randrange(0 , len(rogueLoot[0]["wondrous"]["consumable"]["first"]))]
+            secondWord = rogueLoot[0]["wondrous"]["consumable"]["second"][random.randrange(0 , len(rogueLoot[0]["wondrous"]["consumable"]["second"]))]
+            thirdWord = rogueLoot[0]["potType"][random.randrange(0 , len(rogueLoot[0]["potType"]))]
+            itemName = firstWord + secondWord + thirdWord
+            return itemName
+        # wondrous armor is generated
+        elif conWepOrArm == 2:
+            firstWord = rogueLoot[0]["wondrous"]["first"][random.randrange(0 , len(rogueLoot[0]["wondrous"]["first"]))]
+            secondWord = rogueLoot[0]["armType"][random.randrange(0 , len(rogueLoot[0]["armType"]))]
+            thirdWord = rogueLoot[0]["wondrous"]["armSecond"][random.randrange(0 , len(rogueLoot[0]["wondrous"]["armSecond"]))]
+            itemName = firstWord + secondWord + thirdWord
+            return itemName
+        # wondrous weapon is generated
+        elif conWepOrArm == 3:
+            firstWord = rogueLoot[0]["wondrous"]["first"][random.randrange(0 , len(rogueLoot[0]["wondrous"]["first"]))]
+            secondWord = rogueLoot[0]["wepType"][random.randrange(0 , len(rogueLoot[0]["wepType"]))]
+            thirdWord = rogueLoot[0]["wondrous"]["wepSecond"][random.randrange(0 , len(rogueLoot[0]["wondrous"]["wepSecond"]))]
+            itemName = firstWord + secondWord + thirdWord
+            return itemName
+
 wizLoot = {
     "common": {
         "consumable": {
@@ -111,7 +183,7 @@ wizLoot = {
     "armType": ["Robe ", "Vest ", "Gloves ", "Pants ", "Boots ", "Slippers ", "Crown ", "Headdress ", "Belt ", "Cord ", "Headband ", "Shirt ", "Kimono ", "Sandals ", "Gown", "Toga", "Amice", "Shawl", "Wrappings", "Cloak", "Cape"],
     },
 
-rogLoot = {
+rogueLoot = {
     "common": {
         "consumable": {
             "first": ["Minor Potion of ", "Minor Salve of ", "Minor Tincture of ", "Minor Draught of "],
@@ -142,12 +214,6 @@ rogLoot = {
     "wepType": ["Mace ", "Dagger ", "Blade ", "Shortsword ", "Stiletto ", "Bootknife ", "Poniard ", "Shiv ", "Brushknife ", "Club ", "Rapier ", "Knuckledusters ","Thowing Dagger ", "Hatchet ", "Wristblade ", "Fingerknife "],
     "armType": ["Jerkin ", "Vest ", "Gloves ", "Pants ", "Boots ", "Facemask ", "Belt ", "Cord ", "Headband ", "Shirt ", "Scalemail ", "Sandals ", "Shoulderguards ", "Headwrap ", "Bandolier ", "Cloak ", "Cape", "Bracers ", "Greaves " ],
     },
-
-
- 
-
-
-
 
 
 
