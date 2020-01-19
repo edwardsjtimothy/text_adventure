@@ -461,3 +461,24 @@ class Barbarian:
             print("Loosing a feral snarl, you prepare to rush forward and bring your weapon down upon your hapless foe with the precision born of your brutal skill. You have spotted a weakness!")
         elif adAtmp < 11:
             print("Your weapon poised wardlingly in front of you, you circle your oppenent searching for a weakness. You find none.")
+
+# loot function to see if items drop from encounters
+    def loot(self, lt, ir):
+        # parameters allow adjustment how likely it is for 1) an item to drop 2) how rare the item could be if something does drop 
+        anyLoot = random.randrange(lt, 21)
+        dHundo = random.randrange(ir, 101)
+
+        if anyLoot >= 17:
+            print("Loot has dropped!")
+            if 1 < dHundo < 86:
+                item = barbarianLoot("common")
+                print(f"{item} has been added to your inventory!")
+                self.inventory.append(item)
+            if 85 < dHundo < 99:
+                item = barbarianLoot("rare")
+                print(f"{item} has been added to your inventory!")
+                self.inventory.append(item)
+            if 98 < dHundo < 101:
+                item = barbarianLoot("wondrous")
+                print(f"{item} has been added to your inventory!")
+                self.inventory.append(item)

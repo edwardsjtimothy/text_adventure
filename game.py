@@ -9,6 +9,6 @@ main()
 # # chapter one 
 # descent()
 
-wizEncounter("An enemy approaches...", miniDummy, 1, 1)
+wizEncounter("An enemy approaches...", targetDummy, 1, 1)
 
 
