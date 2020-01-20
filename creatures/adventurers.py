@@ -5,7 +5,7 @@ import math
 #system module to kill program upon character death
 import sys
 #loot tables 
-from misc import wizardLoot, rogueLoot
+from misc import wizardLoot, rogueLoot, barbarianLoot
 
 #player classes
 
