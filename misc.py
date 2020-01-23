@@ -284,7 +284,7 @@ rogueLoot = {
         "armSecond": [", the Unheard's Garb", ", Silence Enthroned", ", the Garb of the Wayward Cutpurse", ", the Beckoning", ", Stealth's Kiss", ", the Ancient Ways", ", Vision Unrestrained", ", Twist of Fate", ", Causality Unwound", ", Garb of Deflecting Darkness", ", the Fractal Twist", ", Oppertunity Unending",]
     },
     "potType": ["Healing", "Critical Damage", "Focus Regeneration"],
-    "wepType": ["Mace ", "Dagger ", "Blade ", "Shortsword ", "Stiletto ", "Bootknife ", "Poniard ", "Shiv ", "Brushknife ", "Club ", "Rapier ", "Knuckledusters ","Thowing Dagger ", "Hatchet ", "Wristblade ", "Fingerknife "],
+    "wepType": ["Mace ", "Dagger ", "Blade ", "Shortsword ", "Stiletto ", "Bootknife ", "Poniard ", "Shiv ", "Brushknife ", "Club ", "Rapier ", "Knuckledusters ","Thowing Dagger ", "Hatchet ", "Wristblade ", "Fingerknife ", "Scimitar ", "Cutlace ", "Cestus ", "Kukri "],
     "armType": ["Jerkin ", "Vest ", "Gloves ", "Pants ", "Boots ", "Facemask ", "Belt ", "Cord ", "Headband ", "Shirt ", "Scalemail ", "Sandals ", "Shoulderguards ", "Headwrap ", "Bandolier ", "Cloak ", "Cape", "Bracers ", "Greaves " ],
     },
 
@@ -294,16 +294,16 @@ barbarianLoot = {
             "first": ["Minor Potion of ", "Minor Salve of ", "Minor Tincture of ", "Minor Draught of "],
             "second": ["Common ", "Base ", "Unremarkable ", "Limited ", "Lilliputian " ],
         },
-        "wepNames": ["Cutpurse's ", "Watchman's ", "Initiate's ", "Novice's ", "Training ", "Rough ", "Unfinished ", "Shoddy ", "Bent ", "Broken ", "Unremarkable ", "Highwayman's ","Street Urchin's ", "Militia's ", "Bandit's "],
-        "armNames": ["Cutpurse's ", "Bandit's ", "Initiate's ", "Novice's ", "Training ", "Rough ", "Unfinished ", "Shoddy ", "Stained ", "Fraying " "Unremarkable ", "Plain ", "Grimy ", "Threadbare ", "Bloodstained ", "Studded ", "Punctured ", "Worn ", "Slimy ", "Rotten ", "Watchman's ", "Moldy ", "Mildewed ", "Sweaty ", "Street Urchin's ", "Militia's ", "Streetfighter's"],
+        "wepNames": ["Combatant's ", "Brawler's ", "Soldier's ", "Primitive ", "Initiate's ", "Novice's ", "Training ", "Rough ", "Unfinished ", "Shoddy ", "Bent ", "Broken ", "Unremarkable ", "Warrior's ","Thug's ", "Militia's ", "Grunt's "],
+        "armNames": ["Combatant's ", "Brawler's ", "Soldier's ", "Primitive ", "Initiate's ", "Novice's ", "Training ", "Rough ", "Unfinished ", "Shoddy ", "Stained ", "Fraying " "Unremarkable ", "Plain ", "Grimy ", "Threadbare ", "Bloodstained ", "Studded ", "Punctured ", "Worn ", "Slimy ", "Rotten ", "Moldy ", "Mildewed ", "Sweaty ", "Thug's ", "Militia's ", "Streetfighter's"],
     },
     "rare": {
         "consumable": {
             "first": ["Potion of ", "Salve of ", "Tincture of ", "Draught of "],
             "second": ["Remarkable ", "Exceptional ", "Stupendous ", "Great ", "Encompassing ", "Significant ", "Miraculous "],
         }, 
-        "wepFirst": ["Nobleman's ", "Lord's ", "Castellan's ", "Courtier's ", "Syndicate's ", "Blacksteel ", "Shadowy ", "Silent ", "Striking ", "Tearing ", "Ripping ", "Piercing ", "Punching ", "Weighted ", "Featherlight ", "Spring-loaded ", "Concealable ", "Hidden ", "Marshall's ", "Lawman's ", "Dungeoneer's ", "Explorer's ", "Finely Crafted ", "Well Wrought ", "Heavy ", "Crushing ", "Hissing ", "Dexterous "],
-        "armFirst": ["Nobleman's ", "Lord's ", "Castellan's ", "Courtier's ", "Syndicate's ", "Blacksteel ", "Shadowy ", "Silent ", "Striking ", "Featherlight ", "Marshall's ", "Lawman's ", "Dungeoneer's ", "Explorer's ", "Finely Crafted ", "Well Wrought ", "Dexterous ", "Supple ", "Flexible ", "Reliable ", "Concealing ", "Moondark "],
+        "wepFirst": ["Marshall's ", "Lord's ", "Castellan's ", "Dynastic ", "Lieutenant's ", "Castle-forged ", "Shadowy ", "Silent ", "Striking ", "Tearing ", "Ripping ", "Piercing ", "Punching ", "Weighted ", "Featherlight ", "Spring-loaded ", "Concealable ", "Hidden ", "Marshall's ", "Lawman's ", "Dungeoneer's ", "Explorer's ", "Finely Crafted ", "Well Wrought ", "Heavy ", "Crushing ", "Hissing ", "Dexterous "],
+        "armFirst": ["Marshall's ", "Lord's ", "Castellan's ", "Dynastic ", "Lieutenant's ", "Castle-forged ", "Shadowy ", "Silent ", "Striking ", "Featherlight ", "Marshall's ", "Lawman's ", "Dungeoneer's ", "Explorer's ", "Finely Crafted ", "Well Wrought ", "Dexterous ", "Supple ", "Flexible ", "Reliable ", "Concealing ", "Moondark "],
         "second": ["of Unseen Attacks", "of Tremendous Cunning", "of Adamantine Will", "of Silent Tragedy", "of Deepest Regret", "of Traveler's Bane", "of Deepest Night", "of Glorious Folly", "of Inscessant Need", "of Moonless Nights", "of Silent Deceit", "of Far off Lands", "of Clouded Moonlight", "of Flickering Shadows", "of Resolute Calm", "of Widow's Tears", "of the Darkstalker", "of Grasping Oppertunity", "of Riches Unclaimed", "of Allies Betrayed", "of Unseen Attacks", "of Bloodied Cobblestones", "of Silenced Screams", "of Missing Sentries", "of Plundered Reliquaries", "of Toppled Kings", "of Slit Purse Strings", "of Perfect Moment", "of Acrobat's Grace", "of Well-timed Blows", "of Jarring Ripostes", "of Offhanded Attacks", "of Inevitable Riches", "of Exposed Vitals", "of Hidden Ingress", "of Well-laid Schemes", "of Plundered Tombs", "of Queensbane", "of Profitable Venture's", "of Cunning Strategy", "of Whip-crack Speed", "of Stunning Blows"],
     },
     "wondrous": {
@@ -311,12 +311,12 @@ barbarianLoot = {
             "first": ["Greater Potion of ", "Greater Salve of ", "Greater Tincture of ", "Greater Draught of "],
             "second": ["Masterthief's ", "Career Assassin's ", "Lifelong ", "Unmatched ", "Unbound ", "Colosal"],
         },
-        "first": ["Tishna's ", "Ar'marad's ", "Treasurehoard ", "Mastercrafted ", "Ancient Relic-","Primordial ","Unparalleled ","Potent Heirloom ", "Inherited ", "Primordial ", "Transpositional ", "Cosmic ", "Precognitive ", "Arine's "],
+        "first": ["Tishna's ", "Ar'marad's ", "Treasurehoard ", "Mastercrafted ", "Ancient Relic-","Primordial ","Unparalleled ","Potent Heirloom ", "Inherited ", "Primordial ", "Transpositional ", "Cosmic ", "Precognitive ", "Arine's ",],
         "wepSecond": [", the Dark Bane", ", the Death of Fools", ", Tombraider's Folly", ", the Finger of God", ", Avatar of Stealth", ", the Ferryman", ", the Sleeper", ", the Toller of the Bell", ", the Rushing Fate", ", Darkness", ", Rushing Death", ", the One Who Eats", ", Infinity's Strike", ", Anticipation Unbridled", ", Destruction", ", It That Thirsts", ", the End", ", Death", ", Pantheon's Fall", ", Lineages Unmade", ", Avarice Unbound", ", the Bounty of Ambition", ", Mortal's Folly", ", Theifsbane", ", the Undone", ", Woe Betide", ", the Walker", ", the Waker", ", the Key", ", Prometheus Bound", ", Gravity's Edge", ", the Lock", ", It That Bleeds", ", the Lock"],
         "armSecond": [", the Unheard's Garb", ", Silence Enthroned", ", the Garb of the Wayward Cutpurse", ", the Beckoning", ", Stealth's Kiss", ", the Ancient Ways", ", Vision Unrestrained", ", Twist of Fate", ", Causality Unwound", ", Garb of Deflecting Darkness", ", the Fractal Twist", ", Oppertunity Unending",]
     },
     "potType": ["Healing", "Crushing Strikes", "Rage Generation"],
-    "wepType": ["Mace ", "Dagger ", "Blade ", "Shortsword ", "Stiletto ", "Bootknife ", "Poniard ", "Shiv ", "Brushknife ", "Club ", "Rapier ", "Knuckledusters ","Thowing Dagger ", "Hatchet ", "Wristblade ", "Fingerknife "],
+    "wepType": ["Mace ", "Greatsword ", "Longsword ", "Shortsword ", "Warhammer ", "Greataxe ", "Bastard Sword ", "Hand and a Half Sword ", "Zweihänder","Uchigatana ", "Claymore ", "Changdao ", "Mattock ", "Dory "],
     "armType": ["Jerkin ", "Vest ", "Gloves ", "Pants ", "Boots ", "Facemask ", "Belt ", "Cord ", "Headband ", "Shirt ", "Scalemail ", "Sandals ", "Shoulderguards ", "Headwrap ", "Bandolier ", "Cloak ", "Cape", "Bracers ", "Greaves " ],
     },
 
