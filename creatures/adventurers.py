@@ -350,6 +350,7 @@ class Barbarian:
     rage = 0
     maxRage = 0
     maneuvered = False
+    inventory = []
 
     def __init__(self, me, hp, rg):
         self.name = me 
