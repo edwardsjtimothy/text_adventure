@@ -5,7 +5,7 @@ import math
 #system module to kill program upon character death
 import sys
 #loot tables 
-from misc import wizardLoot, rogueLoot, barbarianLoot
+from misc import lootGen, wizLoot, rogLoot, barLoot
 
 #player classes
 
@@ -165,15 +165,15 @@ class Wizard:
         if anyLoot >= 17:
             print("Loot has dropped!")
             if 1 < dHundo < 86:
-                item = wizardLoot("common")
+                item = lootGen("common", wizLoot)
                 print(f"{item} has been added to your inventory!")
                 self.inventory.append(item)
             if 85 < dHundo < 99:
-                item = wizardLoot("rare")
+                item = lootGen("rare", wizLoot)
                 print(f"{item} has been added to your inventory!")
                 self.inventory.append(item)
             if 98 < dHundo < 101:
-                item = wizardLoot("wondrous")
+                item = lootGen("wondrous", wizLoot)
                 print(f"{item} has been added to your inventory!")
                 self.inventory.append(item)
             
@@ -330,15 +330,15 @@ class Rogue:
         if anyLoot >= 17:
             print("Loot has dropped!")
             if 1 < dHundo < 86:
-                item = rogueLoot("common")
+                item = lootGen("common", rogLoot)
                 print(f"{item} has been added to your inventory!")
                 self.inventory.append(item)
             if 85 < dHundo < 99:
-                item = rogueLoot("rare")
+                item = lootGen("rare", rogLoot)
                 print(f"{item} has been added to your inventory!")
                 self.inventory.append(item)
             if 98 < dHundo < 101:
-                item = rogueLoot("wondrous")
+                item = lootGen("wondrous", rogLoot)
                 print(f"{item} has been added to your inventory!")
                 self.inventory.append(item)
 
@@ -472,14 +472,14 @@ class Barbarian:
         if anyLoot >= 17:
             print("Loot has dropped!")
             if 1 < dHundo < 86:
-                item = barbarianLoot("common")
+                item = lootGen("common", barLoot)
                 print(f"{item} has been added to your inventory!")
                 self.inventory.append(item)
             if 85 < dHundo < 99:
-                item = barbarianLoot("rare")
+                item = lootGen("rare", barLoot)
                 print(f"{item} has been added to your inventory!")
                 self.inventory.append(item)
             if 98 < dHundo < 101:
-                item = barbarianLoot("wondrous")
+                item = lootGen("wondrous", barLoot)
                 print(f"{item} has been added to your inventory!")
                 self.inventory.append(item)
