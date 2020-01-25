@@ -309,15 +309,15 @@ barbarianLoot = {
     "wondrous": {
         "consumable": {
             "first": ["Greater Potion of ", "Greater Salve of ", "Greater Tincture of ", "Greater Draught of "],
-            "second": ["Masterthief's ", "Career Assassin's ", "Lifelong ", "Unmatched ", "Unbound ", "Colosal"],
+            "second": ["Battlemaster's ", "Indomitable ", "Potent ", "Unmatched ", "Unbound ", "Colosal"],
         },
-        "first": ["Tishna's ", "Ar'marad's ", "Treasurehoard ", "Mastercrafted ", "Ancient Relic-","Primordial ","Unparalleled ","Potent Heirloom ", "Inherited ", "Primordial ", "Transpositional ", "Cosmic ", "Precognitive ", "Arine's ",],
-        "wepSecond": [", the Dark Bane", ", the Death of Fools", ", Tombraider's Folly", ", the Finger of God", ", Avatar of Stealth", ", the Ferryman", ", the Sleeper", ", the Toller of the Bell", ", the Rushing Fate", ", Darkness", ", Rushing Death", ", the One Who Eats", ", Infinity's Strike", ", Anticipation Unbridled", ", Destruction", ", It That Thirsts", ", the End", ", Death", ", Pantheon's Fall", ", Lineages Unmade", ", Avarice Unbound", ", the Bounty of Ambition", ", Mortal's Folly", ", Theifsbane", ", the Undone", ", Woe Betide", ", the Walker", ", the Waker", ", the Key", ", Prometheus Bound", ", Gravity's Edge", ", the Lock", ", It That Bleeds", ", the Lock"],
-        "armSecond": [", the Unheard's Garb", ", Silence Enthroned", ", the Garb of the Wayward Cutpurse", ", the Beckoning", ", Stealth's Kiss", ", the Ancient Ways", ", Vision Unrestrained", ", Twist of Fate", ", Causality Unwound", ", Garb of Deflecting Darkness", ", the Fractal Twist", ", Oppertunity Unending",]
+        "first": ["Barduk's ", "Torgan's ", "Peerless ", "Mastercrafted ", "Ancient Relic-","Primordial ","Unparalleled ","Potent Heirloom ", "Inherited ", "Primordial ", "Worldbreaker ", "Cosmic ",],
+        "wepSecond": [", the Rending Bane", ", the Death of Fools", ", Tombraider's Folly", ", the Finger of God", ", Avatar of Destruction", ", the Ferryman", ", the Sleeper", ", the Toller of the Bell", ", the Rushing Fate", ", Darkness", ", Rushing Death", ", the One Who Eats", ", Infinity's Mallice", ", Violence Unbridled", ", Destruction", ", It That Thirsts", ", the End", ", Death", ", Pantheon's Fall", ", Lineages Unmade", ", Strife Unbound", ", the Bounty of Conquest", ", Mortal's Folly", ", Warriorsbane", ", the Undone", ", Woe Betide", ", the Walker", ", the Waker", ", the Key", ", Prometheus Slain", ", Gravity's Edge", ", the Lock", ", It That Bleeds", ", the Lock"],
+        "armSecond": [", the Unrelenting", ", Violence Enthroned", ", Armor of the Peerless Warrior", ", the Beckoning", ", Murder's Kiss", ", the Ancient", ", Violence Unrestrained", ", Twist of Fate", ", Causality Unwound", ", Might of Titans", ", the Aegis of Time", ", Bloodlust Unending",]
     },
     "potType": ["Healing", "Crushing Strikes", "Rage Generation"],
     "wepType": ["Mace ", "Greatsword ", "Longsword ", "Shortsword ", "Warhammer ", "Greataxe ", "Bastard Sword ", "Hand and a Half Sword ", "Zweihänder","Uchigatana ", "Claymore ", "Changdao ", "Mattock ", "Dory "],
-    "armType": ["Jerkin ", "Vest ", "Gloves ", "Pants ", "Boots ", "Facemask ", "Belt ", "Cord ", "Headband ", "Shirt ", "Scalemail ", "Sandals ", "Shoulderguards ", "Headwrap ", "Bandolier ", "Cloak ", "Cape", "Bracers ", "Greaves " ],
+    "armType": ["Gambeson ", "Greaves ", "Gauntlets ", "Cuisses ", "Sabatons ", "Vambraces ", "Belt ", "Cord ", "Headband ", "Shirt ", "Scalemail ", "Boots ", "Shoulderguards ", "Headwrap ", "Bandolier ", "Cloak ", "Cape", "Bracers ", "Greaves ", "Armingcap ", "Helm ", "Helmet ", "Pauldron "],
     },
 
 
