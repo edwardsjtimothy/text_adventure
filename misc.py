@@ -177,7 +177,3 @@ barLoot = {
     "wepType": ["Mace ", "Greatsword ", "Longsword ", "Shortsword ", "Warhammer ", "Greataxe ", "Bastard Sword ", "Hand and a Half Sword ", "Zweihänder","Uchigatana ", "Claymore ", "Changdao ", "Mattock ", "Dory "],
     "armType": ["Gambeson ", "Greaves ", "Gauntlets ", "Cuisses ", "Sabatons ", "Vambraces ", "Belt ", "Cord ", "Headband ", "Shirt ", "Scalemail ", "Boots ", "Shoulderguards ", "Headwrap ", "Bandolier ", "Cloak ", "Cape", "Bracers ", "Greaves ", "Armingcap ", "Helm ", "Helmet ", "Pauldron "],
     },
-
-
-
-print(lootGen("rare", rogLoot))

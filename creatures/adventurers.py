@@ -445,7 +445,7 @@ class Barbarian:
                 print("Your weapon cleaves through the air in a vicious arc; your enemy withers beneath the strength of your blow.")
             elif target.health > math.floor(target.maxHealth / 3):
                 target.health -= dmg
-                print(f"Your weapon cleaves through the air in a vicious arc; your oppenent deflects the strike and stumbles back, avoiding the worst of the damage. You deal {dmg} damage!")
+                print(f"Your weapon cleaves through the air in a vicious arc; your opponent deflects the strike and stumbles back, avoiding the worst of the damage. You deal {dmg} damage!")
 
 # check if the player is dead and end game if true
     def deathCheck(self):
