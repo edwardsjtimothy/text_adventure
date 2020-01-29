@@ -2,6 +2,8 @@ from events.genesis import *
 from events.combat import *
 from creatures.monsters import *
 from events.narrative.chapter1 import descent
+# for testing
+from creatures.adventurers import *
 
 
 main()

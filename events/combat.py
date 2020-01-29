@@ -41,7 +41,6 @@ def wizEncounter(flavor, target, lc, lr):
             print("Please choose from the following options.")
             wizEncounter("", target, lc, lr)
 
-
     # maneuver action, enemy attack, maneuver counter increment, check for player death
     elif action == "B" or action == "b":
         wizard.maneuver()
@@ -215,7 +214,6 @@ def barEncounter(flavor, target):
     elif target.health <= 0:
         print("Your enemy is slain!")
         barbarian.pulseCheck()
-
 
 def ambush(low,high):
     ambushed = random.randrange(low,high)

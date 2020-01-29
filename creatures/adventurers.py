@@ -4,6 +4,8 @@ import random
 import math
 #system module to kill program upon character death
 import sys
+# for abilities enum
+import enum
 #loot tables 
 from misc import lootGen, wizLoot, rogLoot, barLoot
 
@@ -464,6 +466,7 @@ class Barbarian:
             print("Your weapon poised wardlingly in front of you, you circle your oppenent searching for a weakness. You find none.")
 
 # loot function to see if items drop from encounters
+
     def loot(self, lt, ir):
         # parameters allow adjustment how likely it is for 1) an item to drop 2) how rare the item could be if something does drop 
         anyLoot = random.randrange(lt, 21)
@@ -483,3 +486,14 @@ class Barbarian:
                 item = lootGen("wondrous", barLoot)
                 print(f"{item} has been added to your inventory!")
                 self.inventory.append(item)
+
+
+# class functions enum
+
+class Ability(enum.Enum):
+
+
+    pulse = Wizard.pulseCheck
+
+
+
