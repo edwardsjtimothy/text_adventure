@@ -491,9 +491,13 @@ class Barbarian:
 # class functions enum
 
 class Ability(enum.Enum):
+    wizPulse = Wizard.pulseCheck
+    manaRegen = Wizard.manaRegen
+    wizMelee = Wizard.melee
+    fireball = Wizard.fireball
+    augury = Wizard.augury
+    
 
-
-    pulse = Wizard.pulseCheck
 
 
 
