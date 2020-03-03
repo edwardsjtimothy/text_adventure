@@ -6,7 +6,7 @@ from misc import errHandle
 def descent():
     print(""" 
     ****************************************************************************************************************************************************************************************
-    After plummetting through the gap, your fall at once slows to the rate of a falling feather as the harness takes your weight, its invisible tether anchored securely to the piton you hammered home above. The light of the dying sun recedes slowly away above you as the opening in the roof grows smaller with your descent. You can just makeout something of the inside of the massive dome's ceiling in the rudy glow. You descend farther and farther into the vast darkness.
+    After plummetting through the gap, your descent at once slows to the rate of a falling feather as the harness takes your weight, its invisible tether anchored securely to the piton you hammered home above. The light of the dying sun recedes slowly away above you as the opening in the roof grows smaller with your decline. You can just make out something of the inside of the massive dome's ceiling in the rudy glow. You descend farther and farther into the vast darkness.
     ****************************************************************************************************************************************************************************************
     """)
 
