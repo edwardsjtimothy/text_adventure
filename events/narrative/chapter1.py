@@ -18,7 +18,6 @@ def descent():
         print("The ceiling of the dome recedes slowly away from you as you drift down to the floor. What you can see of the ceiling is covered in vibrant mosaics, the subjects of which are too large to make out and stretch away into impenetrable darkness.")
         descent()
     elif choice == "B" or choice == "b":
-        print("You reach the ground after a ")
         landing()
     else:
         errHandle(descent)
@@ -28,7 +27,7 @@ def descent():
 def landing():
     print(""" 
     *****************************************************************************************************************************************************************************************
-    Sandy bottom near dropped torch. Scuffles in the sand lead away to the west. Can see markings on floor where sand is disturbed. Sand is smooth and flat to the east. 
+    You land softly and deactivate your harness. The ground is covered in fine white sand; it is perfectly smooth other than where it was disturbed by your arrival. Crouching, you brush it aside to reach the floor beneath but you are unable to reach a solid surface.  You pick up your fallen torch and hold it high. In the widened circle of light, you see scuffles in the sand to the west that disappear into the darkness. To the east, the sand is smooth. 
     *****************************************************************************************************************************************************************************************
     """)
     choice = input(""" 
