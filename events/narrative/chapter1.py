@@ -27,7 +27,7 @@ def descent():
 def landing():
     print(""" 
     *****************************************************************************************************************************************************************************************
-    You land softly and deactivate your harness. The ground is covered in fine white sand; it is perfectly smooth other than where it was disturbed by your arrival. Crouching, you brush it aside to reach the floor beneath but you are unable to reach a solid surface.  You pick up your fallen torch and hold it high. In the widened circle of light, you see scuffles in the sand to the west that disappear into the darkness. To the east, the sand is smooth. 
+    You land softly and deactivate your harness. The ground is covered in fine white sand; it is perfectly smooth other than where it was disturbed by your arrival. Crouching, you brush it aside and uncover a floor.  You pick up your fallen torch and hold it high. In the widened circle of light, you see scuffles in the sand to the west that disappear into the darkness. To the east, the sand is smooth. 
     *****************************************************************************************************************************************************************************************
     """)
     choice = input(""" 
@@ -50,7 +50,7 @@ def landing():
 def headingWest():
     print("""
     *****************************************************************************************************************************************************************************************
-    Describe path west and scene at entry to West Wing. Remains of a ill-fated expeditionary party. Describe cavernous entry to west wing.  
+    You follow the scuffles in the sand as they head into the west. From the tracks, you estimate that 4 or 5 people headed this way but how long ago you can't tell. After several hours of walking, you come across a group of remains before a massive opening in the west wall of the chamber. 
     *****************************************************************************************************************************************************************************************
     """)
     choice = input(""" 
