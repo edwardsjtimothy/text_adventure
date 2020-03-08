@@ -50,7 +50,7 @@ def landing():
 def headingWest():
     print("""
     *****************************************************************************************************************************************************************************************
-    You follow the scuffles in the sand as they head into the west. From the tracks, you estimate that 4 or 5 people headed this way but how long ago you can't tell. After several hours of walking, you come across a group of remains before a massive opening in the west wall of the chamber. 
+    You follow the scuffles in the sand as they head into the west. From the tracks, you estimate that several people headed this way, but how long ago you can't tell. After several hours of walking, you come across the remains of 4 or 5 humanoids before a massive opening in the west wall of the chamber. 
     *****************************************************************************************************************************************************************************************
     """)
     choice = input(""" 
