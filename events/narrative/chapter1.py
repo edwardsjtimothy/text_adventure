@@ -50,7 +50,7 @@ def landing():
 def headingWest():
     print("""
     *****************************************************************************************************************************************************************************************
-    You follow the scuffles in the sand as they head into the west. From the tracks, you estimate that several people headed this way, but how long ago you can't tell. After several hours of walking, you come across the remains of 4 or 5 humanoids before a massive opening in the west wall of the chamber. 
+    You follow the scuffles in the sand as they head into the west. From the tracks, you estimate that several people headed this way, but how long ago you can't tell. After several hours of walking, the tracks grow more erratic. Soon you come across the remains of 4 or 5 humanoids before a massive opening in the west wall of the chamber. 
     *****************************************************************************************************************************************************************************************
     """)
     choice = input(""" 
@@ -59,7 +59,7 @@ def headingWest():
         C: Return to landing.
                     """)
     if choice == "A" or choice == "a":
-        print("Describe remains")
+        print("You move amongst the remains, kneeling beside each corpse in an effort to divine what may have killed them. The remains are very old; little is left but desiccated scraps of skin draped loosely over dry bones. Scuffles in the sand are frenzied and wild near the bodies. The party's gear lays where it fell; several of the people seem to have time to remove their packs in preparation to defend themselves. The rest fell where they stood, still encumbered by their equipment. In the remains of one of the packs, you find a tube sealed with wax. ")
         headingWest()
     elif choice == "B" or choice == "b":
         westWingEntrance()
