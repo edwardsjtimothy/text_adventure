@@ -59,7 +59,7 @@ def headingWest():
         C: Return to landing.
                     """)
     if choice == "A" or choice == "a":
-        print("You move amongst the remains, kneeling beside each corpse in an effort to divine what may have killed them. The remains are very old; little is left but desiccated scraps of skin draped loosely over dry bones. Scuffles in the sand are frenzied and wild near the bodies. The party's gear lays where it fell; several of the people seem to have time to remove their packs in preparation to defend themselves. The rest fell where they stood, still encumbered by their equipment. In the remains of one of the packs, you find a tube sealed with wax. ")
+        print("You move amongst the remains, kneeling beside each corpse in an effort to divine what may have killed them. The remains are very old; little is left but desiccated scraps of skin draped loosely over dry bones. Scuffles in the sand are frenzied and wild near the bodies. The party's gear lays where it fell; several of the people seem to have time to remove their packs in preparation to defend themselves. The rest fell where they stood, still encumbered by their equipment. You notice that their are no tracks in the sand leading to or from the cluster of dead. Whatever assailed them left no trace. In the remains of one of the packs, you find a tube sealed with wax. ")
         headingWest()
     elif choice == "B" or choice == "b":
         westWingEntrance()
