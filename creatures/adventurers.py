@@ -143,7 +143,7 @@ class Wizard:
 # check if the player is dead and end game if true
     def deathCheck(self):
         if self.health <= 0:
-            print(f"In the seconds before the killing blow is struck, your mind races as you cast frantically around for a spell or a scrape of untapped power that may yet save you. But you know it is for nothing. The blow lands and you fall to your knees in the dust. The magic flickers and dies from your fingers, and its light fades with the light in your eyes. Someone may yet attain the knowledge hidden in this place but it will not be you. Die well, {self.name}.")
+            print(f"In the seconds before the killing blow is struck, your mind races as you cast frantically around for a spell or a scrap of untapped power that may yet save you. But you know it is for nothing. The blow lands and you fall to your knees in the dust. The magic flickers and dies from your fingers, and its light fades with the light in your eyes. Someone may yet attain the knowledge hidden in this place but it will not be you. Die well, {self.name}.")
             exit("**********Game Over**********")
 
 # maneuver to attempt to gain an advantage against your foe
