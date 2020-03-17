@@ -40,14 +40,14 @@ def landing():
         landing()
     elif choice == "B" or choice == "b":
         print("head west")
-        headingWest()
+        heading_west()
     elif choice == "C" or choice == "c":
         print("head east")
-        headingEast()
+        heading_east()
     else:
        errHandle(landing)
 
-def headingWest():
+def heading_west():
     print("""
     *****************************************************************************************************************************************************************************************
     You follow the scuffles in the sand as they head into the west. From the tracks, you estimate that several people headed this way, but how long ago you can't tell. After several hours of walking, the tracks grow more erratic. Soon you come across the remains of 4 or 5 humanoids before a massive opening in the west wall of the chamber. 
@@ -60,16 +60,16 @@ def headingWest():
                     """)
     if choice == "A" or choice == "a":
         print("You move amongst the remains, kneeling beside each corpse in an effort to divine what may have killed them. The remains are very old; little is left but desiccated scraps of skin draped loosely over dry bones. Scuffles in the sand are frenzied and wild near the bodies. The party's gear lays where it fell; several of the people seem to have time to remove their packs in preparation to defend themselves. The rest fell where they stood, still encumbered by their equipment. You notice that their are no tracks in the sand leading to or from the cluster of dead. Whatever assailed them left no trace. In the remains of one of the packs, you find a hide tube sealed with wax.")
-        headingWest()
+        heading_west()
     elif choice == "B" or choice == "b":
-        westWingEntrance()
+        west_wing_entrance()
     elif choice == "C" or choice == "c":
         print("You return to landing.")
         landing()
     else:
-       errHandle(headingWest)
+       errHandle(heading_west)
 
-def headingEast():
+def heading_east():
     print(""" 
     *****************************************************************************************************************************************************************************************
     Describe path east and scene closer to entry. Signs of a ancient battle. Pitted floor and walls. Cavernous entrance to East wing scarred.
@@ -82,18 +82,18 @@ def headingEast():
                     """)
     if choice == "A" or choice == "a":
         print("Describe battlefield")
-        headingEast()
+        heading_east()
     elif choice == "B" or choice == "b":
-        eastWingEntrance()
+        east_wing_entrance()
     elif choice == "C" or choice == "c":
         print("You return to landing.")
         landing()
     else:
-       errHandle(headingEast)
+       errHandle(heading_east)
 
 # westwing 
 
-def westWingEntrance():
+def west_wing_entrance():
     print(""" 
     ******************************************************************************************************************************************************************************************
     Entering west wing. Describe colonnaded passage, hundreds of feet high. Intricately carved. Sandy floor. Can move into the colonnade on the left and travel along the wall. Can do the same on the right. Can move down the middle. 
@@ -113,13 +113,13 @@ def westWingEntrance():
         print("Describe path down middle.")
     elif choice == "D" or choice == "d":
         print("Return to central chamber.")
-        headingWest()
+        heading_west()
     else:
-       errHandle(westWingEntrance)
+       errHandle(west_wing_entrance)
 
 # eastwing 
 
-def eastWingEntrance():
+def east_wing_entrance():
     print(""" 
     ******************************************************************************************************************************************************************************************
     Entering east wing. Describe colonnaded passage, hundreds of feet high. Intricately carved. Sandy floor. Can move into the colonnade on the left and travel along the wall. Can do the same on the right. Can move down the middle. 
@@ -139,9 +139,9 @@ def eastWingEntrance():
         print("Describe path down middle.")
     elif choice == "D" or choice == "d":
         print("Return to central chamber.")
-        headingEast()
+        heading_east()
     else:
-       errHandle(eastWingEntrance)
+       errHandle(east_wing_entrance)
 
 
 
