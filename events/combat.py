@@ -1,7 +1,7 @@
 import random
 
 #wizard combat encounter
-def wizEncounter(flavor, target, lc, lr):
+def wiz_encounter(flavor, target, lc, lr):
     from events.genesis import wizard
     print(flavor)
     # action menu
@@ -39,7 +39,7 @@ def wizEncounter(flavor, target, lc, lr):
         # error handling
         else: 
             print("Please choose from the following options.")
-            wizEncounter("", target, lc, lr)
+            wiz_encounter("", target, lc, lr)
 
     # maneuver action, enemy attack, maneuver counter increment, check for player death
     elif action == "B" or action == "b":
@@ -63,18 +63,18 @@ def wizEncounter(flavor, target, lc, lr):
     # error handling
     else: 
         print("Please choose from the following options.")
-        wizEncounter("", target, lc, lr)
+        wiz_encounter("", target, lc, lr)
         
     # check if target is dead. If not, encounter runs again. 
     if target.health > 0:
-        wizEncounter("Your foe still lives.", target, lc, lr)
+        wiz_encounter("Your foe still lives.", target, lc, lr)
     elif target.health <= 0:
         print("Your enemy is slain!")
         wizard.pulseCheck()
         wizard.loot(lc,lr)
 
 #rogue combat encounter 
-def rogEncounter(flavor, target):
+def rog_encounter(flavor, target):
     from events.genesis import rogue
     print(flavor)
     # action menu
@@ -112,7 +112,7 @@ def rogEncounter(flavor, target):
         # error handling
         else:
             print("Please choose from the following options.")
-            rogEncounter("", target)
+            rog_encounter("", target)
 
     # maneuver action, enemy attack, maneuver counter increment, check for player death
     elif action == "B" or action == "b":
@@ -136,16 +136,16 @@ def rogEncounter(flavor, target):
     # error handling
     else:
         print("Please choose from the following options.")
-        rogEncounter("", target)
+        rog_encounter("", target)
 
     # check if target is dead. If not, encounter runs again.
     if target.health > 0:
-        rogEncounter("Your foe still lives.", target)
+        rog_encounter("Your foe still lives.", target)
     elif target.health <= 0:
         print("Your enemy is slain!")
         rogue.pulseCheck()
 
-def barEncounter(flavor, target):
+def bar_encounter(flavor, target):
     from events.genesis import barbarian
     print(flavor)
     action = input("""
@@ -182,7 +182,7 @@ def barEncounter(flavor, target):
         # error handling
         else:
             print("Please choose from the following options.")
-            barEncounter("", target)
+            bar_encounter("", target)
             
      # maneuver action, enemy attack, maneuver counter increment, check for player death
     elif action == "B" or action == "b":
@@ -206,11 +206,11 @@ def barEncounter(flavor, target):
     # error handling
     else:
         print("Please choose from the following options.")
-        barEncounter("", target)
+        bar_encounter("", target)
 
      # check if target is dead. If not, encounter runs again.
     if target.health > 0:
-        barEncounter("Your foe still lives.", target)
+        bar_encounter("Your foe still lives.", target)
     elif target.health <= 0:
         print("Your enemy is slain!")
         barbarian.pulseCheck()
